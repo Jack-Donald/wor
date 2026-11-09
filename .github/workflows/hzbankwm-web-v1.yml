@@ -41,7 +41,7 @@ on:
         default: false
   schedule:
     # UTC；错峰示例窗口，正式时间由 P5 按站点窗口/礼貌间隔证据核定后调整。
-    - cron: '35 2 * * *'
+    - cron: '50 2 * * *'
 permissions:
   # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
   contents: read
