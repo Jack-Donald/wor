@@ -30252,6 +30252,11 @@ async function httpsRpcJson(config3, runtime, name, payload) {
         ca,
         headers: {
           Authorization: `Bearer ${httpsBearer(runtime)}`,
+          // Supabase Data API 网关要求 apikey；未配置时保持独立 PostgREST 原请求头
+          // （COMMON-014 Supabase 适配：与 storage https 传输同一 apikey/schema 口径）。
+          ...httpsApiKey(runtime) ? { apikey: httpsApiKey(runtime) } : {},
+          // 业务 RPC 位于 wo_rpc 等非默认 schema 时用 Content-Profile 选择；未配置不发送。
+          ...httpsSchema(runtime) ? { "Content-Profile": httpsSchema(runtime) } : {},
           "Content-Type": "application/json",
           "Content-Length": String(Buffer.byteLength(body))
         }

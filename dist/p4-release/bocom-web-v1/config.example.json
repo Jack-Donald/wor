@@ -1,6 +1,6 @@
 {
  "schemaVersion": "wealth-observer-p4-run/v1",
- "runId": "20261109T101502Z-rel13",
+ "runId": "2026-11-09T120308Z-rel14",
  "collectorId": "bocom-web-v1",
  "target": {
   "type": "psql",

@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "20261109T101502Z-rel13",
- "generatedAt": "2026-11-09T10:15:13.674Z",
- "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "runId": "2026-11-09T120308Z-rel14",
+ "generatedAt": "2026-11-09T12:03:13.518Z",
+ "implementationCommit": "ff96736af37fea1e230c0fb5d22af82af2febff1",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "icbcwm-web-v1",
  "sourceId": "icbcwm",
@@ -46,8 +46,8 @@
  "files": [
   {
    "path": "README.md",
-   "bytes": 2767,
-   "sha256": "17e78f99fe69d2481e8ce162cbbcbbb05c6ffcf843c28cba9587573baef388e0"
+   "bytes": 2769,
+   "sha256": "453aa919f076e61af96b8c574c3622d3b0a801d612c83b46d93bf1e043e8b2ce"
   },
   {
    "path": "collector.mjs",
@@ -56,8 +56,8 @@
   },
   {
    "path": "config.example.json",
-   "bytes": 852,
-   "sha256": "11185bb25b42e0e37d7a1c05c701f232a879d9106af117d4f6287e3386a0aebb"
+   "bytes": 854,
+   "sha256": "b9f368051fc02f881d656087f1ef907d0f0637ee4d558cb9c15f2a9bf5263540"
   },
   {
    "path": "fixtures/README.md",
@@ -136,8 +136,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1445515,
-   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+   "bytes": 1445992,
+   "sha256": "ef082925fe47cb2d185df2914653bc974e426ff638d78a5e8916c1f1d5b8ebd6"
   },
   {
    "path": "workflow-icbcwm-web-v1.yml",

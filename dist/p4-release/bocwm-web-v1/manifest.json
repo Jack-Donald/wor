@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "20261109T101502Z-rel13",
- "generatedAt": "2026-11-09T10:15:24.543Z",
- "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "runId": "2026-11-09T120308Z-rel14",
+ "generatedAt": "2026-11-09T12:03:24.193Z",
+ "implementationCommit": "ff96736af37fea1e230c0fb5d22af82af2febff1",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "bocwm-web-v1",
  "sourceId": "bocwm",
@@ -46,8 +46,8 @@
  "files": [
   {
    "path": "README.md",
-   "bytes": 2760,
-   "sha256": "8e57435c2cc48a16093dfd2025f9729e44117ee00be09c507fdd1f7854242799"
+   "bytes": 2762,
+   "sha256": "4d913718bd5a563618996f2d6808e2eb62075dc5c0b864179b5b319b97d5de2b"
   },
   {
    "path": "collector.mjs",
@@ -56,8 +56,8 @@
   },
   {
    "path": "config.example.json",
-   "bytes": 847,
-   "sha256": "534f341be7dc2f49b312aab07c0a7ead80e209a3a86de3031a8bf48bd1c8aa34"
+   "bytes": 849,
+   "sha256": "b7b9749589a46a8f9a2ffa4309fcf6be13fb88c3a8346298dcf54d5aa3a87cfc"
   },
   {
    "path": "fixtures/README.md",
@@ -216,8 +216,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1445515,
-   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+   "bytes": 1445992,
+   "sha256": "ef082925fe47cb2d185df2914653bc974e426ff638d78a5e8916c1f1d5b8ebd6"
   },
   {
    "path": "workflow-bocwm-web-v1.yml",
