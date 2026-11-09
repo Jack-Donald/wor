@@ -1,0 +1,10 @@
+{
+  "protocolVersion": "wo-ingest-v2",
+  "algorithmVersion": "wo-return-v1",
+  "hot": { "months": 3, "threshold": "3.5", "newShares": true },
+  "catalog": { "currency": "CNY", "isPublic": true, "maxRestrictionDays": 31, "includeCash": true },
+  "history": { "backfillMonths": 24, "retentionMonths": 24 },
+  "budgets": { "rows": 200, "bytes": 262144, "softMs": 90000, "hardMs": 100000 },
+  "page": { "defaultSize": 50, "allowedSizes": [20, 50, 100] },
+  "sources": []
+}
