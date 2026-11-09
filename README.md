@@ -5,9 +5,9 @@
 ## 当前发行
 
 - runId `20261109T101502Z-rel13`（implementationCommit `1bd0440b4c8cb12143e777d68c8d4f1775e34487`）
-- 19 个 collector 包：`<collectorId>/`（collector.mjs + p4.mjs + fixtures + config.example.json + licenses + manifest.json + workflow 副本）
-- `migrations/`：23 份 SQL（新空库按文件名依序重放建库）
-- `.github/workflows/`：每 collector 一份独立 workflow（无总任务/矩阵）
+- 19 个 collector 包：`dist/p4-release/<collectorId>/`（collector.mjs + p4.mjs + fixtures + config.example.json + licenses + manifest.json + workflow 副本）
+- `dist/p4-release/migrations/`：23 份 SQL（新空库按文件名依序重放建库）
+- `.github/workflows/`：每 collector 一份独立 workflow（无总任务/矩阵）；workflow 内路径按模板约定写死 `dist/p4-release/<id>/`
 
 ## 运行边界
 
