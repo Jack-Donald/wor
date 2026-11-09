@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "wealth-observer-p4-run/v1",
+  "runId": "20261109T121648Z--1",
+  "collectorId": "cmb-web-v1",
+  "target": {
+    "type": "https",
+    "containerName": null,
+    "endpoint": "https://knwcpkuowdqnigxtnfjv.supabase.co/rest/v1/rpc",
+    "database": "postgres"
+  },
+  "source": {
+    "sourceId": "cmb",
+    "principal": "collector_cmb"
+  },
+  "shares": [
+    "107507"
+  ],
+  "network": {
+    "hosts": [
+      "mobile.cmbchina.com"
+    ],
+    "maxRequestsTotal": 100,
+    "minIntervalMs": 1800,
+    "timeoutMs": 30000,
+    "responseCapBytes": 2097152,
+    "mainRoundImmediateRetries": 0,
+    "finalRoundMax": 1,
+    "politenessMinMs": 1800,
+    "politenessMaxMs": 3200,
+    "siteRequiredIntervalMs": null
+  },
+  "cache": {
+    "root": "/home/runner/work/wor/wor/.state/cache/cmb-web-v1",
+    "maxBytes": 1073741824
+  },
+  "evidenceRoot": "/home/runner/work/wor/wor/.state/evidence/cmb-web-v1",
+  "policyFile": "/home/runner/work/wor/wor/config/policy.json"
+}

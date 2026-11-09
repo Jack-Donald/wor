@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "wealth-observer-p4-run/v1",
+  "runId": "20261109T121648Z--",
+  "collectorId": "hxwm-web-v1",
+  "target": {
+    "type": "https",
+    "containerName": null,
+    "endpoint": "https://knwcpkuowdqnigxtnfjv.supabase.co/rest/v1/rpc",
+    "database": "postgres"
+  },
+  "source": {
+    "sourceId": "hxwm",
+    "principal": "collector_hxwm"
+  },
+  "shares": [
+    "26111178B"
+  ],
+  "network": {
+    "hosts": [
+      "www.hxwm.com.cn"
+    ],
+    "maxRequestsTotal": 100,
+    "minIntervalMs": 1800,
+    "timeoutMs": 30000,
+    "responseCapBytes": 2097152,
+    "mainRoundImmediateRetries": 0,
+    "finalRoundMax": 1,
+    "politenessMinMs": 1800,
+    "politenessMaxMs": 3200,
+    "siteRequiredIntervalMs": null
+  },
+  "cache": {
+    "root": "/home/runner/work/wor/wor/.state/cache/hxwm-web-v1",
+    "maxBytes": 1073741824
+  },
+  "evidenceRoot": "/home/runner/work/wor/wor/.state/evidence/hxwm-web-v1",
+  "policyFile": "/home/runner/work/wor/wor/config/policy.json"
+}
