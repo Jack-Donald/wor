@@ -1,7 +1,7 @@
 # nbcb-sales-web-v1 采集器发行包（P4 独立闭合产物）
 
-- runId：2026-11-09T122242Z-rel16
-- implementationCommit：31bdf75ccff07e71c386262be6aeb51f0b071da4
+- runId：2026-11-09T132031Z-rel17
+- implementationCommit：bc477f959719e9407741ff0919c243b23eec18e5
 - collectorId/sourceId：nbcb-sales-web-v1 / nbcb-sales；parserVersion：nbcb-sales-web/v1
 - 内核：p4-orchestration/v1；protocolVersion：wo-ingest-v2；algorithmVersion：wo-return-v1
 - 能力声明：catalog=支持；collect=拒绝；evaluate=拒绝；repair=拒绝；importLocal=支持

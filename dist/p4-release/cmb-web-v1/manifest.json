@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T122242Z-rel16",
- "generatedAt": "2026-11-09T12:22:45.739Z",
- "implementationCommit": "31bdf75ccff07e71c386262be6aeb51f0b071da4",
+ "runId": "2026-11-09T132031Z-rel17",
+ "generatedAt": "2026-11-09T13:20:37.221Z",
+ "implementationCommit": "bc477f959719e9407741ff0919c243b23eec18e5",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "cmb-web-v1",
  "sourceId": "cmb",
@@ -47,17 +47,17 @@
   {
    "path": "README.md",
    "bytes": 2759,
-   "sha256": "70ef4265bc8ab7712fb91b650323fc6592e2638fd75333c411153f8489b457b0"
+   "sha256": "359d31b26eaf68605b7e0db76b15c4df90083d5e17209ea14d46c0cf0f90d277"
   },
   {
    "path": "collector.mjs",
-   "bytes": 916233,
-   "sha256": "528c066a59b18345273c04e5f5a251a502c71b45806027cd7f1a12ebdb4a0fc8"
+   "bytes": 916709,
+   "sha256": "1be800cbec3d26d32c7d0573ef3c3873f05596356dcfaf3f832ba14865fbae25"
   },
   {
    "path": "config.example.json",
    "bytes": 850,
-   "sha256": "27df582de759c6f79a32869697256408016326b2e15731353fa93612a3de8ea5"
+   "sha256": "77a2c795637530b0998b8c4be4cac48b1f696c9657ad75af4d31895704857a7e"
   },
   {
    "path": "fixtures/README.md",
@@ -211,8 +211,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1445992,
-   "sha256": "ef082925fe47cb2d185df2914653bc974e426ff638d78a5e8916c1f1d5b8ebd6"
+   "bytes": 1446468,
+   "sha256": "9fc5e293e90ff560950eccf069ff57a0e403bfb5fb48def72e7db45bdec0e07f"
   },
   {
    "path": "workflow-cmb-web-v1.yml",
