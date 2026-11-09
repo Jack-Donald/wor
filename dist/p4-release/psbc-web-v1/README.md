@@ -1,7 +1,7 @@
 # psbc-web-v1 采集器发行包（P4 独立闭合产物）
 
-- runId：2026-11-09T120308Z-rel14
-- implementationCommit：ff96736af37fea1e230c0fb5d22af82af2febff1
+- runId：2026-11-09T121648Z-rel15
+- implementationCommit：f1ed22884eb558a96c8acdc5b05395c2fb7bee07
 - collectorId/sourceId：psbc-web-v1 / psbc；parserVersion：psbc-web/v1
 - 内核：p4-orchestration/v1；protocolVersion：wo-ingest-v2；algorithmVersion：wo-return-v1
 - 能力声明：catalog=支持；collect=支持；evaluate=支持；repair=支持；importLocal=支持

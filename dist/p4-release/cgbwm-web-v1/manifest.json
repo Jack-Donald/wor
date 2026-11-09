@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T120308Z-rel14",
- "generatedAt": "2026-11-09T12:03:17.509Z",
- "implementationCommit": "ff96736af37fea1e230c0fb5d22af82af2febff1",
+ "runId": "2026-11-09T121648Z-rel15",
+ "generatedAt": "2026-11-09T12:16:56.579Z",
+ "implementationCommit": "f1ed22884eb558a96c8acdc5b05395c2fb7bee07",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "cgbwm-web-v1",
  "sourceId": "cgbwm",
@@ -47,7 +47,7 @@
   {
    "path": "README.md",
    "bytes": 2767,
-   "sha256": "a18fb2949928a3c1bcd4276f5c62c88a3c2050de2aa75b0abe2ff9a78e13419a"
+   "sha256": "8f2c4e031b5a9acfaa6f2a232bb8bad532a67b72326cf1ee58a6796be4280438"
   },
   {
    "path": "collector.mjs",
@@ -57,7 +57,7 @@
   {
    "path": "config.example.json",
    "bytes": 854,
-   "sha256": "baafb1091f4c95caf47afe806035dd521a39de49977849f8ea67ecd3563f7b6f"
+   "sha256": "509309a87c05075dffc1c9751c385cb2d9d1655ac725c8cceff79e15616b358f"
   },
   {
    "path": "fixtures/README.md",

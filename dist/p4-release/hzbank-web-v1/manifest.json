@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T120308Z-rel14",
- "generatedAt": "2026-11-09T12:03:16.992Z",
- "implementationCommit": "ff96736af37fea1e230c0fb5d22af82af2febff1",
+ "runId": "2026-11-09T121648Z-rel15",
+ "generatedAt": "2026-11-09T12:16:56.085Z",
+ "implementationCommit": "f1ed22884eb558a96c8acdc5b05395c2fb7bee07",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "hzbank-web-v1",
  "sourceId": "hzbank",
@@ -47,7 +47,7 @@
   {
    "path": "README.md",
    "bytes": 2774,
-   "sha256": "1a046ece51ae0363acd673d4eb11db913f3224545f845f639c11c1bc4d154ef4"
+   "sha256": "aa8d81ef41cbd77bae12e39cc8c305c1649adaf363856e2189388e58891b605a"
   },
   {
    "path": "collector.mjs",
@@ -57,7 +57,7 @@
   {
    "path": "config.example.json",
    "bytes": 859,
-   "sha256": "8878b37f927798288adf117dcb6adccbe31883645c65c386d5c831ad5b09a564"
+   "sha256": "b1f097aa12eb67d9fa40b8719d40451a4b587e5ee8e0a487f9b4dff4d328065e"
   },
   {
    "path": "fixtures/README.md",

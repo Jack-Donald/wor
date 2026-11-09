@@ -1,6 +1,6 @@
 {
  "schemaVersion": "wealth-observer-p4-run/v1",
- "runId": "2026-11-09T120308Z-rel14",
+ "runId": "2026-11-09T121648Z-rel15",
  "collectorId": "hzbank-web-v1",
  "target": {
   "type": "psql",
