@@ -19,7 +19,7 @@
     "hosts": [
       "www.bocwm.cn"
     ],
-    "maxRequestsTotal": 300,
+    "maxRequestsTotal": 100,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,
