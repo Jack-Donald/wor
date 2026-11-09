@@ -21769,10 +21769,11 @@ function createSourceGuard(options) {
     try {
       const response = await doFetch(request.url, {
         method: request.method ?? "GET",
-        // 默认浏览器 UA（维护者 2026-11-09 裁定）：银行站点 WAF 常按 User-Agent 拦截
-        // 非浏览器请求（Node 默认 UA 在 R2 runner 实测返回拦截页 not_json）。请求已自带
-        // UA（适配器声明头）时不覆盖，保证适配器特化头优先。
+        // 请求头合并顺序：站点默认头（Referer/Accept 等，见 SourceAdapter.requestHeaders）
+        // → 默认浏览器 UA（维护者 2026-11-09 裁定：银行站点 WAF 常按 UA 拦截 Node 默认
+        // UA，R2 runner 实测返回拦截页 not_json）→ 页面级 headers（适配器声明，最高优先）。
         headers: {
+          ...options.defaultHeaders ?? {},
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
           ...request.headers ?? {}
         },

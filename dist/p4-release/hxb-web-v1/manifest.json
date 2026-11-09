@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T132031Z-rel17",
- "generatedAt": "2026-11-09T13:20:41.049Z",
- "implementationCommit": "bc477f959719e9407741ff0919c243b23eec18e5",
+ "runId": "2026-11-09T134019Z-rel18",
+ "generatedAt": "2026-11-09T13:40:27.148Z",
+ "implementationCommit": "39d175ad4123bb0d9185783789461091b0b43b91",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "hxb-web-v1",
  "sourceId": "hxb",
@@ -47,17 +47,17 @@
   {
    "path": "README.md",
    "bytes": 2754,
-   "sha256": "7933b7fc224b0ffcccd786e1f3a644887740d2c7fc43daa86a19166c91fe5a57"
+   "sha256": "6b3694c608786a20abe3b5e16a7d79fa16f8d78ddcc594782cc22bf42025bd3c"
   },
   {
    "path": "collector.mjs",
-   "bytes": 913692,
-   "sha256": "28ecc1b81d8a092aa928a6492e344b550558a94c08f203a9dddb0729c5df79b6"
+   "bytes": 913771,
+   "sha256": "3841f7cedc7575cc76821f16d286fea39930a0d4815200939a7b699bc7100340"
   },
   {
    "path": "config.example.json",
    "bytes": 845,
-   "sha256": "dcc2ee54c85bce3566c169784e755684a6e20ce80128b5efc1a5f31123a812c1"
+   "sha256": "a45b6cc3e3f8f4917170454b84aa05e795ccf0111ea0fa99c1a2776aae32a705"
   },
   {
    "path": "fixtures/README.md",
@@ -96,8 +96,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1446468,
-   "sha256": "9fc5e293e90ff560950eccf069ff57a0e403bfb5fb48def72e7db45bdec0e07f"
+   "bytes": 1447926,
+   "sha256": "3622baf45548912ab50abf83b5431f8debaa14d29983281586a3cd3cb1fd225b"
   },
   {
    "path": "workflow-hxb-web-v1.yml",

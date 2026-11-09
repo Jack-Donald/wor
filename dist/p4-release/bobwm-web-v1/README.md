@@ -1,7 +1,7 @@
 # bobwm-web-v1 采集器发行包（P4 独立闭合产物）
 
-- runId：2026-11-09T132031Z-rel17
-- implementationCommit：bc477f959719e9407741ff0919c243b23eec18e5
+- runId：2026-11-09T134019Z-rel18
+- implementationCommit：39d175ad4123bb0d9185783789461091b0b43b91
 - collectorId/sourceId：bobwm-web-v1 / bobwm；parserVersion：bobwm-web/v1
 - 内核：p4-orchestration/v1；protocolVersion：wo-ingest-v2；algorithmVersion：wo-return-v1
 - 能力声明：catalog=支持；collect=支持；evaluate=支持；repair=支持；importLocal=支持

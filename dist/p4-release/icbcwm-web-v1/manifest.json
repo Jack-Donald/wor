@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T132031Z-rel17",
- "generatedAt": "2026-11-09T13:20:38.129Z",
- "implementationCommit": "bc477f959719e9407741ff0919c243b23eec18e5",
+ "runId": "2026-11-09T134019Z-rel18",
+ "generatedAt": "2026-11-09T13:40:24.194Z",
+ "implementationCommit": "39d175ad4123bb0d9185783789461091b0b43b91",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "icbcwm-web-v1",
  "sourceId": "icbcwm",
@@ -47,17 +47,17 @@
   {
    "path": "README.md",
    "bytes": 2769,
-   "sha256": "1ef6e401e018ff1733bc2bde6bca9be080600e9fdd76ba794b6fb35f956c0c9d"
+   "sha256": "26d49a211766c216d1f57eba855a85b38c35062e5f82b1a5e30b9fdb55277d0e"
   },
   {
    "path": "collector.mjs",
-   "bytes": 923741,
-   "sha256": "a39c31444a577198b69a7c257f9291e616a6bdf6767fdc4dab2119e4766f08e9"
+   "bytes": 923820,
+   "sha256": "8dc228b75e60b158acef0ed7ef8575d1fffcd75dedd58a4b4dbfcda15df9c389"
   },
   {
    "path": "config.example.json",
    "bytes": 854,
-   "sha256": "b81b8569dbff69c361d1ec193cf5e3297ff4488d86350c58fe19e2ccdfe459a1"
+   "sha256": "f4e173681da2f7792f50eb4e081b654f5b5c6c84bced997ea3d6af3561cb19ac"
   },
   {
    "path": "fixtures/README.md",
@@ -136,8 +136,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1446468,
-   "sha256": "9fc5e293e90ff560950eccf069ff57a0e403bfb5fb48def72e7db45bdec0e07f"
+   "bytes": 1447926,
+   "sha256": "3622baf45548912ab50abf83b5431f8debaa14d29983281586a3cd3cb1fd225b"
   },
   {
    "path": "workflow-icbcwm-web-v1.yml",

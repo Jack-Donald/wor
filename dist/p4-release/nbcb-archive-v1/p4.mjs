@@ -23124,10 +23124,11 @@ function createSourceGuard(options) {
     try {
       const response = await doFetch(request2.url, {
         method: request2.method ?? "GET",
-        // 默认浏览器 UA（维护者 2026-11-09 裁定）：银行站点 WAF 常按 User-Agent 拦截
-        // 非浏览器请求（Node 默认 UA 在 R2 runner 实测返回拦截页 not_json）。请求已自带
-        // UA（适配器声明头）时不覆盖，保证适配器特化头优先。
+        // 请求头合并顺序：站点默认头（Referer/Accept 等，见 SourceAdapter.requestHeaders）
+        // → 默认浏览器 UA（维护者 2026-11-09 裁定：银行站点 WAF 常按 UA 拦截 Node 默认
+        // UA，R2 runner 实测返回拦截页 not_json）→ 页面级 headers（适配器声明，最高优先）。
         headers: {
+          ...options.defaultHeaders ?? {},
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
           ...request2.headers ?? {}
         },
@@ -33619,11 +33620,51 @@ async function collectMainWithPorts(argv, ports) {
     collectorId: adapter.identity.collectorId,
     sourceId: config3.source.sourceId
   });
+  const SITE_REQUEST_HEADERS = {
+    "cibwm-web-v1": {
+      Referer: "https://www.cibwm.com.cn/personal-products/list",
+      Accept: "application/json, text/plain, */*"
+    },
+    "psbc-web-v1": {
+      Referer: "https://www.psbc.com/cn/grfw/tzlc/lc/lccpxx/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "icbcwm-web-v1": {
+      Referer: "https://wm.icbc.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "hsbank-web-v1": {
+      Referer: "https://rczp.hsbank.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "hxwm-web-v1": {
+      Referer: "https://www.hxwm.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "cbhbwm-web-v1": {
+      Referer: "https://www.cbhbwm.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "hzbankwm-web-v1": {
+      Referer: "https://www.hzbankwealth.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "cgbwm-web-v1": {
+      Referer: "https://www.cgbwmc.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
+    "bocwm-web-v1": {
+      Referer: "https://www.bocwm.cn/",
+      Accept: "application/json, text/plain, */*"
+    }
+  };
   const runDeadlineReached = function runDeadlineReached2() {
     const deadline = readRunDeadlineMs();
     return deadline !== null && Date.now() >= deadline;
   };
   const guard = createSourceGuard({
+    // 站点默认请求头（Referer/Accept 等）：适配器登记、全部取数路径共用（ADR 同类取舍）。
+    defaultHeaders: SITE_REQUEST_HEADERS[config3.collectorId],
     hosts: config3.network.hosts,
     maxRequestsTotal: config3.network.maxRequestsTotal,
     minIntervalMs: config3.network.minIntervalMs,
