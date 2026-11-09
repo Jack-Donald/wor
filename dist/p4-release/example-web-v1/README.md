@@ -1,7 +1,7 @@
 # example-web-v1 采集器发行包（P4 独立闭合产物）
 
-- runId：2026-11-09T121648Z-rel15
-- implementationCommit：f1ed22884eb558a96c8acdc5b05395c2fb7bee07
+- runId：2026-11-09T122242Z-rel16
+- implementationCommit：31bdf75ccff07e71c386262be6aeb51f0b071da4
 - collectorId/sourceId：example-web-v1 / example；parserVersion：example-web/v1
 - 内核：p4-orchestration/v1；protocolVersion：wo-ingest-v2；algorithmVersion：wo-return-v1
 - 能力声明：catalog=支持；collect=拒绝；evaluate=拒绝；repair=拒绝；importLocal=支持

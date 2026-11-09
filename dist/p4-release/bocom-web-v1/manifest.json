@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T121648Z-rel15",
- "generatedAt": "2026-11-09T12:16:51.117Z",
- "implementationCommit": "f1ed22884eb558a96c8acdc5b05395c2fb7bee07",
+ "runId": "2026-11-09T122242Z-rel16",
+ "generatedAt": "2026-11-09T12:22:44.900Z",
+ "implementationCommit": "31bdf75ccff07e71c386262be6aeb51f0b071da4",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "bocom-web-v1",
  "sourceId": "bocom",
@@ -47,7 +47,7 @@
   {
    "path": "README.md",
    "bytes": 2766,
-   "sha256": "cb16a589b30738dd9f4b9803b9010b173121444a1ab2fb5b6019c062343e7f75"
+   "sha256": "2d3ac017f092b9b07b59956bc4e53a5893cf9f3131950f1e4788aa153313f6ee"
   },
   {
    "path": "collector.mjs",
@@ -57,7 +57,7 @@
   {
    "path": "config.example.json",
    "bytes": 853,
-   "sha256": "1c8e15ccb37ba3d3ce130f0d2c454cdb42c93bb5aa4fda4c70796f1daa8ca5dc"
+   "sha256": "ca01d08098ab07c1eaf7d1bd7f2474d3007f8b7f20a49929f8d439e3e322cb21"
   },
   {
    "path": "fixtures/README.md",
