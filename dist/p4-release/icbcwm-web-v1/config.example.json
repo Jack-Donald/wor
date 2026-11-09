@@ -1,6 +1,6 @@
 {
  "schemaVersion": "wealth-observer-p4-run/v1",
- "runId": "2026-11-09T145853Z-rel19",
+ "runId": "2026-11-09T154647Z-rel20",
  "collectorId": "icbcwm-web-v1",
  "target": {
   "type": "psql",

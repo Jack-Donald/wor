@@ -20422,7 +20422,7 @@ var init_zod = __esm({
 });
 
 // packages/contracts/src/modules/contracts/schemas.ts
-var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, LIMITS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
+var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
 var init_schemas3 = __esm({
   "packages/contracts/src/modules/contracts/schemas.ts"() {
     "use strict";
@@ -20440,6 +20440,8 @@ var init_schemas3 = __esm({
     LOCAL_PACKAGE_VERSION = "wo-local-package/v2";
     LOCAL_PAGE_DEFAULT_BYTES = 2 * 1024 * 1024;
     HZBANKWM_LOCAL_PAGE_BYTES = 6 * 1024 * 1024;
+    HXWM_LOCAL_PAGE_BYTES = 16 * 1024 * 1024;
+    MAX_LOCAL_PAGE_BYTES = 16 * 1024 * 1024;
     LIMITS = { rows: 200, bytes: 262144, softMs: 9e4, hardMs: 1e5 };
     ERROR_CODES = {
       invalid_payload: 21001,
@@ -20928,7 +20930,7 @@ var init_schemas3 = __esm({
       sourceId: KeySchema,
       fetchedAt: external_exports.iso.datetime(),
       endpoint: external_exports.string().min(1).max(300),
-      byteLength: external_exports.number().int().nonnegative().max(HZBANKWM_LOCAL_PAGE_BYTES),
+      byteLength: external_exports.number().int().nonnegative().max(MAX_LOCAL_PAGE_BYTES),
       sha256: Sha256Schema,
       shareCodes: external_exports.array(external_exports.string().min(1).max(128)).max(50),
       dateFrom: DateSchema.nullable(),
@@ -20936,8 +20938,21 @@ var init_schemas3 = __esm({
       parserVersion: ParserVersionSchema,
       parseStatus: ParseStatusSchema
     }).superRefine(function validateLocalPageLimit(page, context) {
-      const largePageAllowed = page.sourceId === "hzbankwm" && page.collectorId === "hzbankwm-web-v1" && (page.kind === "catalog_page" || page.kind === "share_detail");
-      if (!largePageAllowed && page.byteLength > LOCAL_PAGE_DEFAULT_BYTES)
+      const largePageRules = {
+        "hzbankwm-web-v1": {
+          sourceId: "hzbankwm",
+          kinds: ["catalog_page", "share_detail"],
+          maxBytes: HZBANKWM_LOCAL_PAGE_BYTES
+        },
+        "hxwm-web-v1": {
+          sourceId: "hxwm",
+          kinds: ["catalog_page", "share_detail", "nav_history"],
+          maxBytes: HXWM_LOCAL_PAGE_BYTES
+        }
+      };
+      const rule = largePageRules[page.collectorId];
+      const allowedBytes = rule !== void 0 && rule.sourceId === page.sourceId && rule.kinds.includes(page.kind) ? rule.maxBytes : LOCAL_PAGE_DEFAULT_BYTES;
+      if (page.byteLength > allowedBytes)
         context.addIssue({
           code: "custom",
           path: ["byteLength"],
