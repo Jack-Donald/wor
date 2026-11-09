@@ -1,6 +1,6 @@
 {
  "schemaVersion": "wealth-observer-p4-run/v1",
- "runId": "2026-11-09T134019Z-rel18",
+ "runId": "2026-11-09T145853Z-rel19",
  "collectorId": "hsbank-web-v1",
  "target": {
   "type": "psql",
@@ -18,7 +18,8 @@
  ],
  "network": {
   "hosts": [
-   "rczp.hsbank.com.cn"
+   "rczp.hsbank.com.cn",
+   "www.hsbank.com.cn"
   ],
   "maxRequestsTotal": 300,
   "minIntervalMs": 1800,

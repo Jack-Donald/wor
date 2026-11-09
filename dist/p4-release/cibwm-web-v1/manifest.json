@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T134019Z-rel18",
- "generatedAt": "2026-11-09T13:40:32.751Z",
- "implementationCommit": "39d175ad4123bb0d9185783789461091b0b43b91",
+ "runId": "2026-11-09T145853Z-rel19",
+ "generatedAt": "2026-11-09T14:59:06.770Z",
+ "implementationCommit": "9c68f0b67af1338dd4a18828b1af56175ea11d13",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "cibwm-web-v1",
  "sourceId": "cibwm",
@@ -47,7 +47,7 @@
   {
    "path": "README.md",
    "bytes": 2766,
-   "sha256": "252d998a94f884d10b38abeb6688be2ecd55bd1de87eb8b53e10c9c1b581fd79"
+   "sha256": "c86752e36dcd04cf4ab3d782a30b0f1a12fdd046ab0acee2130d6e10ea0a8af6"
   },
   {
    "path": "collector.mjs",
@@ -57,7 +57,7 @@
   {
    "path": "config.example.json",
    "bytes": 853,
-   "sha256": "73e92173bcdd82b123767b891713d53a88fe8bb499aac0dd2b85bbecf0c99374"
+   "sha256": "06da406e0330e69b931de6cfb6ee2e303d86a605e0e43b638316d081c1c1427d"
   },
   {
    "path": "fixtures/README.md",
@@ -166,8 +166,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1447926,
-   "sha256": "3622baf45548912ab50abf83b5431f8debaa14d29983281586a3cd3cb1fd225b"
+   "bytes": 1448185,
+   "sha256": "2f74c7787f51edae039459c40feef1d28b6ff19098c6a5122a83ade42716f9b0"
   },
   {
    "path": "workflow-cibwm-web-v1.yml",

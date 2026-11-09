@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "2026-11-09T134019Z-rel18",
- "generatedAt": "2026-11-09T13:40:30.848Z",
- "implementationCommit": "39d175ad4123bb0d9185783789461091b0b43b91",
+ "runId": "2026-11-09T145853Z-rel19",
+ "generatedAt": "2026-11-09T14:59:04.843Z",
+ "implementationCommit": "9c68f0b67af1338dd4a18828b1af56175ea11d13",
  "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
  "collectorId": "nbcb-archive-v1",
  "sourceId": "nbcb",
@@ -47,7 +47,7 @@
   {
    "path": "README.md",
    "bytes": 2776,
-   "sha256": "1431bb12b96e3921ad8361d3af749dcab805a88650718c6e12f6a621f74ee11b"
+   "sha256": "8064ed28f9e6e2035343d34b8e0ace4e5177e73eb64d19e2f9d446361b61d281"
   },
   {
    "path": "collector.mjs",
@@ -57,7 +57,7 @@
   {
    "path": "config.example.json",
    "bytes": 853,
-   "sha256": "201c8be9b980c7ced5a4ea5092cf4978f35e66c8b0030063fbe7516040c38731"
+   "sha256": "43814f83cd458869ef5cd56d0a040dc502964a9bb2aa41e7fea63b6334a55321"
   },
   {
    "path": "fixtures/README.md",
@@ -136,8 +136,8 @@
   },
   {
    "path": "p4.mjs",
-   "bytes": 1447926,
-   "sha256": "3622baf45548912ab50abf83b5431f8debaa14d29983281586a3cd3cb1fd225b"
+   "bytes": 1448185,
+   "sha256": "2f74c7787f51edae039459c40feef1d28b6ff19098c6a5122a83ade42716f9b0"
   },
   {
    "path": "workflow-nbcb-archive-v1.yml",

@@ -1,11 +1,11 @@
 # hsbank-web-v1 采集器发行包（P4 独立闭合产物）
 
-- runId：2026-11-09T134019Z-rel18
-- implementationCommit：39d175ad4123bb0d9185783789461091b0b43b91
+- runId：2026-11-09T145853Z-rel19
+- implementationCommit：9c68f0b67af1338dd4a18828b1af56175ea11d13
 - collectorId/sourceId：hsbank-web-v1 / hsbank；parserVersion：hsbank-web/v1
 - 内核：p4-orchestration/v1；protocolVersion：wo-ingest-v2；algorithmVersion：wo-return-v1
 - 能力声明：catalog=支持；collect=支持；evaluate=支持；repair=支持；importLocal=支持
-- 在线主机（仅采集时请求）：rczp.hsbank.com.cn
+- 在线主机（仅采集时请求）：rczp.hsbank.com.cn、www.hsbank.com.cn
 
 ## 运行要求（外部依赖不在包内）
 

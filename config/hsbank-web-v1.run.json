@@ -17,7 +17,8 @@
   ],
   "network": {
     "hosts": [
-      "rczp.hsbank.com.cn"
+      "rczp.hsbank.com.cn",
+      "www.hsbank.com.cn"
     ],
     "maxRequestsTotal": 100,
     "minIntervalMs": 1800,

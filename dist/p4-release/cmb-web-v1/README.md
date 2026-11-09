@@ -1,7 +1,7 @@
 # cmb-web-v1 采集器发行包（P4 独立闭合产物）
 
-- runId：2026-11-09T134019Z-rel18
-- implementationCommit：39d175ad4123bb0d9185783789461091b0b43b91
+- runId：2026-11-09T145853Z-rel19
+- implementationCommit：9c68f0b67af1338dd4a18828b1af56175ea11d13
 - collectorId/sourceId：cmb-web-v1 / cmb；parserVersion：cmb-web/v1
 - 内核：p4-orchestration/v1；protocolVersion：wo-ingest-v2；algorithmVersion：wo-return-v1
 - 能力声明：catalog=拒绝；collect=支持；evaluate=支持；repair=拒绝；importLocal=支持

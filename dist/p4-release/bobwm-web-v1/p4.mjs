@@ -28283,7 +28283,9 @@ var init_adapters = __esm({
       commands: { catalog: true, collect: true, evaluate: true, repair: true, importLocal: true },
       network: {
         // 收益/目录接口均在 rczp:20600（老式 TLS 重协商主机——传输适配属编排层配置）
-        hosts: ["rczp.hsbank.com.cn"],
+        // www.hsbank.com.cn 为壳页主机（nav 需先取站内 historylist 壳页，S-V11 官方链接安全），
+        // 与 API 主机 rczp:20600 同属 hsbank.com.cn 信任组——漏登记曾致 R2 runner host_not_allowed。
+        hosts: ["rczp.hsbank.com.cn", "www.hsbank.com.cn"],
         shareDetailRequest(shareCode) {
           const built = catalogDetailRequest(shareCode);
           return {
