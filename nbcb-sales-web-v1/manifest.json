@@ -1,0 +1,118 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:21.365Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "nbcb-sales-web-v1",
+ "sourceId": "nbcb-sales",
+ "parserVersion": "nbcb-sales-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": false,
+  "evaluate": false,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 7,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2788,
+   "sha256": "1d8191b385f7264c6340106cb7432592324fb1e3cc60d389dee71b39141b4809"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 925816,
+   "sha256": "72808b5b5e2f8f624b13e44f732f22fec5debaf525b1a8ecaab436ee52fb548d"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 865,
+   "sha256": "b462341266a9fad9e40ee7ec8a470fbc5d8e5da15a503eace518a2fb1c1137ea"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 3696,
+   "sha256": "afc01b3b06e2339d2dbfedc4478fd3395863f241165b3a4449024b0b906d1930"
+  },
+  {
+   "path": "fixtures/modified/sales-index-drift.raw",
+   "bytes": 53070,
+   "sha256": "dc44d8ca160ebd3c0d01e391043559e9f31ba6238f1e6d71fe81fd31d46ade9c"
+  },
+  {
+   "path": "fixtures/modified/sales-index-foreign-url.raw",
+   "bytes": 53065,
+   "sha256": "dcc134558fa478b8fe07ad5d76838d6cc0810b4b8670435f82a2bd2f3b914093"
+  },
+  {
+   "path": "fixtures/real/sales-doc-bocwm-d127.pdf.raw",
+   "bytes": 578238,
+   "sha256": "12eb665cbc57768562c762132dec36a3eda45733137e6c7b9bdca97ffad922ff"
+  },
+  {
+   "path": "fixtures/real/sales-doc-cmbwm-t31.pdf.raw",
+   "bytes": 669667,
+   "sha256": "7e74ebd76b8cc43c972043430bec560d3ec23654855a4b9f77854597d7065667"
+  },
+  {
+   "path": "fixtures/real/sales-doc-ningbo-jy10.pdf.raw",
+   "bytes": 530548,
+   "sha256": "64e6068d76c84f1df459f5abf5fb7e0cf6abdd4396e52e9db2491585d74ec744"
+  },
+  {
+   "path": "fixtures/real/sales-index-page1.raw",
+   "bytes": 53070,
+   "sha256": "296c786bdd12bafef6285c82b2b903977ae3fcf662eb62cf7bad68f14305e8b5"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-nbcb-sales-web-v1.yml",
+   "bytes": 9235,
+   "sha256": "2293443195e337336f55bd84a401a401d0c983af9290cb6b691eb27a09017a22"
+  }
+ ]
+}

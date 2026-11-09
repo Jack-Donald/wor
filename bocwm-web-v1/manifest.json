@@ -1,0 +1,228 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:24.543Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "bocwm-web-v1",
+ "sourceId": "bocwm",
+ "parserVersion": "bocwm-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": true,
+  "evaluate": true,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 29,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2760,
+   "sha256": "8e57435c2cc48a16093dfd2025f9729e44117ee00be09c507fdd1f7854242799"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 922679,
+   "sha256": "0ab59acf5aa3c24be329a1ea7dbdd1b79da0b124fbd914104ebe0809b19f828a"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 847,
+   "sha256": "534f341be7dc2f49b312aab07c0a7ead80e209a3a86de3031a8bf48bd1c8aa34"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 8791,
+   "sha256": "16e9d6b3568ba5c99d9fd2dcde29e8547af6e5d153eaa4f1b22f751578e9fc03"
+  },
+  {
+   "path": "fixtures/modified/catalog-bad-detail-url.raw",
+   "bytes": 8468,
+   "sha256": "0884aaa11e34ecf52895b81cab80057a5efc7da48a352abb8096f21b8a5a78d8"
+  },
+  {
+   "path": "fixtures/modified/catalog-business-error.raw",
+   "bytes": 8463,
+   "sha256": "5b2ddb9e49ef18882cf6a76f108680074e4a9cb7d691f07df6c2a812169a09de"
+  },
+  {
+   "path": "fixtures/modified/catalog-total-drift.raw",
+   "bytes": 8462,
+   "sha256": "2006e9bbc493869769f4ee2b8e25386a1aaab9739096d2a3fb7f2f481d9d3ef3"
+  },
+  {
+   "path": "fixtures/modified/detail-foreign-currency.raw",
+   "bytes": 105561,
+   "sha256": "a9668056617996ca8f6fa39d3922a6f48c63c3b24e9c39c0d76b18b3381dcdd6"
+  },
+  {
+   "path": "fixtures/modified/detail-holding-mismatch.raw",
+   "bytes": 105574,
+   "sha256": "712278444553479b9cecbd4f35c93b54a6174b659dd5fa0e63dae387525ed787"
+  },
+  {
+   "path": "fixtures/modified/detail-manager-missing.raw",
+   "bytes": 105573,
+   "sha256": "4c72378574a50e3616d19e14d658e3cc641df115f201995f5f38f4d1eb76979c"
+  },
+  {
+   "path": "fixtures/modified/detail-structure-changed.raw",
+   "bytes": 105503,
+   "sha256": "77a18e0cf5c646717bdf4150dad7f89379351a1f66949d36efa8611be30789af"
+  },
+  {
+   "path": "fixtures/modified/detail-wrong-share-code.raw",
+   "bytes": 105573,
+   "sha256": "dc761596eb7945eb3382f52eaf1a26aab96192e6cc04babe04a0b045373716cc"
+  },
+  {
+   "path": "fixtures/modified/detail-xjl-true.raw",
+   "bytes": 105572,
+   "sha256": "2a9386d602c566654c0079a84c49356852da9cd97c1f9d102a04a2ace9237df4"
+  },
+  {
+   "path": "fixtures/modified/nav-business-error.raw",
+   "bytes": 67454,
+   "sha256": "fc213f2cdd41e86392af4584d72f2e6b713fd7637bc6a5cb041747ecf2b5f51a"
+  },
+  {
+   "path": "fixtures/modified/nav-foreign-code.raw",
+   "bytes": 67453,
+   "sha256": "cac6e59d33604bd6d2911a871df95d32b0fd994d5f2508132a62cff97da0aecf"
+  },
+  {
+   "path": "fixtures/modified/nav-registration-mixed.raw",
+   "bytes": 67477,
+   "sha256": "0c3f24a430f46777417a1ac90c67326d5b60b0cd93832f4d394173cffd66c46d"
+  },
+  {
+   "path": "fixtures/modified/nav-total-drift.raw",
+   "bytes": 1002,
+   "sha256": "be012a10631bf1d57fb6f9092b52f0f8e889ef2eab0083a982d447e63cbbf0fa"
+  },
+  {
+   "path": "fixtures/modified/nav-truncated.raw",
+   "bytes": 5400,
+   "sha256": "1be780750867470ab5cc114822501c98ebacf59e7414c1cc2bfb3bb18dc47254"
+  },
+  {
+   "path": "fixtures/modified/nav-usd-currency.raw",
+   "bytes": 67454,
+   "sha256": "7a12b90c507a296a0dc9216149158a80da578bb2a6216c9036058b5e1322764a"
+  },
+  {
+   "path": "fixtures/real/catalog-institutional-page1.raw",
+   "bytes": 4193,
+   "sha256": "a896ed40d3bdee76481ee8c231877bbc39c54ec44e4ebf7780804aacb34a7a27"
+  },
+  {
+   "path": "fixtures/real/catalog-keyword-7tian-page1.raw",
+   "bytes": 8462,
+   "sha256": "c57cad65e1c57ca373a59c8c6d80968a91c712fd8533d199a86617137dd4fafc"
+  },
+  {
+   "path": "fixtures/real/catalog-keyword-zdunchi-page1.raw",
+   "bytes": 8846,
+   "sha256": "fb62a3d95228a9dc31ac01c5b8843473327020a75a44bd9388aefe31103c8811"
+  },
+  {
+   "path": "fixtures/real/detail-CYQWFXYJX30D8A.raw",
+   "bytes": 105599,
+   "sha256": "37200d4516b742ec6b802f7a4d095b2ca6423214bf4e4cdab91e1be69a6967d0"
+  },
+  {
+   "path": "fixtures/real/detail-CYQWFZDJQ14DA.raw",
+   "bytes": 105550,
+   "sha256": "bf7de340258b2c031d84fa08aa43b0ef67a73fe7811f1be0fdcdeb2da5acf64e"
+  },
+  {
+   "path": "fixtures/real/detail-CYQWFZDJQ7D2A.raw",
+   "bytes": 105573,
+   "sha256": "c6d0e7ba9214a71ab91f98fd18f1a937acd5951ada349348ef35efe112b5af7a"
+  },
+  {
+   "path": "fixtures/real/nav-CYQWFXYJX30D8A-page1.raw",
+   "bytes": 67614,
+   "sha256": "57335797e8e5dee3af4e087f83f4c2f7602677289133146bb87b11b19e1348a5"
+  },
+  {
+   "path": "fixtures/real/nav-CYQWFXYJX30D8A-page2.raw",
+   "bytes": 42667,
+   "sha256": "cc6ec929ca6b28ad17deeee37bb4e6d32c3a4443c1ad1275d8b610e8d992dc9d"
+  },
+  {
+   "path": "fixtures/real/nav-CYQWFZDJQ7D2A-page1.raw",
+   "bytes": 67453,
+   "sha256": "b1e9203501fab65133275088a9cdea850ebc57969b6df3c3b51cdff3baf3c1be"
+  },
+  {
+   "path": "fixtures/real/nav-CYQWFZDJQ7D2A-page2.raw",
+   "bytes": 1002,
+   "sha256": "0a0e56c626733c722ee98d88b0a7bec9851520186a5b530c8cc341986d272cdc"
+  },
+  {
+   "path": "fixtures/real/page-list-183-personal.raw",
+   "bytes": 57145,
+   "sha256": "bf6c25d1078f12ffdcab6abfb14f1b5a2ae690be9e789d15d30b8f79f584aa6b"
+  },
+  {
+   "path": "fixtures/real/page-list-184-newarrivals.raw",
+   "bytes": 57145,
+   "sha256": "c2ce065b9993d6df6b4f629d917a57fa5828311ca512cf58c3b2c65ab8a783fa"
+  },
+  {
+   "path": "fixtures/real/page-list-222-institutional.raw",
+   "bytes": 57145,
+   "sha256": "4108019dfc6c53d822467723a8146df6a73f7bd5ef7e2ab794a6a6d54c58ab9f"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-bocwm-web-v1.yml",
+   "bytes": 10125,
+   "sha256": "fde6f7234c5fee6f599275d0c47ec13ec78982564d5ff90e8e07c99a9a769598"
+  }
+ ]
+}

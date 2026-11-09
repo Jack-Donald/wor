@@ -1,0 +1,148 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:20.583Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "nbcb-archive-v1",
+ "sourceId": "nbcb",
+ "parserVersion": "nbcb-archive/v1",
+ "commands": {
+  "catalog": false,
+  "collect": false,
+  "evaluate": false,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 13,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2774,
+   "sha256": "b3c39592ac10bd55f509aa647317f426073ab0c03de1d8983bda866499153e36"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 926184,
+   "sha256": "85ed61d9de6d15a1fef8b845649db2c228fc41223ad0b02abf54a7dd98566045"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 851,
+   "sha256": "3b161fcc5a05fe672361728d638ef07367d8af938479226f98ccd01ce2b1af53"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 6236,
+   "sha256": "2700761a15776cf84fd80e3dfec989ab28af0091c4aeddb36b9f36f727ececf4"
+  },
+  {
+   "path": "fixtures/modified/notice-detail-two-zips.raw",
+   "bytes": 47516,
+   "sha256": "0802d303e16b6812a8cd5fc27e73fefd56751348a942ed0869b2230cdfccce94"
+  },
+  {
+   "path": "fixtures/modified/notice-index-foreign-link.raw",
+   "bytes": 52986,
+   "sha256": "69b6ae882302ecf92ef0a1edd46ba0f982d1321a603b330e3491ed748af79107"
+  },
+  {
+   "path": "fixtures/real/nav-pdf-20241219-zgn2360007h.bin",
+   "bytes": 90642,
+   "sha256": "be68273c474009992266acf7b5114d69c8a6da7e9e80b2262279aca9135e4452"
+  },
+  {
+   "path": "fixtures/real/nav-pdf-20261028-zgn2560084a.bin",
+   "bytes": 74038,
+   "sha256": "1aa0f4911002e15115ad46999d6fc0122f7f1bb5814de2003a0375bbad1d138f"
+  },
+  {
+   "path": "fixtures/real/notice-detail-20241220.raw",
+   "bytes": 47456,
+   "sha256": "72c25ab29c382bf9e91f1cc00b8cba162692ae48966b356461844527a38f87e9"
+  },
+  {
+   "path": "fixtures/real/notice-detail-20261030.raw",
+   "bytes": 47456,
+   "sha256": "52875dbb04033057de7b044df0ac66c5f08fbba691975bbfebc23272d7aeed7c"
+  },
+  {
+   "path": "fixtures/real/notice-index-202412-page100.raw",
+   "bytes": 52986,
+   "sha256": "41c8d7dbe6aa2a390a44a350cf09c756d622c4255430aa6092af15b2e5e8efac"
+  },
+  {
+   "path": "fixtures/real/notice-index-20261030.raw",
+   "bytes": 53003,
+   "sha256": "b48b1632651cab185e898527b07bd26a8fae93fbd4943dc76abe433967822f2f"
+  },
+  {
+   "path": "fixtures/real/zip-central-directory-20261030.bin",
+   "bytes": 210459,
+   "sha256": "1b9e347a703b00e8892601063c6c81e19dcab3a37c146ee398345105f8396b1e"
+  },
+  {
+   "path": "fixtures/real/zip-entry-region-20241219.bin",
+   "bytes": 91906,
+   "sha256": "cfd989d8132efbb686e15b6eb3df16fa2ddfb7d657e723930a4cf65da9690d89"
+  },
+  {
+   "path": "fixtures/real/zip-tail-20241219.bin",
+   "bytes": 65577,
+   "sha256": "ec30e84e0126980c3dee78ad04e65a851af59bdf801696400471a2ca1835c867"
+  },
+  {
+   "path": "fixtures/real/zip-tail-20261030.bin",
+   "bytes": 65577,
+   "sha256": "642e59c893368f22c98482a85fea089e3b1c240b9d1a1077b0654caa0916170c"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-nbcb-archive-v1.yml",
+   "bytes": 2078,
+   "sha256": "9ecfb2dce8d6db8c90033e88a98a047fcd08a792af051ab29b4f1f9055ad30ba"
+  }
+ ]
+}

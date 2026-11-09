@@ -1,0 +1,310 @@
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cb({
+    "rows": 10,
+    "page": 1,
+    "pageCount": 424,
+    "list": [
+
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "00QQ3MR",
+				"PRODUCT_NAME": "中银理财全球配置固收美元3个月最短持有期",
+				"PRODUCT_MANAGER": "中银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "1.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "202608/00QQ3MR_CPSMS.pdf",
+				"href": "00QQ3MR_CPSMS",
+				"REMARK1": "pdf"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "00QQ3MS",
+				"PRODUCT_NAME": "中银理财全球配置固收美元3个月最短持有期",
+				"PRODUCT_MANAGER": "中银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "1.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "202608/00QQ3MS_CPSMS.pdf",
+				"href": "00QQ3MS_CPSMS",
+				"REMARK1": "pdf"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "10815NJ",
+				"PRODUCT_NAME": "招银理财招智睿和稳健(安盈优选)360天持有期2号混合类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR3（平衡型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "100.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "10815NJ_99.html",
+				"href": "10815NJ_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "109420D",
+				"PRODUCT_NAME": "招银理财招睿嘉裕日开270天持有期2号增强型固收类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR3（平衡型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "50000.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "109420D_99.html",
+				"href": "109420D_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "120026A",
+				"PRODUCT_NAME": "招银理财招睿添金14天持有期6号固定收益类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "1.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "120026A_99.html",
+				"href": "120026A_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "120027RF",
+				"PRODUCT_NAME": "招银理财招睿添金14天持有期7号固定收益类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "0.01",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "202609/120027RF_99.html",
+				"href": "120027RF_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "120029A",
+				"PRODUCT_NAME": "招银理财招睿添金14天持有期9号固定收益类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "0.01",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "202609/120029A_99.html",
+				"href": "120029A_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "120034RF",
+				"PRODUCT_NAME": "招银理财招睿添金日开4号固定收益类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "0.01",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "202608/120034RF_99.html",
+				"href": "120034RF_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "120036D",
+				"PRODUCT_NAME": "招银理财招睿添金30天持有期6号固定收益类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "1.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "120036D_99.html",
+				"href": "120036D_99",
+				"REMARK1": "html"
+			},
+	
+			{
+				"BUSINESS_TYPE": "06",
+				"PRODUCT_CODE": "12005D",
+				"PRODUCT_NAME": "招银理财招睿添金30天持有期3号固定收益类理财计划",
+				"PRODUCT_MANAGER": "招银理财",
+				"TYPE": "开放净值型",
+				"PRODUCT_RISK_GRADE": "PR2（稳健型）",
+				"SALES_STATUS": "开放",
+				"YIELD": "",
+				"STARTING_MONEY": "1.00",
+				"TRADING_CEILING": "",
+				"TRANSACTIONAL_CHANNELS": "",
+				"SALES_BRANCH": "华夏银行",
+				"TIME": "",
+				"NET_VALUE_CHANGE": "",
+				"CHARGE": "详见理财产品说明书或最新公告",
+				"PRODUCT_INVESTMENT": "",
+				"OPERATION_MODE": "",
+				"OWN_BASIS": "1",
+				"PUBLIC_PRIVATE": "0",
+				"INVESTOR_SCOPE": "符合相关法律法规规定，同时满足华夏银行理财产品风险评级对应适合的投资者风险能力评估级别的投资者",
+				"LICAI_CURRENCY": "",
+				"INSTRUCTIONNAME": "12005D_99.html",
+				"href": "12005D_99",
+				"REMARK1": "html"
+			},
+	
+    ]
+})
+
+

@@ -1,0 +1,46 @@
+# nbcb-archive-v1（nbcb）离线自检 workflow 模板（P4 W08 整改轮，W09-F01；A03 整改轮）。
+# 用法：复制到执行仓库 .github/workflows/（受保护分支、经维护者审定后启用）。
+# 该源在线编排命令全部 fail-closed（catalog/collect/evaluate/repair 均不支持），
+# 仅 importLocal 本地包导入（不在公开 runner 执行）：本模板不提供命令选项、
+# 不设 schedule、不引用任何 Secrets；仅作该源的调度入口描述与离线版本自检。
+# 在线能力启用（多请求链扩展）与定时窗口由 P5 凭站点证据核定后另行调整。
+name: p4-nbcb-run
+
+on:
+  # 仅手动 dispatch：无命令输入（该源无可公开执行的编排命令）、无定时触发。
+  workflow_dispatch:
+
+permissions:
+  # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
+  contents: read
+
+concurrency:
+  # 同源任务串行且不互相取消（预留并发保护位；当前仅离线自检，无预算突破面）。
+  group: p4-nbcb-run
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    # 作业级时限（A03 整改）：GitHub Actions 只认 jobs.<job_id>.timeout-minutes；
+    # 此前写在 YAML 顶层属无效键（与命令选择型模板同形缺陷，一并修复）。
+    timeout-minutes: 30
+    steps:
+      - name: 检出执行仓库（固定 SHA）
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: 安装 Node.js（固定 SHA）
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: 离线版本自检（无网络请求、无 Secrets）
+        run: |
+          set -euo pipefail
+          # 仅输出内核/协议/算法版本与适配器注册身份（CLI 离线命令，零来源请求）；
+          # 无 artifact 上传、无密钥回显。
+          node dist/p4-release/nbcb-archive-v1/p4.mjs version

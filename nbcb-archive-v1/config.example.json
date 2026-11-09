@@ -1,0 +1,39 @@
+{
+ "schemaVersion": "wealth-observer-p4-run/v1",
+ "runId": "20261109T101502Z-rel13",
+ "collectorId": "nbcb-archive-v1",
+ "target": {
+  "type": "psql",
+  "containerName": null,
+  "host": "127.0.0.1",
+  "port": null,
+  "database": "postgres"
+ },
+ "source": {
+  "sourceId": "nbcb",
+  "principal": "collector_nbcb"
+ },
+ "shares": [
+  "<登记的份额代码（≤500）>"
+ ],
+ "network": {
+  "hosts": [
+   "www.nbcb.com.cn"
+  ],
+  "maxRequestsTotal": 300,
+  "minIntervalMs": 1800,
+  "timeoutMs": 30000,
+  "responseCapBytes": 2097152,
+  "mainRoundImmediateRetries": 0,
+  "finalRoundMax": 1,
+  "politenessMinMs": 1800,
+  "politenessMaxMs": 3200,
+  "siteRequiredIntervalMs": null
+ },
+ "cache": {
+  "root": "<缓存目录绝对路径>",
+  "maxBytes": 1073741824
+ },
+ "evidenceRoot": "<证据目录绝对路径>",
+ "policyFile": "<policy.json 绝对路径>"
+}

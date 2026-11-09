@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>中银理财门户网站</title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--浏览器小图标-->
+<link rel="shortcut icon"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACNFBMVEX////+/v79+Prz09jXhIzIbnLEZWrQf4Dqrbv78vP009u+VFyRCQqPCAySBAeSBASSCQ6QDAytMjfkrLD99/nqvcKnJi6VDhPHaXDsvcW8SEyZDQ3oq7PZjpiiKCyWEhTQcoD99vf23eKqKzKfJSfotb7+/f7//v/FYWGXDQ3039/23OG6UluUEBLcmKH//v7++/zHa2+UCw7kqbL+9PfDV1qYDQ3z1dj//P345emvNz6eGRz44+f44+aYERLCVGD+/Pz65eqvOUCYDxCUBQWUAwOVCAigGxvlrrXrucCSCg3TgojimaeOCAnoubvbmpuRBgbFVF7Pc37Qcn3Pcn2hFxmtLCz//f7+9visMjOuMD3TgYKTCA7wwMrVio2QCgz40NuyNEeoHx+8PUmdEhSTCA/wwMvUi473ztmyMUWnHx+9PUycEhPhlaPpvL7Yk5WPBQfPbXjYmJnZmJnZmJilFyGsLCz++vuuNDapIzH24OOVEBDFYmr22d+kIiqPBQaRAwSSAwOPBAWWDxDXgI/vxsyVDhHMfH/++fu+WF+WERXrwMb97/Pyusu8REvmnKz41N/89fa7UFeVERHy1Nnxz9WeGx+kKirw0dOWDQ3z39/78PLJdHaQBwfNeH7ktLecGxuhIiTXhY/21tzEWVvwyc/pt7u1QEePBwe/YGH78/Psv8ewPkOcFRmcDg+WBAShGx6aGBrUhY/78/T89fXpsrzIeHuwJjmsFi27Ul3ZjZb45+k/5mtGAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+UJFgMlKC0/jOcAAAEOSURBVBjTY2BgZGBkYmZhZWPn4ASxGYCAi5uHl49fQFBIWATEZRQVE5eQlJKWkZWTV1AEqlBSVlFVU9fQ1GLQ1tHV02cwMDQyZmQ0MTUzt2C0tLK2YbC1s3dwdHJ2cXVz92Dw9PJm8PH1Y/QPCAwKDgkNC4+IjGKIjolliItPAJqemBTOkJzCEJ2axpgenwF0QWaWBWN2DkOubx5DfkFhUXFJaVl4eUUlQ1V1jVptXX1DY1NzC0NrWztDR2dXN0NPb59m/wSGiZMmT2FgmDpt+gxGBo2Zsxhmz5k7z4CBQX/+goWLFi/RXLps+YqVq0B+0V+9RnDtuvUbeDZu2gzxLcOWrdu279i5a3c4kA0AcaNISmH8q8YAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDktMjJUMDM6Mzc6NDArMDA6MDDU1TUHAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTA5LTIyVDAzOjM3OjQwKzAwOjAwpYiNuwAAAABJRU5ErkJggg==" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="/static/plugins/iconfont/1.0.0/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/base.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/index.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/advice.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/case-list.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/about.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/news-list.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/news-show.css">
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/center.css">
+<link href="/templets/1/default/css/style.css" rel="stylesheet" type="text/css">
+<!--小图标-->
+<link rel="stylesheet" type="text/css" href="/static/ms-admin/5.0.0/iconfont/iconfont.css"/>
+
+<script src="/static/plugins/jquery/1.12.4/jquery-3.6.4.js"></script>
+<script src="/templets/1/default/js/slider.js"></script>
+<script src="/static/plugins/less/3.9.0/less.min.js"></script>
+<!--vue-懒加载-表单验证-->
+<script src="/static/plugins/vue/2.6.9/vue.min.js"></script>
+<script src="/static/plugins/validator/10.8.0/validator.min.js"></script>
+<!-- Element -->
+<link rel="stylesheet" href="/static/plugins/element-ui/2.8.2/index.css">
+<script src="/static/plugins/element-ui/2.8.2/index.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/templets/1/default/css/animate.css">
+<script src="/static/plugins/axios/1.15.0/axios.min.js"></script>
+<script src="/static/plugins/ms/1.0.0/ms.js"></script>
+<script src="/static/plugins/ms/1.0.0/ms.http.js"></script>
+<script src="/static/plugins/ms/1.0.0/ms.util.js"></script>
+<!--<script src="/api/ms.people.min.js"></script>-->
+<script src="/static/plugins/plupload/plupload.full.min.js"></script>
+<script src="/static/plugins/qs/6.6.0/qs.min.js"></script>
+<script src="/static/plugins/ms/1.0.0/ms.upload.js"></script>
+<link rel="stylesheet" href="/static/layui/css/layui.css"/>
+<script src="/static/layui/layui.all.js"></script>
+<script>
+	window.http = ms.http;
+	ms.base = "";
+	ms.login = '';
+</script>
+<style>
+/*通用样式*/
+* {	margin: 0px;	padding: 0px;}
+body{ padding:0; background:#fff;  color:#333; font-family:"Microsoft YaHei";  font-size:14px; line-height:28px;width: 1920px;margin: 0 auto !important; }
+li{list-style-type:none;}
+a{color:#333; text-decoration:none}
+a:hover{ color:#b20024}
+.clearfix:after{content: ""; clear: both; display: block; visibility: hidden; height: 0;}
+img{ border:0}
+.l{ float:left}
+.r{ float:right}
+.c{ clear:both}
+.blk img{ display:block}
+.cfff{ color:#fff}
+.c259{ color:#2592e5}
+.rel{ position: relative}
+.pd24{}
+.f20{ font-size:20px}
+.fn{ font-weight: normal}
+
+.minH700{min-height: 500px;padding: 30px 53px;}
+.w1200{ width:1200px; overflow:hidden; margin:0 auto}
+.w1280{ width:1280px; overflow:hidden; margin:0 auto}
+.w980{width:980px;overflow:hidden; margin:0 auto;}
+.w940{width:940px;overflow:hidden; margin:0 auto;}
+.w720 {width:720px; overflow:hidden}
+.w490 {width:490px; overflow:hidden}
+.w560 { width:560px; overflow:hidden}
+.w246 {width:246px; overflow:hidden}
+.w200 {width:200px; overflow:hidden}
+.w240 {width:240px; overflow:hidden}
+.w926 {width:926px; overflow:hidden}
+.w930 {width:930px; overflow:hidden; margin:0 auto}
+.w190 {width: 190px;}
+.h625 {height: 625px; overflow: hidden}
+.min_h625{min-height: 625px;}
+.min_h550{min-height: 550px;}
+.shadow{ box-shadow: 0 0 5px rgba(0,0,0,0.05);border:1px solid #dadada;}
+.borR16{ border-radius: 8px; }
+.bgFff{ background:#fff}
+.bgFff-yuan{ background:#fff;border-radius: 10px;}
+.bghui{background: #f4f5f7}
+.p10{ padding:10px;}
+.c999{ color:#999}
+.c666{ color:#666}
+.f12{ font-size:12px;}
+.f14{ font-size:14px;}
+.f16{ font-size:16px;}
+.f18{ font-size:18px;}
+.f20{ font-size:20px;}
+.f28{ font-size:28px;}
+.fw_bold{ font-weight: bold}
+.mb10{ margin-bottom:10px;}
+.pd20{  padding:20px;}
+.pd10_20{  padding:10px 20px;}
+.mb30{ margin-bottom:30px;}
+.mt30{ margin-top:30px;}
+.mt20{ margin-top:20px;}
+.mt15{ margin-top:15px;}
+.mr20{ margin-right:20px;}
+.ml10{ margin-left:10px;}
+.mainOrg{ color: #f25d00}
+.mainGreen{ color: #4cb307}
+.mainRed {color: #EF2317 !important}
+/*文字超出显示省略号*/
+.ellipsis{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;cursor:pointer}
+.tc{ text-align: center}
+.borT{ border-top:1px solid #f3f3f3}
+.borB{ border-bottom:1px solid #f3f3f3}
+.borBd{ border:1px solid #dbdbdb}
+.cb79{ color:#b79c83}
+.div_head{font-size: 14px;margin:0 auto;width: 980px;min-width: 980px;}
+.divnew{width: 100%;
+    min-width: 1420px;
+    margin: 0 auto;}
+/*---头部------*/
+.top{  padding-top:18px; border: 1px solid #dadada;border-radius: 5px;margin: 15px 0;box-shadow: 0 2px 6px #eeeeee;}
+.schAline{ position: absolute; right: 40px;  bottom: 13px;}
+.mt10{ margin-top:10px}
+.phone img{ float:left; margin:0 10px 0 0; position: relative;    top:2px;}
+.schBox{ border: 1px solid #dbdbdb; border-radius: 14px; height:28px; line-height: 28px; width: 180px;margin-right:30px; padding: 0 10px;background: #fff; }
+.schBox input{ border:0; background: none; float: left; height: 100%; outline: none}
+.schBox input[type="text"]{ width:150px }
+/*.schBox input[type="button"]{ background: url(../images/schBtn.png) center center no-repeat; width: 30px; cursor: pointer}*/
+.im_on{height: 60px;border-bottom: 3px solid #b40129;margin-left: 1%;margin-right: 1%;}
+.rx_ft2{padding-right: 0px;color: #a71e32;}
+.li_left{padding-left: 1%}
+.li_right{padding-right: 1%}
+/*---nav------*/
+.nav{ height:40px; line-height:40px;background: #fff;padding-top: 15px;padding-bottom:10px;  }
+/*.nav li{ float:left; font-size:16px;width: 14%;text-align: center}*/
+.nav li{ float:left; font-size:16px;width: 12%;text-align: center}
+.nav li a{display:block; height:40px;}
+.nav li a span{height:38px; border-bottom: 2px solid #fff; display: inline-block; width: auto}
+.nav li a:hover span,.nav li a.on span{ height:38px; color:#b40129; }
+/*当前位置*/
+.location{ height: 64px;font-size: 16px;
+    line-height: 64px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: rgb(29, 33, 41, 1);
+    background: #f4f5f7;
+}
+
+/* fullSlide */
+/*.fullSlide{width:100%;position:relative;height:330px;background:#000;} 初始版本 */
+.fullSlide{width:980px;min-width: 980px;position:relative;height:330px;background:#000;}/*修改后的版本*/
+.fullSlide .bd{margin:0 auto;position:relative;z-index:0;overflow:hidden;}
+.fullSlide .bd ul{width:100% !important;}
+.fullSlide .bd li{width:100% !important;height:330px;overflow:hidden;text-align:center;}
+.fullSlide .bd li a{display:block;height:330px;}
+.fullSlide .hd{width:100%;position:absolute;z-index:1;bottom:16px;left:0;height:30px;line-height:30px;}
+.fullSlide .hd ul{text-align:center;}
+.fullSlide .hd ul li{cursor:pointer;display:inline-block;*display:inline;zoom:1;width:12px;height:12px;margin:1px 7px;overflow:hidden;background:#fff;filter:alpha(opacity=50);opacity:0.5;line-height:999px; border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px;}
+.fullSlide .hd ul .on{background:#fff; width:40px;filter:alpha(opacity=100);opacity:1;}
+
+.more{display:block; height:28px; width:112px; border:1px solid #d5d5d5; color:#4bb344; text-align:center; line-height:28px; margin-top:20px; font-size:12px}
+.tit01{height:40px; line-height:40px; overflow:hidden;font-size:18px;padding-top: 24px;padding-left: 24px;padding-right: 24px;padding-bottom: 10px;}
+.tit01 a{ font-size:12px; color:#999; font-weight:normal; float: right}
+/*公告列表*/
+.newsList li{ height:50px; line-height:50px; overflow:hidden; border-bottom: 1px solid #eeeeee;padding-left: 24px;padding-right: 24px;}
+.w450 {width: 450px; }
+.w350 {width: 350px}
+.w800 {width: 800px; }
+.font_slh{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: 725px;}
+
+/*新品速递*/
+.content{  padding: 30px }
+.titPage{ border-bottom: 1px solid #dbdbdb; height: 40px; line-height: 40px; margin-bottom: 20px}
+.titPage span{ display: inline-block; height: 100%; box-sizing: border-box; border-bottom: 2px solid #b40129; font-size: 16px}
+.contentImg img{ max-width: 100%; display: block; margin: 30px auto}
+
+/*产品内页搜索*/
+.schBoxPage{float: right; }
+.schBoxPage input{ border:0; background: none; float: left; height: 100%; outline: none; height:28px; line-height: 28px;}
+.schBoxPage input[type="text"]{ width:170px; padding: 0 0 0 5px;  border: 1px solid #e3e3e3; background:#fcfcfc ; border-right: 0; height:26px; line-height: 26px;  }
+.schBoxPage input[type="button"]{ height:28px; line-height: 28px; border:0; background: none; background:#b40129; border: 1px solid #b40129; color: #fff; width:50px; cursor: pointer; float: right; border-radius:0 3px 3px 0 }
+/*筛选分类*/
+.tabs{ height: 40px; background: linear-gradient(#fbfbfb,#fff);}
+.tabs a{ display: inline-block; height: 39px; line-height: 39px; padding: 0 30px; border-top: 1px solid #fbfbfb; font-size: 14px; margin-right:2px}
+.tabs a:hover,.tabs a.on{ background:linear-gradient( #F6F6F6,#fff); border-top: 1px solid #b40129; color:#b20024 }
+.attrs{ margin-bottom:10px;}
+.attrs .a-key{ float:left; display:block;  width:80px; height:32px; line-height:32px; padding-top: 5px}
+.attrs .a-values{float:left}
+.attrs .brand-attr{ overflow: hidden; padding:5px 0; border-bottom: 1px solid #eee }
+.attrs .brand-attr a{ padding:0px 18px; height: 32px; line-height: 32px; margin:5px 0; display:block; float:left; margin-right: 10px; border-radius: 15px }
+.attrs .brand-attr a.on{ background: #F2F2F2; color: #b40129}
+
+/*在售产品的产品类型*/
+.fmt{
+    height: 41px;
+    line-height: 44px;
+    font-size: 14px;
+    margin: 0 5px;
+    padding: 0 6px;
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    cursor: pointer;
+    color: #000000;
+}
+.isActive{
+  background: #b40129;
+    color: #F2F2F2;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+
+/*左侧 走近中银等*/
+.secTit{ background:#b20024; color: #fff; height: 40px; line-height: 40px; font-size: 16px; padding-left: 30px;}
+.secNav li{ height: 40px; line-height: 40px; border-bottom: 1px solid #f3f3f3; }
+.secNav li a{ display: block;padding: 0 30px ; height: 100%}
+.secNav li a:hover,.secNav li.on a{ background: #f5f5f5}
+.secNav li:nth-last-child(1){ border-bottom: 0}
+
+/*可折叠子栏目的侧边栏，需要配合js*/
+.accordion{
+    background: #fff;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.accordion .link {
+    cursor: pointer;
+    /* display: block; */
+    height: 48px;
+    line-height: 48px;
+    padding: 0 20px 0 30px;
+    border-bottom: 1px solid #f3f3f3;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.accordion li:last-child .link {border-bottom: 0;}
+.accordion li i {position: absolute;top: 16px;left: 12px;font-size: 18px;color: #595959;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.accordion li.on a{ background: #f5f5f5}
+.accordion li i.el-submenu__icon-arrow {right: 12px;left: auto;font-size: 16px;}
+.accordion li.open .link {color: #b63b4d;}
+.accordion li.open i {color: #b63b4d;}
+.accordion li.open i.el-submenu__icon-arrow {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/*子栏目*/
+.submenu {display: none;}
+.submenu li {border-bottom: 1px solid #f3f3f3;}
+.submenu a {display: block;text-decoration: none;height: 40px; line-height: 40px;-webkit-transition: all 0.25s ease;-o-transition: all 0.25s ease;transition: all 0.25s ease;}
+.submenu a:hover {background: #f5f5f5;}
+.select_on{
+    background: rgb(178 0 36);
+    border-radius: 10px;
+}
+.select_on a{
+    color: #ffffff;
+}
+.select_on a:hover{
+    color: #ffffff;
+}
+
+/*左侧公告*/
+.notice li{
+    list-style-type: none;
+    max-height: 65px;
+    overflow: hidden;
+    height: 65px;
+    /* margin-top: 9px; */
+    line-height: 65px;
+    /* margin-bottom: 5px; */
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+/*.notice li a{ background: url(../images/dot.png) 0 12px no-repeat; padding-left: 10px; display: block}*/
+/*.notice li a{ background: url(../images/Li_dian.jpg) 0 4px no-repeat; padding-left: 2px; display: block}*/
+/*.dot {background: url(../images/dot.png) 0 12px no-repeat; padding-left: 10px;}*/
+/*.dot {background: url(../images/Li_dian.jpg) 0 4px no-repeat; padding-left: 20px;}*/
+/*.bg_image {background: url(../images/Li_dian.jpg) -8px 4px no-repeat; padding-left: 16px;}*/
+/* .notice li:nth-child(odd){ background-color: #fafbfc;} */
+
+
+.questionList{
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    justify-content:space-around;
+    -webkit-justify-content: space-around;
+
+    align-content: center;
+
+    flex-wrap:wrap;
+    -ms-flex-wrap: wrap;
+}
+.questionList li{ float: left; margin-bottom: 16px}
+.questionList li a{ display: block; width:248px ; height: 38px; line-height: 38px; border: 1px solid #eeeeee; border-radius: 19px; padding: 0 10px;text-overflow:ellipsis; white-space:nowrap; overflow: hidden}
+.questionList li a:hover{ background: #f2f2f2; transition: all 0.1s}
+.questionList li a img{ width:18px; position: relative; top:5px; margin-right: 10px; }
+
+/*新品速递*/
+.proList{ *zoom:1;_position:relative;}
+.proList li{ display:block; height:120px; width:30%; overflow:hidden; float:left; margin-bottom:40px;border: 1px solid #eeeeee; margin-left: 21px }
+.proList li:nth-child(3n){ margin-right: 0}
+.proList li dt{ width:130px; float:left;margin: 4px;}
+.proList li dt image{ width:130px; height: 110px; }
+.proList li dd{ width:150px; float:right;}
+.proList li dd span{ width: 150px;}
+/*.proList li dd h5{ font-size:16px; height:26px; line-height:26px; overflow:hidden; margin-bottom:3px; color:#333}*/
+/*.proList li dd p{ height:40px; line-height:22px; overflow:hidden; color:#999;}*/
+/*.proList li dd a{ display:block; height:28px;  background:#f2f2f2; border-radius: 2px; display: inline-block; float: right; padding: 0 24px }*/
+
+/*产品简介*/
+.proList_cp{ *zoom:1;_position:relative;}
+.proList_cp li{ display:block; height:40px; width:178px; overflow:hidden; float:left;border: 1px solid #dadada;margin:0 0 20px 20px;
+    padding: 10px 19px 20px;}
+.proList_cpb{ *zoom:1;_position:relative;}
+.proList_cpb li{ display:block; height:40px; width:198px; overflow:hidden; float:left;border: 1px solid #dadada;margin:0 0 20px 20px;
+    padding: 10px 10px 20px 10px;}
+.font_size{
+    width: 180px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.proList_cp li:nth-child(3n){ margin-right: 0}
+.proList_cpb li:nth-child(3n){ margin-right: 0}
+.proList_cp li a{ font: 12px/26px Verdana,Geneva,sans-serif,"宋体"; display: inline-block;}
+.proList_cpb li a{ font: 12px/26px Verdana,Geneva,sans-serif,"宋体"; display: inline-block;display: block;width: 100%;height: 100%;line-height: 40px;}
+
+/*.proTable {height: 380px;overflow-y: auto;overflow-x: hidden;}*/
+.proTable table{ width: 100%; text-align: center;border-collapse: collapse;}
+.proTable table th{ background: #b40129; padding: 5px;color: #fff;  border-left:#fff 2px solid;}
+.proTable table th:nth-child(1){
+  border-left:#fff 0px solid;
+}
+/*table的tbody滚动条*/
+.proTable table {table-layout: fixed}
+/*.proTable table,thead,tbody{display: block;}*/
+/*.proTable table thead,tbody tr{display: table;width: 100%;table-layout: fixed;}*/
+/*.proTable table thead{width: calc(100% - 1em);}*/
+/*.proTable table tbody{height: 228px;overflow-y: auto;overflow-x: hidden}*/
+.proTable td{ padding: 5px }
+.proTable tr:nth-child(odd) td{ background: #f9f9f9}
+/* .proTable tr:hover td{ background: #f4f4f4} */
+.proTable td .doSome{ background: #b79c83; border-radius: 2px; padding: 0 8px; height:22px; line-height:22px; color: #fff; display: inline-block}
+
+/*---尾部------*/
+.ifm{ line-height:30px;background:#f2f2f2; padding:10px 0;}
+.ifm p a{ font-size:12px; padding:0 13px}
+.ifm dt{  float: left; padding-top: 5px}
+.ifm dd{  float: left; margin-left: 10px}
+.ewm{ float:right; text-align: center;}
+.ewm img{ display: block}
+.cRight{ text-align: center; border-top: 1px solid #dfdfdf}
+
+/*内页新闻*/
+.news li{ padding:20px; overflow:hidden; border-bottom:1px solid #eee; position: relative}
+/* .news li:nth-child(1){ margin-top: -20px;} */
+.news li .time{ line-height:34px; display:block; float:left;color:#35383f;  width: 72px;}
+.news li .time span{ font-size:30px; display: block; width: 72px;  text-align: center; height: 58px; line-height: 58px; border-radius: 2px 2px 0 0 }
+.news li .time em{ font-size:14px; color:#999; display:block; height: 24px; line-height: 24px; border-top: 2px solid #F5F5F5; text-align: center; font-style: normal; border-radius:0 0  2px 2px; }
+.news_txt{ float: left; padding-left: 88px; position: absolute; top:18px  }
+.news_txt h5{ height:34px; line-height:34px; overflow:hidden; font-size:16px}
+.news_txt p{ color:#7f7f7f}
+.news_txt p a{ display: block; height: 60px;
+    overflow: hidden;}
+.news li:hover a{ color:#b20024; }
+
+.lh28{ line-height:28px;}
+/*资讯详情页*/
+.news_title{ font-size:36px;  padding:0 20px; padding-top: 0; text-align:center; line-height:1.5em; border-bottom:1px solid #f3f3f3; margin-bottom:25px }
+.news_title div{ font-weight:normal; color:#888; font-size:18px;}
+.news_title div span{ margin:0 10px;}
+.news_title div em{ background:#f3f3f3; margin-left:15px; padding:5px 10px; cursor:pointer; font-style: normal}
+.news_title div em:hover{ color:#2d62b2; background:#e5ecf8}
+
+.sec_nav li{ height:35px; line-height:35px; border:1px solid #cfd3d6; margin-bottom:10px; background:#fff}
+.sec_nav li a{ display:block; padding:0 10px;}
+.sec_nav li a:hover,.sec_nav li a.on{ background:#0081d4; color:#fff; border:1px solid #0081d4}
+
+.page { margin:50px 0; text-align:center }
+.page a{ display:inline-block; background:#f2f2f2; height:30px; margin-left:10px; line-height:30px; padding:0 10px; font-size:14px; }
+.page a:hover,.page a.on{ background:#b20024; color:#fff}
+#content table{
+    border-collapse: collapse;
+}
+#content td{
+    border: 1px solid #000000;
+}</style>  <script src="/static/plugins/moment/2.29.4/moment.min.js"></script>
+  <style>
+    .layui-tab-brief>.layui-tab-title .layui-this {
+      color: #b40129;
+      font-weight: bold;
+    }
+    .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after {
+      border: none;
+      border-radius: 0;
+      border-bottom: 2px solid #b40129;
+    }
+    .titleflex{
+      display: flex;
+      align-items: center;
+    }
+    .titlew{
+      width: 100px;
+      text-align-last: justify;
+    color: #000000;
+    }
+    .sousuo-div div{
+      width: 120px;
+    height: 60px;
+    border-right: 2px solid #fff;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    }
+    .fenyetop{
+      display: flex;
+    justify-content: center;
+    margin: 16px 0 27px 0;
+    }
+    .fenyetop .el-pager li{
+      padding: 0;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
+    .fenyetop .el-pager li:hover{
+      color:#b20024
+    }
+    .fenyetop .el-pager li.active{
+      color: #ffffff;
+    cursor: default;
+    background: #b20024;
+    }
+    .fenyetop .btn-prev:hover{
+      color:#b20024
+
+    }
+    .fenyetop .btn-next:hover{
+      color:#b20024
+
+    }
+       [v-cloak]{
+      display: none;
+    }
+    .trcolor{
+      height: 60px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<div class="divnew">
+  <!------top-------->
+
+<!-- Element -->
+<link rel="stylesheet" href="/static/plugins/element-ui/2.8.2/index.css">
+<script src="/static/plugins/element-ui/2.8.2/index.js"></script>
+<style>
+    .new-top{
+        width: 1440px;
+        /* padding: 0 110px; */
+        margin: 0 auto;
+        height: 72px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+    }
+    .new-logo{
+        width: 151px;
+        height: 72px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 82px;
+    }
+    .new-home{
+        width: 850px;
+        height: 72px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        margin-left: 37px;
+    }
+    .new-scope{
+        width: 234px;
+        height: 72px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        margin-right: 86px;
+    }
+    #textgj{
+        border-radius: 20px;
+        height: 40px;
+        border: 0;
+        background-color: rgb(242 243 245);
+    }
+    .icon-fdj{
+        width: 60px;
+        height: 50px;
+        font-size: 35px;
+        line-height: 50px;
+        text-align: center;
+        font-weight: bold;
+        display: flex !important;
+        align-items: center;
+        justify-content: center
+    }
+    /* new-home */
+    .nav-aceNew {
+        position:relative;
+        width:100%;
+        margin:0 auto;
+        font-family:"Microsoft YaHei",SimSun,SimHei;
+        font-size:14px;
+    }
+    .nav-aceNew a {
+        color:#000000;
+    }
+    .nav-aceNew h3 {
+        font-size:100%;
+        font-weight:normal;
+    }
+    .nav-aceNew .m-ace {
+        float:left;
+        position:relative;
+        z-index:1;
+    }
+    .nav-aceNew h3 a {
+        font-size:16px;
+        display:block;
+        width:110px;
+        /* height: 50px; */
+        line-height: 24px;
+        text-align:center;
+    }
+    .nav-aceNew h3 a:hover {
+        font-weight:bold;
+    }
+    /* .on h3 a{
+        font-weight:bold;
+
+    } */
+    .nav-aceNew .sub-ace {
+        /* display: none;  */
+        position: absolute;
+        left: 0px;
+        top: 40px;
+        z-index: 1;
+        width: 208px;
+        border: 1px solid #E6E4E3;
+        border-top: 0;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.25);
+        padding:8px 0;
+    }
+    .nav-aceNew .sub-ace li {
+        /* text-align:center; */
+        padding:0 27px;
+        /* margin-bottom:-1px; */
+    }
+    .nav-aceNew .sub-ace li a {
+        display: block;
+        /* border-bottom: 1px solid #E6E4E3; */
+        padding: 11px 0;
+        /* height: 28px; */
+        line-height: 28px;
+        color: #000;
+        font-size: 16px;
+        /* font-weight: 600; */
+    }
+    .nav-aceNew .sub-ace li a:hover {
+        color:#b40129;
+        font-weight: 600;
+
+    }
+    .nav-aceNew .block-ace {
+        height:8px;
+        width:70px;
+        background:#b40129;
+        position:absolute;
+        left:0;
+        top:30px;
+        margin-left: 20px;
+        overflow:hidden;
+    }
+    .hong{
+        height:8px;
+        width:70px;
+        background:#b40129;
+        position:absolute;
+        left:0;
+        top:30px;
+        margin-left: 20px;
+        overflow:hidden;
+    }
+    .top-t{
+        width: 100%;
+        height: 34px;
+        background-color: #f2f2f2;
+    }
+    .top-or{
+        width: 1400px;
+        margin: 0 auto;
+        height: 34px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: rgba(83, 83, 83, 1);
+        line-height: 34px;
+    }
+    .top-or-left{
+        display: flex;
+        margin-left: 80px;
+    }
+    .top-or-left div {
+    margin: 0 15px 0 5px;
+    }
+    .top-or-right{
+        display: flex;
+        margin-right: 80px;
+    }
+    .top-or-right div {
+    margin: 0 5px 0 23px;
+    }
+</style>
+<div id="xinPinSuDi1">
+   <div class="top-t">
+    <div class="top-or">
+        <div class="top-or-left">
+            <div>简体中文</div>
+            <div><a :href="ahref">标准版</a>/<a :href="ahrefMax">关怀版</a></div>
+        </div>
+        <div class="top-or-right">
+            <div>本网站支持IPv6</div>
+            <div v-show="HideFunc('240')"><a href="/html/1//187/240/index.html">服务价目表</a></div>
+            <div v-show="HideFunc('158')"><a href="/html/1//186/158/index.html">联系我们</a></div>
+        </div>
+    </div>
+   </div>
+    <div class="new-top">
+        <div class="new-logo">    
+            <a href="/"><img src="/templets/1/default/images/logo429.png" width="151px" height="42px"></a>
+        </div>
+        <div class="new-home" @mouseleave="mouseleavefunc()">
+            <ul class="nav-aceNew clearfix-ace" >
+                <li class="m-ace" data-id="" @mouseenter="mouseenterfunc(0)">
+                    <h3><a class="a-ace" target="_self" href="/" :style="active == 0?'font-weight:bold':''">首页</a></h3>
+                    <div class="hong" v-if="active == 0"></div>
+                </li>
+                <li class="m-ace" data-id="186" @mouseenter="mouseenterfunc(1)" v-show="HideFunc('186')">
+                    <h3><a style="disabled:true; cursor:pointer;" class="a-ace"  target="_blank" rel="noopenner noreferrer"  :style="active == 1?'font-weight:bold':''">走进中银</a></h3>
+                    <div class="hong" v-if="active == 1"></div>
+                    <ul class="sub-ace" v-show="activeout == 1">
+                        <li><a class="a-ace"  href="/html/1//186/235/index.html"  title="股东简介">股东简介</a></li>
+                        <li><a class="a-ace"  href="/html/1//186/155/index.html"  title="公司简介">公司简介</a></li>
+                        <li><a class="a-ace"  href="/html/1//186/152/index.html"  title="资讯要闻">资讯要闻</a></li>
+                        <li><a class="a-ace"  href="/html/1//186/162/index.html"  title="采购公告">采购公告</a></li>
+                        <li><a class="a-ace"  href="/html/1//186/158/index.html"  title="联系我们">联系我们</a></li>
+                    </ul>
+                </li>
+                <li class="m-ace" data-id="151" @mouseenter="mouseenterfunc(2)" v-show="HideFunc('151')">
+                    <h3><a style="disabled:true; cursor:pointer;"  class="a-ace"  target="_blank" rel="noopenner noreferrer" :style="active == 2?'font-weight:bold':''">产品展示</a></h3>
+                    <div class="hong" v-if="active == 2"></div>
+                    <ul class="sub-ace" v-show="activeout == 2">
+                        <li v-if="242!=184"><a class="a-ace"  href="/html/1//151/242/index.html"  title="产品体系">产品体系</a></li>
+                        <li v-if="184!=184"><a class="a-ace"  href="/html/1//151/184/index.html"  title="新品速递">新品速递</a></li>
+                        <li v-if="183!=184"><a class="a-ace"  href="/html/1//151/183/index.html"  title="个人产品">个人产品</a></li>
+                        <li v-if="222!=184"><a class="a-ace"  href="/html/1//151/222/index.html"  title="机构产品">机构产品</a></li>
+                    </ul>
+                </li>
+                <li class="m-ace" data-id="198" @mouseenter="mouseenterfunc(3)" v-show="HideFunc('198')">
+                    <h3><a style="disabled:true; cursor:pointer;"  class="a-ace"  target="_blank" rel="noopenner noreferrer" :style="active == 3?'font-weight:bold':''">信息披露</a></h3>
+                    <div class="hong" v-if="active == 3"></div>
+                    <ul class="sub-ace" v-show="activeout == 3">
+                        <li><a class="a-ace"  href="/html/1//198/197/index.html"  title="产品公告">产品公告</a></li>
+                        <li><a class="a-ace"  href="/html/1//198/200/index.html"  title="产品说明书">产品说明书</a></li>
+                        <li><a class="a-ace"  href="/html/1//198/201/index.html"  title="产品净值表现">产品净值表现</a></li>
+                        <li><a class="a-ace"  href="/html/1//198/202/index.html"  title="产品定期运作报告">产品定期运作报告</a></li>
+                        <li><a class="a-ace"  href="/html/1//198/234/index.html"  title="其他公告">其他公告</a></li>
+                    </ul>
+                </li>
+                <li class="m-ace" data-id="187" @mouseenter="mouseenterfunc(4)" v-show="HideFunc('187')">
+                    <h3><a style="disabled:true; cursor:pointer;"  class="a-ace"  target="_blank" rel="noopenner noreferrer" :style="active == 4?'font-weight:bold':''">理财服务</a></h3>
+                    <div class="hong" v-if="active == 4"></div>
+                    <ul class="sub-ace" v-show="activeout == 4">
+                        <li><a class="a-ace"  href="/html/1//187/190/index.html"  title="理财必修课">理财必修课</a></li>
+                        <li><a class="a-ace"  href="/html/1//187/191/index.html"  title="销售人员公示">销售人员公示</a></li>
+                        <li><a class="a-ace"  href="/html/1//187/239/index.html"  title="投资人员公示">投资人员公示</a></li>
+                        <li><a class="a-ace"  href="/html/1//187/192/index.html"  title="销售渠道">销售渠道</a></li>
+                        <li><a class="a-ace"  href="/html/1//187/221/index.html"  title="投资者权益保护">投资者权益保护</a></li>
+                        <li><a class="a-ace"  href="/html/1//187/238/index.html"  title="理财产品托管机构">理财产品托管机构</a></li>
+                        <li><a class="a-ace"  href="/html/1//187/240/index.html"  title="服务价目表">服务价目表</a></li>
+                    </ul>
+                </li>
+                <li class="m-ace" data-id="237" v-show="HideFunc('237')" @mouseenter="mouseenterfunc(5)">
+                    <h3><a style=" cursor:pointer;"  class="a-ace"  href="/html/1//237/index.html" :style="active == 5?'font-weight:bold':''">市场研究</a></h3>
+                    <div class="hong" v-if="active == 5"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="new-scope">
+            <el-input id = "textgj" type="text" v-model="data" placeholder="请输入关键词" v-show="HideFunc('189')"></el-input>
+            <div @click="search" style="margin-left: 9px;display: flex;" v-show="HideFunc('189')">
+                <img src="/templets/1/default/images/search-H.png"/>
+            </div>
+        </div>
+    </div>
+    <div></div>
+</div>
+<script>
+    new Vue({
+        el:"#xinPinSuDi1",
+        data:{
+            urlPath : location.pathname,
+            noticeModel : "Content",
+            data: "",
+            scope: "all",
+            curCategory: "222",
+            open:[],
+            active:0,
+            activeout:0,
+            activehref:0,
+            ahref:'/',
+            ahrefMax:'/max/'
+        },
+        methods: {
+            init : function(){
+            },
+            search: function(){
+                    if(this.data === '' || this.data == null){
+                        return ;
+                    }
+                    var url = "/html/1/" + "/189/index.html?data=" + encodeURIComponent(this.data)+"&type="+this.scope;
+                    location.href=url;
+            },
+            gitopen(){
+                var that = this;
+                var url = "/webApi/cms/commonParam/getParamConfig";
+                ms.http.get(url,{}).then(function (res){
+                    console.log('res',res);
+                    if(res.data){
+                        that.open = res.data
+                    }
+                })
+            },
+            mouseenterfunc(idx){
+                this.active = idx
+                this.activeout = idx
+            },
+            mouseleavefunc(idx){
+                this.active = this.activehref
+                this.activeout = 0
+            },
+            HideFunc(id){
+                if(this.open.includes(id)){//包含
+                    return false
+                }else{
+                    return true
+                }
+            }
+        },
+    mounted : function () {
+        //点击头部导航栏栏位，跳转页面后红色提示框停留在该位置而非挪动首页
+        let href = window.location.href
+        if(href.includes('/186/')){
+            this.active= this.activehref = 1
+        }else if(href.includes('/151/')||href.includes('/3/')||href.includes('/4/')||href.includes('/5/')){
+            this.active= this.activehref = 2
+        }else if(href.includes('/198/')||href.includes('/netWorth/')){
+            this.active= this.activehref = 3
+        }else if(href.includes('/187/')){
+            this.active= this.activehref = 4
+        }else if(href.includes('/237/')){
+            this.active= this.activehref = 5
+        }else{//其他情况默认首页
+            this.active = this.activehref = 0
+        }
+        
+        const url = window.location.href
+        if(url.indexOf('/html/') !==-1){//有/html/
+            if(url.indexOf('/1/') !==-1){
+                this.ahrefMax = url.replace('/1/','/2/')
+            this.ahref = url
+            }
+            if(url.indexOf('/2/') !==-1){
+                this.ahrefMax = url
+                this.ahref =url.replace('/2/','/1/')
+            }
+        }else{
+            this.ahrefMax = '/max/'
+            this.ahref = '/'
+        }
+
+    },
+    created:function (){
+      this.gitopen()
+    }
+    })
+</script>  <div class="bghui">
+  <div class="location">
+    <div class="w1280">
+      您的位置：<a href="/"> 首页</a>
+      <span>&gt;</span>
+      <a href="/html/1//index.html" v-if="''!==''" class="investorRange" data-name=''>产品展示</a>
+      <span v-else>产品展示</span>
+      <span>&gt;</span>
+      <a href="/html/1//151/222/index.html" v-if="'/151/222'!==''" class="investorRange" data-name='/151/222'>机构产品</a>
+      <span v-else>机构产品</span>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el:".location"
+    })
+  </script>
+  <div class="layui-tab layui-tab-brief" id="selling" v-cloak style="margin:0">
+    <div class="layui-tab-content" style="padding:0">
+      <div class="layui-tab-item layui-show">
+        <div id="netWorth">
+          <div class="w1280">
+            <div class="min_h550">
+              <div class="proTable" >
+                <div class="sousuo" style="display: flex;justify-content: space-between;">
+                  <div class="sousuo-div" style="display: flex;">
+                    <div>筛选</div>
+                    <div @click="reset()">重置</div>
+                  </div>
+                  <div class="schBox" >
+                    <input  type="text" placeholder="请输入" v-model="netWorthSearch"><input type="button" @click="netWorthSearchClick">
+                  </div>
+                </div>
+                <div class="productSearchBox bgFff" >
+                  <div class="brand-attr titleflex c" style="margin-left: 24px;">
+                    <div class="titlew">产品形态：</div>
+                    <div name="all" class="fmt" @click="oneHandleTagClick('all','netWorth')"><span :class="netWorthOneClickId=='all'?'isActive':''">全部</span></div>
+                    <div name="1" class="fmt" @click="oneHandleTagClick('1','netWorth')" >
+                      <span :class="netWorthOneClickId=='1'?'isActive':''" v-if="'现金管理'=='现金管理'">每日开放（现金管理）</span>
+                      <span :class="netWorthOneClickId=='1'?'isActive':''" v-else>现金管理</span>
+                    </div>
+                    <div name="2" class="fmt" @click="oneHandleTagClick('2','netWorth')" >
+                      <span :class="netWorthOneClickId=='2'?'isActive':''" v-if="'每日开放'=='现金管理'">每日开放（现金管理）</span>
+                      <span :class="netWorthOneClickId=='2'?'isActive':''" v-else>每日开放</span>
+                    </div>
+                    <div name="3" class="fmt" @click="oneHandleTagClick('3','netWorth')" >
+                      <span :class="netWorthOneClickId=='3'?'isActive':''" v-if="'定期开放'=='现金管理'">每日开放（现金管理）</span>
+                      <span :class="netWorthOneClickId=='3'?'isActive':''" v-else>定期开放</span>
+                    </div>
+                    <div name="4" class="fmt" @click="oneHandleTagClick('4','netWorth')" >
+                      <span :class="netWorthOneClickId=='4'?'isActive':''" v-if="'封闭'=='现金管理'">每日开放（现金管理）</span>
+                      <span :class="netWorthOneClickId=='4'?'isActive':''" v-else>封闭</span>
+                    </div>
+                    <div name="5" class="fmt" @click="oneHandleTagClick('5','netWorth')" >
+                      <span :class="netWorthOneClickId=='5'?'isActive':''" v-if="'周期滚续'=='现金管理'">每日开放（现金管理）</span>
+                      <span :class="netWorthOneClickId=='5'?'isActive':''" v-else>周期滚续</span>
+                    </div>
+                    <div name="6" class="fmt" @click="oneHandleTagClick('6','netWorth')" >
+                      <span :class="netWorthOneClickId=='6'?'isActive':''" v-if="'最短持有期'=='现金管理'">每日开放（现金管理）</span>
+                      <span :class="netWorthOneClickId=='6'?'isActive':''" v-else>最短持有期</span>
+                    </div>
+                  </div>
+                  <div class="brand-attr titleflex c" style="margin-left: 24px;">
+                    <div class="titlew">产品期限：</div>
+                    <div class="fmt" v-for="(item,index) in limitTag" @click="limitHandleTagClick(item,'netWorth')" ><span :class="netWorthLimitClickId==item?'isActive':''">{{item}}</span></div>
+                  </div>
+                  <div class="brand-attr titleflex c" style="margin-left: 24px;">
+                    <div class="titlew">风险等级：</div>
+                    <div class="fmt" v-for="(item,index) in riskTag" @click="riskHandleTagClick(item,'netWorth')"><span :class="netWorthRiskClickId==item?'isActive':''">{{item}}</span></div>
+                  </div>
+                  <div class="brand-attr titleflex c" style="margin-left: 24px;">
+                    <div class="titlew">币&emsp;&emsp;种：</div>
+                    <div class="fmt" v-for="(item,index) in currencyTag" @click="currencyHandleTagClick(item,'netWorth')"><span :class="netWorthCurrencyClickId==item?'isActive':''">{{item}}</span></div>
+                  </div>
+                  <div class="brand-attr titleflex c" style="margin-left: 24px;">
+                    <div class="titlew">产品投资性质：</div>
+                    <div class="fmt" v-for="(item,index) in cptzxz" @click="cptzxzClick(item,'netWorth')"><span :class="chanpintouzixingzhi==item?'isActive':''">{{item}}</span></div>
+                  </div>
+                  <div class="brand-attr titleflex c" style="margin-left: 24px;">
+                    <div class="titlew">产品状态：</div>
+                    <div class="fmt" v-for="(item,index) in cpzt" @click="cpztClick(item,'netWorth')"><span :class="chanpinzhuangtai==item?'isActive':''">{{item}}</span></div>
+                  </div>
+                </div>
+                <table>
+                  <thead>
+                  <tr style="height: 60px;font-size: 16px;font-weight: 600;">
+                    <th style="width: 256px;">产品代码</th>
+                    <th style="width: 334px">产品名称</th>
+                    <th>起售金额(元)</th>
+                    <th>单位净值</th>
+                    <th>累计净值</th>
+<!--                    <th style="width: 50px">近一月涨跌幅</th>-->
+<!--                    <th style="width: 50px;">近一年涨跌幅</th>-->
+<!--                    <th style="width: 60px">成立以来涨跌幅</th>-->
+                    <th>净值日期</th>
+                    <th>风险等级</th>
+<!--                    <th>购买链接</th>-->
+<!--                    <th>销售方</th>-->
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="(item,index) in datalist" class="trcolor" @mouseenter="tbodyActiveFunc(index)" @mouseleave="tbodyActiveFunc1()" :key="index">
+                    <td class="ellipsis"  :title="item.productCode">
+                      <a :style="tbodyActive==index?'color:#b20024':''" :href="'/html/1/'+item.productDetailUrl" >{{item.productCode}}</a>
+                    </td>
+                    <td class="ellipsis"  :title="item.productName">
+                      <a :style="tbodyActive==index?'color:#b20024':''" :href="'/html/1/'+item.productDetailUrl" >{{item.productName}}</a>
+                    </td>
+                    <td :style="tbodyActive==index?'color:#b20024':''" >{{item.startsPrice}}</td>
+                    <td :style="tbodyActive==index?'color:#b20024':''" >{{item.shareNetWorth}}</td>
+                    <td :style="tbodyActive==index?'color:#b20024':''" >{{item.cumulativeNetWorth}}</td>
+                    <td :style="tbodyActive==index?'color:#b20024':''">{{item.releaseDate}}</td>
+                    <td :style="tbodyActive==index?'color:#b20024':''" >{{item.riskLevel}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="c"></div>
+            </div>
+            
+            <div class="fenyetop">
+              <el-pagination
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :current-page.sync="pageNo"
+              :page-size="10"
+              layout="total,prev, pager, next, jumper"
+              :total="total">
+              </el-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Element -->
+<link rel="stylesheet" href="/static/plugins/element-ui/2.8.2/index.css">
+<script src="/static/plugins/element-ui/2.8.2/index.js"></script>
+<style>
+    .topred{
+        width: 100%;
+        height: 8px;
+        background-color: #b40129;
+    }
+    .back{
+        width: 100%;
+        background-color: #000;
+    }
+    .new-footerA{
+        width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 60px 0;
+    }
+    .foot-logo{
+        width: 210px;
+        /* height: 100px; */
+        /* background-color: #fff; */
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+    }
+    .foot-home{
+        width: calc(100% - 430px);
+        /* height: 300px; */
+        /* background-color: #fff; */
+        display: flex;
+        font-size: 18px;
+    }
+    .foot-ewm{
+        width: 220px;
+        /* height: 100px; */
+        /* background-color: #fff; */
+        /* display: flex; */
+    }
+    .footer-T{
+        width: 20%;
+        margin-left: 5%;
+    }
+    .footer-T1{
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color:#fff;
+    }
+    .footer-T div{
+        line-height: 40px;
+    }
+    
+    .footer-T div a{
+        color: #c5c5c5;
+        font-size: 16px;
+    }
+    .footer-T div a:hover{
+        color: #fff;
+    }
+    .newewm{
+        display: flex;
+        justify-content: space-between;
+    }
+    .ewm1{
+        text-align: center;
+        color: #fff;
+    }
+    .ft-fjx{
+        width: 1280px;
+        margin: 0 auto;
+        height: 1px;
+        background-color: #fff;
+    }
+    .new-footerB{
+        width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0 50px 0;
+        color: #fff;
+        line-height: 50px;
+    }
+    .foot-L{}
+    .foot-L div a{
+        color: #fff;
+    }
+    .foot-L div a:hover{
+        color: #fff;
+    }
+    .foot-M{
+        
+    }
+    .foot-M div a{
+        color: #fff;
+    }
+    .foot-L div a:hover{
+        color: #fff;
+    }
+    .foot-R{
+        
+    }
+    .foot-R a{
+        color: #fff;
+    }
+    .foot-R span{
+        margin: 0 15px;
+    }
+</style>
+<div>
+    <div class="topred"></div>
+    <div class="back" id="newfooter">
+        <div class="new-footerA">
+            <div class="foot-logo">    
+                <a href="/"><img src="/templets/1/default/images/red-logo.png" width="152px" height="41px"></a>
+            </div>
+            <div class="foot-home" >
+                <div class="footer-T" v-show="HideFunc('186')" >
+                    <div class="footer-T1">关于我们</div>
+                    <div><a href="/html/1//186/155/index.html" v-show="HideFunc('155')"> 公司简介</a></div>
+                    <div><a href="/html/1//186/152/index.html" v-show="HideFunc('152')"> 资讯要闻</a></div>
+                    <div><a href="/html/1//186/158/index.html" v-show="HideFunc('158')"> 联系我们</a></div>
+                </div>
+                <div class="footer-T" v-show="HideFunc('151')">
+                    <div class="footer-T1">产品展示</div>
+                    <div v-if="242!=184"><a href="/html/1//151/242/index.html"> 产品体系</a></div>
+                    <div v-if="184!=184"><a href="/html/1//151/184/index.html"> 新品速递</a></div>
+                    <div v-if="183!=184"><a href="/html/1//151/183/index.html"> 个人产品</a></div>
+                    <div v-if="222!=184"><a href="/html/1//151/222/index.html"> 机构产品</a></div>
+                </div>
+                <div class="footer-T" v-show="HideFunc('198')">
+                    <div class="footer-T1">信息披露</div>
+                    <div><a href="/html/1//198/197/index.html" v-show="HideFunc('197')"> 产品公告</a></div>
+                    <div><a href="/html/1//198/200/index.html" v-show="HideFunc('200')"> 产品说明书</a></div>
+                    <div><a href="/html/1//198/201/index.html" v-show="HideFunc('201')"> 产品净值表现</a></div>
+                </div>
+                <div class="footer-T" v-show="HideFunc('187')">
+                    <div class="footer-T1">理财服务</div>
+                    <div><a href="/html/1//187/190/index.html" v-show="HideFunc('190')"> 理财必修课</a></div>
+                    <div><a href="/html/1//187/191/index.html" v-show="HideFunc('191')"> 销售人员公示</a></div>
+                    <div><a href="/html/1//187/239/index.html" v-show="HideFunc('239')"> 投资人员公示</a></div>
+                </div>
+            </div>
+            <div class="foot-ewm">
+                <div class="footer-T1">关注我们</div>
+                <div class="newewm">
+                    <div class="ewm1">
+                        <img src="/templets/1/default/images/ewm.png" width="100" height="100">
+                        <div class="f12">微信公众号</div>
+                    </div>
+                    <div class="ewm1">
+                        <img src="/templets/1/default/images/shipinhao.png" width="100" height="100">
+                        <div class="f12">微信视频号</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ft-fjx"></div>
+        <div class="new-footerB">
+            <div class="foot-L">
+                <div v-show="HideFunc('232')"><a href="/upload/1/cms/content/17781337593006245.pdf" target="_blank" rel="noopenner noreferrer">中银理财客户投诉渠道与投诉处理流程</a></div>
+                <div>服务热线：95566-8（大陆地区）；+86(区号)95566-8 （海外及港澳台地区）</div>
+            </div>
+            <div class="foot-M">
+                <div>
+                    <a target="_blank" rel="noopenner noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202010068">
+                        <img src="/templets/1/default/images/beiantubiao.png" style="margin-top: -3px;">
+                        京公网安备 11010202010068号
+                    </a>
+                    <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopenner noreferrer">| 京ICP备2021030744号-1</a> 
+                </div>
+                <div>版权信息</div>
+            </div>
+            <div class="foot-R">
+                <div>&nbsp</div>
+                <div><a href="/html/1//195/index.html" v-show="HideFunc('195')">版权声明</a> <span v-show="HideFunc('195')">|</span> <a href="/html/1//196/index.html" v-show="HideFunc('196')">使用条款</a> <span v-show="HideFunc('196')">|</span> <a href="/html/1//186/158/index.html" v-show="HideFunc('158')">联系我们</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   new Vue({
+        el:"#newfooter",
+        data:{
+            open:[],
+        },
+        methods: {
+            gitopen(){
+                var that = this;
+                var url = "/webApi/cms/commonParam/getParamConfig";
+                ms.http.get(url,{}).then(function (res){
+                    console.log('res',res);
+                    if(res.data){
+                        that.open = res.data
+                    }
+                })
+            },
+            HideFunc(id){
+                if(this.open.includes(id)){//包含
+                    return false
+                }else{
+                    return true
+                }
+            }
+        },
+        
+    created:function (){
+      this.gitopen()
+    }
+    })
+</script></div>
+
+<script>
+  var selling = new Vue({
+    el:"#selling",
+    data:{
+      netWorthOneClickId : 'all',//产品类型
+      netWorthTwoClickId : 'all',
+      netWorthLimitClickId : '全部',//产品期限
+      netWorthRiskClickId : '全部',//风险等级
+      netWorthCurrencyClickId: '全部',//币种
+      chanpintouzixingzhi:'不限',//产品投资性质
+      chanpinzhuangtai:'全部',//产品状态
+      xianJinOneClickId : 'all',
+      xianJinTwoClickId : 'all',
+      xianJinLimitClickId : '全部',
+      xianJinRiskClickId : '全部',
+      xianJinCurrencyClickId: '全部',
+      limitTag : ['全部','3个月及以内','3-6个月（含6个月）','6-12个月（含12个月）','一年以上'],//产品期限
+      riskTag : ['全部','R1低风险','R2中低风险','R3中风险','R4中高风险','R5高风险'],//风险等级
+      currencyTag : ['全部','人民币元','美元','英镑','港币','加拿大元','澳元','欧元','日元'],//币种
+      cptzxz:['不限','固定收益类','权益类','商品及金融衍生品类','混合类'],//产品投资性质
+      cpzt:['全部','在售产品','存续产品',],//产品状态
+      search : "",
+      netWorthSearch : "",
+      xianJinSearch : "",
+      datalist:[],//列表数据
+      pageNo:1,
+      total:0,
+      tbodyActive:-1
+    },
+    methods:{
+      tbodyActiveFunc:function(idx){
+        console.log('idx',idx);
+        this.tbodyActive = idx
+      },
+      tbodyActiveFunc1:function(){
+        this.tbodyActive = -1
+      },
+      oneHandleTagClick : function (id,tag) {
+          this.netWorthOneClickId = id;
+          this.netWorthTwoClickId = 'all';
+        
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      },
+      limitHandleTagClick : function (val,tag) {
+          this.netWorthLimitClickId = val;
+        
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      },
+      riskHandleTagClick : function (val,tag) {
+          this.netWorthRiskClickId = val;
+        
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      },
+      currencyHandleTagClick: function(val,tag){
+          this.netWorthCurrencyClickId = val;
+        
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      },
+      cptzxzClick: function(val,tag){
+          this.chanpintouzixingzhi = val;
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      },
+      cpztClick: function(val,tag){
+          this.chanpinzhuangtai = val;
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      },
+      reset: function(){
+      this.netWorthOneClickId='all'//产品类型
+      this.netWorthLimitClickId='全部'//产品期限
+      this.netWorthRiskClickId='全部'//风险等级
+      this.netWorthCurrencyClickId='全部'//币种
+      this.chanpintouzixingzhi='不限'//产品投资性质
+      this.chanpinzhuangtai='全部'//产品状态
+      this.netWorthSearch = ''//搜索框
+          this.pageNo = 1//每次切换从第一页开始
+      this.getList();
+      },
+      netWorthSearchClick : function(){
+          this.pageNo = 1//每次切换从第一页开始
+        this.getList();
+      }, 
+      handleSizeChange:function(){
+
+      },
+      handleCurrentChange:function(val){
+        console.log('val',val);
+        console.log('val',this.total);
+        this.pageNo = val
+        this.getList()
+      },
+      getList: function(){
+        console.log('/html/1/');
+        //产品分类处理
+        let path = $('.investorRange').data('name')
+        let is183 = path.includes('183')
+        let is222 = path.includes('222')
+        let fenlei = ''
+        if(is183){
+          fenlei = '个人'
+        }else{
+          if(is222){
+          fenlei = '机构'
+          }
+        }
+        console.log('this.chanpinzhuangtai',this.chanpinzhuangtai);
+        //产品状态处理
+        let newcpzt=[]
+        switch (this.chanpinzhuangtai) {
+          case '全部':
+            newcpzt = []
+            break;
+          case '在售产品':
+            newcpzt = [3,4]
+            break;
+          case '存续产品':
+            newcpzt = [5]
+            break;
+        
+          default:
+            break;
+        }
+        console.log('666',$('.investorRange').data());
+        console.log('is183',is183);
+        console.log('isss6',is222);
+        var that = this;
+                var url = "/webApi/cms/product/queryStaticProducts";
+                var data = {
+                  style:that.netWorthOneClickId == 'all'?'':that.netWorthOneClickId,//产品形态
+                  timeLimit:that.netWorthLimitClickId == '全部'?'':that.netWorthLimitClickId,//产品期限
+                  riskLevel:that.netWorthRiskClickId=='全部'?'':that.netWorthRiskClickId,//风险等级
+                  currency:that.netWorthCurrencyClickId=='全部'?'':that.netWorthCurrencyClickId,//币种
+                  productTypeName:that.chanpintouzixingzhi=='不限'?'':that.chanpintouzixingzhi,//产品投资性质
+                  productClass:newcpzt,//产品状态
+                  investorRange:fenlei,//产品分类
+                  productKeyword:that.netWorthSearch,//产品名称
+                  pageNo:that.pageNo,
+                  pageSize:10,
+                }
+                var t = JSON.stringify(data)
+                console.log('res',t);
+
+                ms.http.post(url,t,{
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN' : 'csrfToken'
+                            }
+                }).then(function (res){
+                    console.log('res',res);
+                    that.datalist = res.data.rows
+                    that.total = res.data.total
+                    console.log('that.total',that.total);
+                })
+      },
+    },
+    mounted : function () {
+      this.getList()
+    },
+  })
+
+</script>
+</body>
+</html>

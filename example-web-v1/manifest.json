@@ -1,0 +1,83 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:12.330Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "example-web-v1",
+ "sourceId": "example",
+ "parserVersion": "example-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": false,
+  "evaluate": false,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 0,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2797,
+   "sha256": "3d76b29a7894affdba9525ba1bdfe7b5295628a6c072b4f42440b2ec14faf1a5"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 478,
+   "sha256": "06ed39e70a27c1d510bb2954fd526e9945b4cc1787230df530151c4174d61730"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 832,
+   "sha256": "4346f815950e60721aea318b1a0eaa5c067a25bfda3c86950939a3ed0603bc63"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-example-web-v1.yml",
+   "bytes": 9187,
+   "sha256": "cd64a7e4b082bc1672ef238e552b2476f354d4196c05e9ec397a966b900bee84"
+  }
+ ]
+}

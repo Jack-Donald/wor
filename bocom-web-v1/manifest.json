@@ -1,0 +1,128 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:11.909Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "bocom-web-v1",
+ "sourceId": "bocom",
+ "parserVersion": "bocom-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": true,
+  "evaluate": true,
+  "repair": true,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 9,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2764,
+   "sha256": "ce99c145399556bf6eaa7ec642c3a59414c276092f7f7fe8ea8240127dadf917"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 924516,
+   "sha256": "39a28ac64db4f57baa3c581d2cc6c16e0e3084412c0f3e66d2f58c0369991da2"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 851,
+   "sha256": "f82eed949b0a1bc0ecb3c169eb3df1186d55d3f27576068abafcbf9f80bab52b"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 3775,
+   "sha256": "bbbcb666fb2d95b8fa73d1f0f3e87542eb8f309a25e78856229c207a59c336ca"
+  },
+  {
+   "path": "fixtures/modified/catalog-list-rename.json",
+   "bytes": 3338,
+   "sha256": "9a485025f84088bd3c200fd418b7aabc07d1e9fbdd1cc876a91a75c44d29bcad"
+  },
+  {
+   "path": "fixtures/modified/catalog-list-usd-only.json",
+   "bytes": 1255,
+   "sha256": "75550d7344cdeb715792546dedbde6ef4159bb0439924820b5a19f630f326db2"
+  },
+  {
+   "path": "fixtures/modified/detail-foreign-share.json",
+   "bytes": 2385,
+   "sha256": "176351c0030e96761c7515ae1ddff8ce5c2b32fefafe6d909069e0eaa5e29641"
+  },
+  {
+   "path": "fixtures/real/5811225439-detail.json",
+   "bytes": 2385,
+   "sha256": "e02939f231f1787ea11a653298c37eb9b0789f95c1546250e83457b0deb21939"
+  },
+  {
+   "path": "fixtures/real/5811225439-nav.json",
+   "bytes": 2932,
+   "sha256": "4e9e2e37d5c6590e3541d7815ca69f1c397db1930ad34cf1e914357d57357510"
+  },
+  {
+   "path": "fixtures/real/catalog-count.json",
+   "bytes": 213,
+   "sha256": "00ae740a88c3bf32688d246bdfba685d0cbdaa7047a18a4911ab9930bd0fbdba"
+  },
+  {
+   "path": "fixtures/real/catalog-list-page1.json",
+   "bytes": 3320,
+   "sha256": "28ca550ee8066765484936364e7f2de86810afac925f2e891e07b47c7d04b9bf"
+  },
+  {
+   "path": "fixtures/real/catalog-list-page2.json",
+   "bytes": 234,
+   "sha256": "5507188310d39af8be4ddbcd82ec669a402f7a86bddccf926b96f2cc28494f3d"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-bocom-web-v1.yml",
+   "bytes": 10125,
+   "sha256": "8ef63ff8981cb98a94c2a25a5c817fb6f8467f98a5b1b56f58701e23142a7266"
+  }
+ ]
+}

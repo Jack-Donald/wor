@@ -1,0 +1,8 @@
+[
+    {"reportId":"00001","prodRegCode":"Z7003925000217","prodType":"03","subShareCode":"25012109B","netValueDate":"2026-10-29","shareNetVal":"","acumltNetVal":"","astNetVal":"","yieldSevenDate":"0.9953","netRevPer10000":"0.2464","currency":"CNY","priceBuy":"","priceRedeem":""},
+    {"reportId":"00002","prodRegCode":"Z7003925000217","prodType":"03","subShareCode":"25012109B","netValueDate":"2026-10-28","shareNetVal":"","acumltNetVal":"","astNetVal":"","yieldSevenDate":"1.0298","netRevPer10000":"0.3101","currency":"CNY","priceBuy":"","priceRedeem":""},
+    {"reportId":"00003","prodRegCode":"Z7003925000217","prodType":"03","subShareCode":"25012109B","netValueDate":"2026-10-27","shareNetVal":"","acumltNetVal":"","astNetVal":"","yieldSevenDate":"0.9975","netRevPer10000":"0.2467","currency":"CNY","priceBuy":"","priceRedeem":""},
+    {"reportId":"00094","prodRegCode":"Z7003925000217","prodType":"03","subShareCode":"25012109B","netValueDate":"2026-07-28","shareNetVal":"1","acumltNetVal":"1","astNetVal":"","yieldSevenDate":"1.1384","netRevPer10000":"0.3080","currency":"CNY","priceBuy":"","priceRedeem":""},
+    {"reportId":"00095","prodRegCode":"Z7003925000217","prodType":"03","subShareCode":"25012109B","netValueDate":"2026-07-27","shareNetVal":"1","acumltNetVal":"1","astNetVal":"","yieldSevenDate":"1.1388","netRevPer10000":"0.3089","currency":"CNY","priceBuy":"","priceRedeem":""},
+    {"reportId":"00096","prodRegCode":"Z7003925000217","prodType":"03","subShareCode":"25012109B","netValueDate":"2026-07-26","shareNetVal":"1","acumltNetVal":"1","astNetVal":"","yieldSevenDate":"1.1359","netRevPer10000":"0.3104","currency":"CNY","priceBuy":"","priceRedeem":""}
+]

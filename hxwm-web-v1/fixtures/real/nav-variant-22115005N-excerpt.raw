@@ -1,0 +1,25 @@
+var jzbg_data={
+    "name": "华夏理财固收纯债最短持有30天A款N",
+    "title": [
+            "净值日期",
+            "单位净值",
+            "累计单位净值",
+            "资产净值"
+    ],
+	"data": [{
+  "JingZhiRiQi" : "2026-07-13",
+  "DanWeiJingZhi" : "1.06957505",
+  "ZiChanJingZhi" : "-",
+  "LeiJiDanWeiJingZhi" : "1.06957505"
+},{
+  "JingZhiRiQi" : "2026-07-10",
+  "DanWeiJingZhi" : "1.0695",
+  "ZiChanJingZhi" : "-",
+  "LeiJiDanWeiJingZhi" : "1.0695"
+},{
+  "JingZhiRiQi" : "2026-07-09",
+  "DanWeiJingZhi" : "1.0694",
+  "ZiChanJingZhi" : "-",
+  "LeiJiDanWeiJingZhi" : "1.0694"
+} ]
+}

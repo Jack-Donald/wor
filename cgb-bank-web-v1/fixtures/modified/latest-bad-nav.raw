@@ -1,0 +1,858 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+		
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<title>银行理财 - 财经频道 - 广发银行</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<meta name="keywords" content="财经,广发财经"/>
+<meta name="description" content="广发财经频道业务服务范围：外汇,黄金,基金,债券等最新资讯!" />
+<link rel="stylesheet" type="text/css" href="/static/CN2/css/financing-public.css" />
+<link rel="stylesheet" type="text/css" href="/static/CN2/css/financing-common.css" />
+<link rel="stylesheet" type="text/css" href="/static/CN2/css/financing-tongyong.css" />
+<link rel="stylesheet" type="text/css" href="/static/CN2/css/mycss.css" />
+<script type="text/javascript" src="/static/CN2/js/public.js"></script>
+<script type="text/javascript" src="/static/CN2/js/jquery_gf.js"></script>
+<script type="text/javascript" src="/static/CN2/js/scroll_finances.js"></script>
+<script type="text/javascript" src="/static/CN2/js/lx.js"></script>
+<!--[if IE 6]>
+	<script type="text/javascript" src="/static/CN2/js/DD_belatedPNG.js" ></script>
+	
+	<script type="text/javascript">
+	DD_belatedPNG.fix('.num li,.num li.on');
+	</script>
+	<![endif]-->
+<script type="text/javascript">
+	$(function(){
+		$('#all h2 span').mouseover(function(){
+			$(this).addClass('current').siblings().removeClass();
+			$('.box div').eq($(this).index()).addClass('current').siblings().removeClass();
+		})
+	})
+</script>
+
+</head>
+<body>
+	<!-- 头部导航开始-->
+	<div class="header">
+		
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+		
+	
+
+	
+
+	
+
+
+
+
+
+
+<!-- td埋点 -->
+<script>
+// 此段代码的作用是将SDK主文件未加载完成时，业务代码中调用的API依次进行放到数组q中缓存，等待SDK主文件加载完成后，再取出，并执行
+(function(win, export_obj) {
+    win['LogAnalyticsObject'] = export_obj;
+    if (!win[export_obj]) {
+        var _collect = function() {
+            _collect.q.push(arguments);
+        }
+        _collect.q = _collect.q || [];
+        win[export_obj] = _collect;
+    }
+    win[export_obj].l = +new Date();
+})(window, 'collectEvent');
+</script>
+<script type="text/javascript" src="/static/CN2/js/td5.0/collect-privity-v5.2.5.js"></script>
+<script>
+//初始化
+window.collectEvent('init', {
+    app_id:10000035,                       //门户转有
+    channel_domain: 'https://cbae.cgbchina.com.cn:30000',
+    disable_sdk_monitor:true,
+    log:true,
+    enable_anonyousid:true,
+    enable_logsetting:true,    //开启云控
+    //enable_debug:true     //开启debug
+    configPersist:1,       //设置config参数是否需要持久化存储 0：不需要；1：session会话级存储；2：localstorage持久化存储
+    disable_auto_pv: true, //predefine_pageview（预置事件-页面访问）true为关闭,false为开启,5.2.2版本的js不需要设置这个开关
+    enable_stay_duration:true,    //开启停留时长
+    auto_report:{
+        appLaunch:true,
+        appTerminate:true,
+        appError:true,
+        pageShow:true,
+        pageHide:true,
+        pageShare:true,
+        pageFavorite:true,
+        click:false
+    }
+
+});
+
+window.collectEvent('start'); //通知SDK设置完毕，可以真正开始发送事件了
+window['TDAPP'] = {};
+window['TDAPP'].onEvent = function(eventId,label,mkv){
+    if (label == null) {
+        if (mkv == null) {
+            window.collectEvent(eventId);
+        } else {
+            window.collectEvent(eventId,mkv);
+        }
+    } else {
+        if (mkv == null) {
+            mkv = {};
+            mkv.label = label;
+            window.collectEvent(eventId, mkv);
+        } else {
+            mkv.label = label;
+            window.collectEvent(eventId, mkv);
+        }
+    }
+}
+</script>
+
+<script type="text/javascript">
+    var urlLink = location.href;
+    	urlLink = urlLink.split("?")[0]; //去除参数条件
+    var noHostUrl = urlLink.replace(/^http:\/\/[^/]+/, "").replace("/","");  //去掉域名的url
+    	noHostUrl = noHostUrl.replace(".","_");
+    	noHostUrl = noHostUrl.replace(/[\/]/g,"_");  //将url里所有'/'字符换成'_'
+    var URL_ = "",urlLen = 0;
+    for(var i=0; i<noHostUrl.length; i++){
+		if((noHostUrl.charCodeAt(i) & 0xff00) !=0){ urlLen ++; }
+		urlLen++;
+    }
+    if(urlLen>30){
+    	noHostUrl = noHostUrl.substring(noHostUrl.length-30,noHostUrl.length);
+    }
+    URL_ = location.host.substr(0,1) + "_" + noHostUrl;
+    try{
+       if(TDAPP){
+           if(TDAPP!=null && TDAPP!=''){
+              TDAPP.onEvent("GWSPCHREFURL", "",{"url_link": urlLink, "url_event":URL_});
+           }
+       }
+    }catch(e){
+       
+    }
+</script>
+
+
+
+ 
+
+ 
+
+ 
+
+<script type="text/javascript" src="/static/CN/js/lcdh.js"></script>
+<title>银行理财 - 财经频道 - 广发银行</title>
+<!-- 顶部链接导航条 -->
+<link rel="stylesheet" href="/static/pchome/css/head_all.css">
+<link rel="stylesheet" href="/static/CN2/css/barrier.css" class="barrier_style">
+<link rel="stylesheet" href="/static/CN2/css/white_init.css" class="selection_style">
+<div class="top-bar">
+  <div class="inner">
+    <div class="top-bar_left fl">
+      
+        
+          <a href="http://www.chinalife.com.cn" target="_blank">中国人寿保险集团</a>
+        
+      
+        
+          <a href="http://www.cgbchina.com.cn/Channel/11830638" target="_blank">银行机构查询</a>
+        
+      
+        
+          <a href="/Channel/11581868" target="_blank">人才招聘</a>
+        
+      
+        
+          <a href="/Channel/11581705" target="_blank">联系我们</a>
+        
+      
+        
+          <div class="linkbox">
+            <span>帮助中心</span>
+            <ul class="link_list">
+                <li class="link_item"><a target="_blank" href="https://inss.cgbchina.com.cn/inss/customerService/index.html?shoppe=P&channel=gw&isRealName=0"><i></i>个人业务</a></li>
+                <li class="link_item"><a target="_blank" href="https://inss.cgbchina.com.cn/inss/customerService/index.html?shoppe=C&channel=gw&isRealName=0"><i></i>信用卡业务</a></li>
+                <li class="link_item"><a target="_blank" href="https://inss.cgbchina.com.cn/inss/customerService/index.html?shoppe=D&channel=gw&isRealName=0"><i></i>对公业务</a></li>
+            </ul>
+          </div>
+        
+      
+    </div>
+    <a href="javascript:;" class="free_entrance fl" title="开启无障碍服务(Shift + O)">无障碍辅助浏览</a>
+<div class="top-bar_right fr clearfix">
+  <div class="fl">本网站支持IPv6</div>
+  <div class="languages fr">
+    <span class="jian active"><a>简</a></span>
+    <span class="fan"><a>繁</a></span>
+    <span class="ying"><a href="/Site/Home/EN" target="_blank">EN</a></span>
+  </div>
+</div>
+</div>
+</div>
+<!-- 头部 -->
+<div id="header">
+<div class="inner">
+<h1 class="fl">
+ <a href="http://www.cgbchina.com.cn" title="广发银行" target="_blank">
+   <img src="/static/pchome/svg/LOGO_CGB.png" alt="广发银行logo">
+ </a>
+</h1>
+<div class="tel-search fr">
+ <div class="tel fl">
+        <span><i>24小时客服热线</i> <u>400-830-8003</u></span>
+        <span><i>信用卡专线</i> <u>95508</u></span>
+ </div>
+ <div class="search_wrapper fr">
+   <form id="search_form" name="searchForm" method="post" action="/fullSearch.go" target="_blank">
+	 <input type="hidden" name="currentPage" value="1">
+	 <input type="hidden" name="dispatchURL" value="/jsp/include/CN2/common/search.jsp">
+	 <input type="hidden" name="cstype" value="stdinfo,activity,stdinfowithlink,cardinfotype,activity,stdnews,gdbmerchant">
+          <input class="serch_text" id="serch_text" type="text" value="站内搜索"  name="searchValue" autocomplete="off" maxlength="15">
+          <input name="search" class="search_btn" onclick="formSubmit();" type="button">
+   </form>
+   <ul class="search_history" id="search_history">
+   </ul>
+ </div>
+</div>
+</div>
+</div>
+<!-- 导航栏 -->
+			<div class="nav" >
+			<div class="navigation_width inner">
+				<ul class="nav_list">
+				<!-- 
+					path =TWOCHANNEL写成公共
+					SECONDCHANNELNAME+i
+					
+				 -->
+				   
+						
+							<li class="nav_item fl "   id="mynav0">
+								<span><a href="http://www.cgbchina.com.cn/Channel/16683838?nav=2" style="font-size:16px!important">理财首页</a></span>
+							</li>
+						
+				   			
+					
+					
+						
+					<li  class="nav_item fl active" id="mynav1">
+							<span><a href="/Channel/16683838" style="font-size:16px!important">银行理财</a></span>
+					</li>
+					
+					
+					
+					
+					
+					<li class="nav_item fl" id="mynav2">
+							<span><a href="http://www.cgbchina.com.cn/Channel/13260778" style="font-size:16px!important">理财公告</a></span>
+					</li>
+					
+					
+				</ul>
+				<div class="home_back" style="top: 4px;font-size: 16px;"><a href="http://www.cgbchina.com.cn">返回首页</a></div>
+			</div>
+		</div>
+		
+<script src="/static/CN2/js/jquery_gf.js"></script>
+<script src="/static/CN/js/gb2big_5.js"></script>
+<script src="/static/CN2/js/common_pcnew.js"></script>
+<script src="/static/CN2/js/barrier.js"></script>
+<script language="javascript" type="text/javascript">
+  // 一键黑白
+  var grayFlag = 0;
+  if (+grayFlag === 1){
+    $('html').addClass('__gray');
+    if (isIE > -1 ){
+      $('head').append('<style>ul,li,ol,img,div,h1,h2,h3,h4,h5,h6,select,form,textarea,p,input,option,button,span,a,i,u,b,a:hover,li:hover,i:hover,u:hover,b:hover{filter: gray(enabled=1) !important;filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);filter:gray;}</style>');
+    }
+  } 
+
+  window.onload = function(){ 
+    freeInit();
+  }
+
+</script>
+		 
+<div class="location" style="height: 30px; line-height: 30px;">
+        <span>当前位置：</span><a href="/Site/Home/CN" title="首页">首页</a>
+      &nbsp;&nbsp;<span style="font-family: '宋体';">&gt;</span>&nbsp;&nbsp;<a href="http://www.cgbchina.com.cn/CN/finance/index.html">财经频道</a>
+      
+      &nbsp;&nbsp;<span style="font-family: '宋体';">&gt;</span>&nbsp;&nbsp;<span>银行理财</span>
+    	
+</div>
+	</div>
+	<!-- 头部导航结束-->
+	
+	<!--center start-->
+	<div class="main">
+		<div class="product_name">
+		   
+				
+				
+			
+
+
+
+ 
+
+
+
+
+
+
+<script type="text/javascript" src="/static/CN2/js/pdfobject.js"></script>
+<script type="text/javascript" src="/static/CN2/js/jquery.media.js"></script>
+
+
+<div class="main1">
+	<div class="product_name">
+		<div class="product_left">
+		
+			
+		
+		</div>
+		<div class="product_right">
+      		<h2>广银理财幸福添利1个月持有期固定收益类理财产品第3号</h2><p></p>
+      <dl>
+        <dt>成立至今年化收益率： </dt>
+        <dd style=" color:#c90000; font-size:16px; font-weight:bold;">
+			1.98%
+		</dd>
+      </dl>
+      <dl>
+        <dt>投资期限（天）：</dt>
+        <dd>
+        最短持有期30天
+        </dd>
+      </dl>
+      
+      <dl>
+        <dt>最新净值：</dt>
+        <dd>0.00000000</dd>
+      </dl>
+      <dl>
+        <dt>净值日期：</dt>
+        <dd>2026-10-30</dd>
+      </dl>
+      
+            <dl>
+        <dt>起点金额（元）：</dt>
+		<dd>1.00</dd>
+      </dl>
+      
+      <dl style="border-bottom:1px dashed #ccc; width:100%; height:3px; margin-bottom:8px;_height:0;_margin-bottom:-40px;"></dl>      
+      <dl>
+        <dt>募集期间：</dt>
+        <dd>
+        长 &nbsp;期
+
+        </dd>
+      </dl>
+            
+      <dl>
+        <dt>确认日：</dt>
+        <dd>2026-11-04</dd>
+      </dl>
+      
+      
+      
+      <dl>
+        <dt>风险等级：</dt>
+        <dd>PR2稳健型</dd>
+      </dl>
+      <dl>
+        <dt>购买单位(元)：</dt>  
+                
+        <dd>1</dd>
+      </dl>
+      <form method="post" id="apply_form" name="apply_form">
+      <dl>
+        <dt>购买金额：</dt>
+        <dd><input id="aaa" type="text" name="txt" class="txt" maxlength="12" style="height: 22px;vertical-align: inherit;"> 元</dd>
+          <dt class="paddingL"></dt>
+        <dd></dd>
+      </dl>
+      <dl style="margin-top:10px;border-bottom:1px dashed #ccc; width:100%; height:3px; margin-bottom:8px;_height:0;_margin-bottom:-40px;"></dl>      
+      
+      <dl class="check" style=" width:380px; margin-top:12px;">
+         <dt>
+          <input id="lee" type="checkbox"  class="Cbox" value="1"> 本人已阅读风险揭示书、客户权益须知，愿意承担投资风险。</dt>
+      </dl>
+      
+      <input type="button" value="点击购买" class="start" onclick="checkAll()">
+    </div>
+<script type="text/javascript">
+function checkAll(){
+	
+	if(checkNull()){
+		if(!checkmoney()){
+			return false;
+		}else{
+			var aaa = $("#aaa").val();
+			var bbb = "XFTLCY0103B";
+			if(confirm("尊敬的客户，您好！为维护您的权益，请您确认该产品是否是您自主购买，如是，请点击“确定”按钮；如否，请您至我行营业网点完成购买，并点击“取消”按钮。")){
+				window.location.href = "https://ebanks.cgbchina.com.cn/perbank/CGB0101.do?orderType=01&orderAmt=" + aaa + "&productId=" + bbb;
+			}
+		}
+	}
+	return false;
+}
+
+//判空验证
+function checkNull(){
+	var aaa    = $("#aaa").val();
+	var lee = document.forms["apply_form"].lee;
+	//alert(lee.checked);
+    if(trim(aaa) == ""){
+		alert('请输入购买金额');
+		$("#aaa").focus();
+		return false;
+	}
+    
+    if(lee.checked == false){
+    	
+		alert('请确认已阅读风险提示');
+		$("#bbb").focus();
+		return false;
+    }
+	return true;
+
+}
+
+//去除无效字符
+function trim(s) {
+     return s.replace( /^\s*/, "" ).replace( /\s*$/, "" );
+}
+
+function checkmoney(){
+	var salary        = $("#aaa").val();
+	var bool = checkMoney(salary);
+	return bool;	
+}
+
+function checkMoney(ssn){
+    var re = /^[0-9]*[0-9]$/i;
+    var pmaxAmt = 0.00==0.00?0:0.00;
+   
+    var psubUnit = 1==0.00?0:1; //单位
+    var pAmt = 1.00==0.00?0:1.00;  //递增
+    
+    var mod=(ssn*100-psubUnit*100)/100;
+    var pAmt2=pAmt*100/100;
+    var psubUnit2=psubUnit*100/100;
+
+    if (re.test(ssn) && ssn>0){
+	    if(pmaxAmt>0 && ssn>pmaxAmt){
+	    	alert("购买金额不能大于单笔最大购买金额");
+	    	return false;
+	    }else if(psubUnit>0 && ssn<psubUnit) {
+	    	alert("购买金额必须不低于购买单位金额	");
+	    	return false; 
+	    }else if( (pAmt > 0) && (mod%pAmt2 != 0 )){
+		    alert("购买金额必须为递增金额的整数倍	");
+	    	return false;
+	    }else if (mod%psubUnit2 != 0 && psubUnit2>0){
+		    alert("购买金额应为购买单位的整数倍 	");
+	    	return false;	    	
+	    }
+	 }else{
+    	alert("非法金额，请重新输入");
+    	return false;	 
+	 }
+     return true;
+    }
+
+</script>
+</form>
+</div>
+</div>
+<div class=clear style="height:10px;"></div>
+
+<div id="all" class="wrap">
+  <h2> <span class="current">产品说明书</span><span class="">风险揭示书</span><span>权益须知</span> </h2>
+  <div class="box">
+  <div id='pdf_product' name='pdf_product' class="current">
+  	<br/><br/><br/><br/><center>暂无该产品说明书!</center>
+
+    </div>
+    <div id='pdf_risk' name='pdf_risk' class="">
+     <br/><br/><br/><br/><center>暂无该产品风险揭示书!</center>
+
+    </div>
+    <div>
+		
+			<li>
+				
+				  <P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: center; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>广发银行人民币结构性存款客户权益须知</STRONG><BR></FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">尊敬的客户：<BR>&nbsp;&nbsp; 结构性存款不等于一般性存款、产品有风险、投资须谨慎。为了保护您的合法权益，请在投资前认真阅读以下内容：<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>&nbsp; 一、客户购买产品流程<BR>&nbsp;&nbsp;&nbsp; </STRONG></FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>如客户前往网点购买结构性存款：</STRONG><BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（一）资料清单<BR>&nbsp;&nbsp;&nbsp; 1、购买本产品的境内个人客户需要提供的资料清单（境外个人客户须额外提供境内居住/工作证明及收入证明材料）：<BR>&nbsp;&nbsp;&nbsp; （1）本人有效身份证件。<BR>&nbsp;&nbsp;&nbsp; （2）本人的广发行借记卡或存折。<BR>&nbsp;&nbsp;&nbsp; 2、对于购买本产品的公司客户需要提供的资料清单：<BR>&nbsp;&nbsp;&nbsp; （1）营业执照复印件或社会团体法人登记证书复印件（加盖单位公章）。<BR>&nbsp;&nbsp;&nbsp; （2）法人代表人身份证原件及复印件（加盖单位公章）。<BR>&nbsp;&nbsp;&nbsp; （3）法定代表人授权他人办理的还要提供企业法人授权书（加盖单位公章）。<BR>&nbsp;&nbsp;&nbsp; （4）经办人身份证件原件及复印件。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（二）进行风险承受能力评估<BR>&nbsp;&nbsp;&nbsp; 客户在购买本产品之前，应进行风险承受能力评估，个人客户填写《个人客户风险测试评估问卷》、公司客户填写《对公客户风险测试评估问卷》。首次购买结构性存款的所有客户都需要进行风险承受能力评估；第二次购买结构性存款的客户的风险承受能力一年进行一次评估，发生可能影响自身风险承受能力情况的客户，再次购买结构性存款时应重新评估风险承受能力；如客户前期已做过评估，且在有效期内，可不再次进行评估。如客户的风险承受能力评估结果已过期，那么必须重新进行评估。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（三）填写《风险揭示书》<BR>&nbsp;&nbsp;&nbsp; 进行风险承受能力评估后，客户需要认真阅读《风险揭示书》，个人客户亲自抄写“投资者特别声明”内容并签名确认，公司客户抄写对公客户《风险揭示书》“投资者特别声明”内容并签字、盖章。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（四）填写《结构性存款说明书》和《结构性存款合同》<BR>&nbsp;&nbsp;&nbsp; 客户填写（一式二联或二份的）《结构性存款说明书》和《结构性存款合同》，并请个人客户亲自签名确认，公司客户签字、盖章，产品销售合同文本上加盖骑缝章。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（五）产品销售材料留存<BR>&nbsp;&nbsp;&nbsp; 参考《商业银行理财业务监督管理办法》的附件《商业银行理财产品销售管理要求》第一条“经投资者签字确认的销售文件，商业银行和投资者双方均应留存”，请投资者妥善留存本结构性存款认购相关的《风险揭示书》、《结构性存款说明书》和《结构性存款合同》等产品销售文件。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（六）产品销售管理系统操作<BR>&nbsp;&nbsp;&nbsp; 由广发银行产品销售人员根据客户填写的合同等资料，登录产品销售管理系统登记客户资料，为客户开立结算账户。开户成功后为客户办理本产品申购业务，如申购成功应打印一式两份《业务办理确认表》，一份给客户，另一份银行存档，如申购成功可将《结构性存款合同》、《结构性存款说明书》、《风险揭示书》其中一联交由客户，由广发银行产品销售人员告知客户将在结构性存款启动日当天从客户的账户上进行扣款。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（七）结构性存款到期<BR>&nbsp;&nbsp;&nbsp; 结构性存款到期日内系统将本金及收益自动兑付至客户结算账户，客户可以查询其结算账户相应余额。<BR></FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG></STRONG></FONT>&nbsp;</P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>&nbsp;如客户在电子渠道购买结构性存款：</STRONG><BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（一）个人客户可在网银或手机银行购买结构性存款：<BR>&nbsp;&nbsp;&nbsp; 1、客户需前往广发银行网点开通网上银行或手机银行服务，否则将无法进行网上申购产品。<BR>&nbsp;&nbsp;&nbsp; 2、客户首次购买本产品前需在本行网点进行风险承受能力评估。<BR>&nbsp;&nbsp;&nbsp; 3、客户开通网上银行服务后可登录广发银行官方网站（</FONT><A href="http://www.cgbchina.com.cn"><FONT style="FONT-SIZE: 9pt">www.cgbchina.com.cn</FONT></A><FONT style="FONT-SIZE: 9pt">），登录个人网银-储蓄业务-结构性存款，购买选取的结构性存款产品，并可于“结构性存款-我的产品”和“结构性存款-交易明细”查询持有及历史记录；客户开通手机银行服务后可登录广发银行手机 APP，进入存款-结构性存款，购买选取的结构性存款产品，并可于“结构性存款-我的产品”查询持有及历史记录。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（二）公司客户可以网银购买结构性存款：<BR>&nbsp;&nbsp;&nbsp; 1、客户需前往广发银行网点开通网上银行服务，否则将无法进行网上申购产品。<BR>&nbsp;&nbsp;&nbsp; 2、客户首次购买本产品前需在本行网点进行风险承受能力评估。<BR>&nbsp;&nbsp;&nbsp; 3、客户开通网上银行服务后可登录广发银行官方网站（</FONT><A href="http://www.cgbchina.com.cn"><FONT style="FONT-SIZE: 9pt">www.cgbchina.com.cn</FONT></A><FONT style="FONT-SIZE: 9pt">），登录企业网银-存款业务-结构性存款，购买选取的结构性存款产品，并可于“结构性存款-我的产品”查询持有及历史记录。<BR></FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>二、客户风险承受能力评估流程及产品风险评级</STRONG><BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">（一）风险能力评估<BR>&nbsp;&nbsp;&nbsp; 个人客户需要填写《个人客户风险测试评估问卷》、公司客户需要填写《对公客户风险测试评估问卷》。根据风险承受能力评估结果，客户只能购买风险评级等于或低于其风险承受能力评级的产品，具体评定结果及评估流程如下：<BR>&nbsp;&nbsp;&nbsp; 1、首次在柜台购买结构性存款的客户应当进行风险承受能力评估，完成客户风险承受能力评估后由广发银行产品销售人员将风险承受能力评估结果告知客户，由客户签名确认后银行留存。<BR>&nbsp;&nbsp;&nbsp; 2、客户通过柜台购买结构性存款前，应由广发银行产品销售人员确认客户是否已在广发银行进行风险承受能力评估并签署客户风险测试评估问卷。<BR>尚未在广发银行进行风险承受能力评估的客户，由广发银行产品销售人员向客户介绍广发银行风险承受能力评估的基本知识和流程，清晰准确地向客户解释评估问卷问题的含义，指导客户独立完成评估问卷。由产品销售人员按照问卷要求测算出客户所属类型，并告知客户，双方共同签名确认评估结果。<BR>&nbsp;&nbsp;&nbsp; 已在广发银行进行风险承受能力评估但评估日期距当前超过一年的客户，客户应按照上述程序重新进行风险承受能力评估。<BR>&nbsp;&nbsp;&nbsp; 3、客户如首次购买结构性存款是在网上银行或手机银行进行的，请在首次购买产品前在本行网点进行风险承受能力评估。<BR>&nbsp;&nbsp;&nbsp; 4、客户通过网上银行等自助渠道购买结构性存款时，系统判断客户已在广发银行是否签署风险承受能力评估问卷且评估日期距当前不超过 12 个月，方可向其销售产品。<BR>&nbsp;&nbsp;&nbsp; 5、客户未在广发银行进行过风险承受能力评估而准备购买广发银行结构性存款的，系统将提示客户到广发银行网点柜台进行评估测试后方可购买。客户如发生可能影响自身风险承受能力情况的情形， 再次购买结构性存款时应重新评估风险承受能力。<BR>&nbsp;&nbsp;&nbsp; 6、客户已在广发银行进行过风险承受能力评但估评估日期距当前已超过 12 个月的，系统将提示客户到广发银行网点柜台或网上银行进行评估测试后方可购买。<BR>&nbsp;&nbsp;&nbsp; 7、具体评定结果及产品销售个人客户匹配表如下：<BR>得分区间 投资者类型<BR>81-100分 激进型 您属于可以承受高风险类型的投资者。您适合投资于能够为您提供高升值能力而投资价值波动大的投资工具。最坏的情况下，您可能失去全部投资本金并需对您投资所导致的任何亏损承担责任。<BR>61-80 分 进取型 您属于可以承担中等至高风险类型的投资者。您适合投资于能够为您提供升值能力，而投资价值有波动的投资工具。<BR>41-60 分 平衡型 您属于可以承担中等风险类型的投资者。您适合投资于能够为您提供温和升值能力，而投资价值有温和波动的投资工具。<BR>21-40 分 稳健型 您属于可以承担低至中等风险类型的投资者。您适合投资于能够权衡保本而亦有若干升值能力的投资工具。<BR>20分或以下 谨慎型 您属于可以承担低风险而作风谨慎类型的投资者。您适合投资于以保本为主的投资工具，但您因此会牺牲资本升值的机会。<BR>&nbsp;&nbsp;&nbsp; 8、具体评定结果及产品销售公司客户匹配表如下：<BR>得分区间 投资者类型<BR>28 分以上 激进型 贵司属于可以承受高风险类型的投资者。贵司适合投资于能够为贵司提供高升值能力而投资价值波动大的投资工具。最坏的情况下，贵司可能失去全部投资本金并需对贵司投资所导致的任何亏损承担责任。<BR>21-28 分 进取型 贵司属于可以承担中等至高风险类型的投资者。贵司适合投资于能够为贵司提供升值能力，而投资价值有波动的投资工具。<BR>14-20 分 平衡型 贵司属于可以承担中等风险类型的投资者。贵司适合投资于能够为贵司提供温和升值能力，而投资价值有温和波动的投资工具。<BR>9-13 分 稳健型 贵司属于可以承担低至中等风险类型的投资者。贵司适合投资于能够权衡保本而亦有若干升值能力的投资工具。<BR>8 分或以下 谨慎型 贵司属于可以承担低风险而作风谨慎类型的投资者。贵司适合投资于以保本为主的投资工具，但贵司因此会牺牲资本升值的机会。</FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><BR><FONT style="FONT-SIZE: 9pt">&nbsp;&nbsp;&nbsp; （二）产品风险评级<BR>&nbsp;&nbsp;&nbsp; 参考《广发银行结构性存款业务管理办法》，结构性存款风险评级为 PR1，属于低风险产品，适用于风险测评结果为“激进型、进取型、平衡型、稳健型、谨慎型”的个人客户及公司客户。投资者在购买结构性存款前需要仔细阅读产品相关文件，认真填写风险测试评估问卷，只能购买风险评级等于或低于其风险承受能力评级的产品。<BR>&nbsp;&nbsp;&nbsp; </FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>三、信息披露</STRONG><BR>&nbsp;&nbsp;&nbsp; 广 发 银 行 将 在 《 结 构 性 存 款 说 明 书 》 约 定 的 成 立 日 后 的 5 个 工 作 日 内 ， 在 广 发 银 行 官 方 网 站（www.cgbchina.com.cn）、手机银行、网上银行或线下相关渠道进行信息披露。<BR>&nbsp;&nbsp;&nbsp; 本结构性存款到期时，广发银行将在《结构性存款说明书》约定的到期日后 5 个工作日内，在广发银行官方网站（www.cgbchina.com.cn）、手机银行、网上银行或线下相关渠道进行信息披露。<BR>&nbsp;&nbsp;&nbsp; 如广发银行决定本结构性存款不成立，将在结构性存款原定成立日后的 2 个工作日内，在广发银行官方网站（www.cgbchina.com.cn）或通过线下相关渠道进行信息披露。<BR>&nbsp;&nbsp;&nbsp; 其他广发银行认为对结构性存款本金及结构性存款收益有重大影响而需要公布的重要信息，将在 2 个工作日内在广发银行官方网站（www.cgbchina.com.cn）、手机银行、网上银行或线下相关渠道进行信息披露。<BR>&nbsp;&nbsp;&nbsp; <STRONG>广发银行将每月为投资者提供结构性存款产品账单, 包括投资金额、产品收益情况、衍生产品公允价值变化、持仓风险和风险控制措施等信息，投资者可登陆本人手机银行或网上银行查询产品账单信息。</STRONG><BR>&nbsp;&nbsp;&nbsp; 广发银行将按照《结构性存款说明书》的约定进行产品信息披露，投资者应充分关注并及时主动查询广发银行披露的本产品相关信息。投资者预留的有效联系方式发生变更的，应及时通知广发银行。如果投资者未及时查询，或由于投资者通讯故障、 非广发银行导致的系统故障以及其他不可抗力等因素的影响使得投资者无法及时了解产品信息，因此而产生的（包括但不限于因未及时获知信息而错过资金使用、再投资的机会和资金损失等）全部责任和风险，由投资者自行承担。<BR></FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG></STRONG></FONT>&nbsp;</P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt"><STRONG>四、投诉处理和联系方式</STRONG></FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">客户可以通过拨打广发银行客户服务中心电话或到广发银行的营业网点，对广发银行所提供的产品与服务提出建议或投诉。广发银行将及时处理客户反映的相关建议及投诉。</FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">客户服务电话：400-830-8003</FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">网站：</FONT><A href="http://www.cgbchina.com.cn"><FONT style="FONT-SIZE: 9pt">http://www.cgbchina.com.cn</FONT></A></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">邮寄地址：广州市越秀区东风东路 713 号广发银行大厦</FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">邮编：510080</FONT></P>
+<P style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px; TEXT-ALIGN: left; TEXT-INDENT: 2em"><FONT style="FONT-SIZE: 9pt">客户在购买本产品前，应详细阅知《结构性存款合同》、《结构性存款说明书》与《风险揭示书》等相关文件，选择与自身风险承受能力相适应的产品。广发银行承诺投资人利益优先，以恪守信用、勤勉尽责的态度为投资人提供服务。</FONT></P>
+									
+			</li>					
+		
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	 
+     
+     
+});
+</script>
+
+
+
+
+			<!--理财产品详情结束-->
+		</div>
+	</div>
+
+	</div>
+	<div class=clear></div>
+	
+	<!-- 尾部开始-->
+	
+
+
+
+<!-- 尾部开始-->
+
+
+
+
+
+<!-- 底部导航 -->
+<link rel="stylesheet" href="/static/pchome/css/foot.css">
+<div class="foot_nav">
+  <div class="inner clearfix">
+    <div class="left">
+      <div class="tel">
+        <p>400-830-8003</p>
+        <span>24小时客服热线</span>
+      </div>
+      <div class="others">
+        <div><i>私人银行专线：</i><span>40080-95508</span></div>
+        <div><i>贵宾专线：</i><span>40082-95508</span></div>
+        <div><i>信用卡专线：</i><span>95508</span></div>
+      </div>
+    </div>
+    <div class="foot_nav_list">
+      
+        <dl class="foot_nav_item">
+          <dt class="name"><i></i> <span>快速导航</span></dt>
+          
+            <dd><a href="https://inss.cgbchina.com.cn/inss/partnersQuery/index.html" target="_blank">合作机构</a></dd>
+          
+            <dd><a href="https://www.cgbwmc.com.cn" target="_blank">广银理财</a></dd>
+          
+            <dd><a href="/Channel/185652" target="_blank">分行网点</a></dd>
+          
+            <dd><a href="/Channel/12063440" target="_blank">网站地图</a></dd>
+          
+            <dd><a href="/Channel/22494364" target="_blank">官方渠道</a></dd>
+          
+        </dl>
+      
+        <dl class="foot_nav_item">
+          <dt class="name"><i></i> <span>百宝箱</span></dt>
+          
+            <dd><a href="/Channel/12121307" target="_blank">理财计算器</a></dd>
+          
+            <dd><a href="https://inss.cgbchina.com.cn/channelsLink/fillFormNavigatePage.do" target="_blank">在线填单</a></dd>
+          
+            <dd><a href="/Channel/12128835" target="_blank">网银工具</a></dd>
+          
+            <dd><a href="/Channel/12154536" target="_blank">利率与汇率</a></dd>
+          
+            <dd><a href="/Channel/12089143" target="_blank">服务协议</a></dd>
+          
+            <dd><a href="/Channel/19169905" target="_blank">收费标准</a></dd>
+          
+        </dl>
+      
+        <dl class="foot_nav_item">
+          <dt class="name"><i></i> <span>信用卡</span></dt>
+          
+            <dd><a href="http://card.cgbchina.com.cn/Channel/23364325" target="_blank">在线申请</a></dd>
+          
+            <dd><a href="https://inss.cgbchina.com.cn/channelsLink/simpleApply.do" target="_blank">人工办卡</a></dd>
+          
+            <dd><a href="https://ebanks.cgbchina.com.cn/perbank/creditCardActive.do" target="_blank">信用卡激活</a></dd>
+          
+        </dl>
+      
+        <dl class="foot_nav_item">
+          <dt class="name"><i></i> <span>关于广发</span></dt>
+          
+            <dd><a href="/Channel/11583354" target="_blank">广发概况</a></dd>
+          
+            <dd><a href="/Channel/11582882" target="_blank">投资者关系</a></dd>
+          
+            <dd><a href="/Channel/11581868" target="_blank">加入我们</a></dd>
+          
+        </dl>
+      
+        <dl class="foot_nav_item">
+          <dt class="name"><i></i> <span>其他</span></dt>
+          
+            <dd><a href="http://www.cgbchina.com.cn/Info/24478303" target="_blank">存款保险</a></dd>
+          
+            <dd><a href="https://www.cgbchina.com.cn/Info/26945194" target="_blank">服务与投诉渠道</a></dd>
+          
+            <dd><a href="/Channel/25442043" target="_blank">开户服务标准公告</a></dd>
+          
+        </dl>
+      
+    </div>
+  </div>
+</div>
+<!-- 底部 -->
+<div class="bottom-bar">
+  <div class="left"></div>
+  <div class="right"></div>
+  <div class="inner">
+    <div class="navs">
+      
+        <a href="/Channel/26938641" target="_blank">消费者权益保护专区</a>
+      
+        <a href="/Channel/12063440" target="_blank">网站地图</a>
+      
+        <a href="/Channel/12057030" target="_blank">网站声明</a>
+      
+        <a href="/Channel/12055246" target="_blank">友情链接</a>
+      
+        <a href="/Channel/12064893" target="_blank">反洗钱</a>
+      
+        <a href="/Channel/13722320" target="_blank">防范和打击非法集资</a>
+      
+        <a href="https://gfcg.cgbchina.com.cn/" target="_blank">广发采购</a>
+      
+    </div>
+    <div class="copy-right">
+      <span>&nbsp;&nbsp;<i>广发银行 版权所有</i> <a href="http://beian.miit.gov.cn" target="_blank" rel="noreferrer">粤ICP备05058995号</a></span>
+      <br>
+      <span><img src="/static/CN2/images/common/yuegongan.png" alt="粤公网安备" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010402002437" target="_blank">粤公网安备44010402002437号</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="footersm_wrapper">
+	<div id="footersm">
+		<strong>免责声明：</strong><span>资讯数据由上海大智慧财汇数据科技有限公司(http://www.finchina.com)提供，我公司不对数据的准确性、完整性和及时性负责，也不对使用这些数据所引起的后果负任何责任，数据仅供参考，并不构成任何形式的投资建议。 </span>
+	</div>
+</div>
+
+<!-- 尾部结束-->
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/CN2/float/css/float.css"></link>
+<style>
+<!--
+#code_wrapper{position: fixed;width: 41px;height: 248px;right: 0;bottom: 120px;z-index: 99999;}
+#code_img{width:122px;height:204px;position: absolute;;right:29px;bottom:0;cursor:pointer;display:none;_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));_margin-bottom:130px;}
+#code_img2{width:122px;height:204px;position: absolute;;right:29px;bottom:0;cursor:pointer;display:none;_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));_margin-bottom:130px;}
+-->
+</style>
+
+
+<script type="text/javascript" src="/static/CN2/js/jquery/jquery.js"></script>
+
+
+<script type="text/javascript">
+function b(){
+	h = $(window).height();
+	t = $(document).scrollTop();
+	if(t > h){
+		$('#gotop').show();
+	}else{
+		$('#gotop').hide();
+	}
+}
+
+$(document).ready(function(e) {
+	b();
+	
+	$('#gotop').click(function(){
+		 $('body,html').animate({scrollTop:0},500);
+	});
+	$('#code .phone').hover(function(){
+		//$(this).attr('id','code_hover');
+		$('#code_img').show();
+	},function(){
+		//$(this).attr('id','code');
+		$('#code_img').hide();
+	})
+	$('#code .weixin').hover(function(){
+		//$(this).attr('id','code_hover');
+		$('#code_img2').show();
+	},function(){
+		//$(this).attr('id','code');
+		$('#code_img2').hide();
+	})
+});
+
+$(window).scroll(function(e){
+	b();		
+});
+</script>
+	<!-- 尾部结束-->
+	
+</body>
+</html>
+

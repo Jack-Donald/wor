@@ -1,0 +1,143 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:19.447Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "cgb-bank-web-v1",
+ "sourceId": "cgb-bank",
+ "parserVersion": "cgb-bank-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": false,
+  "evaluate": true,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 12,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2780,
+   "sha256": "fe1888e23907b7b9d8c5353c934d3b3545c8e2f71fa33a2b36ccbe38e7357036"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 922781,
+   "sha256": "8cd3cb8259e45b1d784bea51c3dd4eda102913ffceaf084c7e7014584d80f510"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 861,
+   "sha256": "ebdd7bf454059142d877abb49358d619b104d1ee80a409b6da6128f709b59102"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 2942,
+   "sha256": "aada9b2f85dc99f9942c47620bdc3d233c8417bb322089e403ba9093be2aa8f8"
+  },
+  {
+   "path": "fixtures/modified/corporate-columns-changed.raw",
+   "bytes": 33163,
+   "sha256": "ca4b673948d25d2d0e46ade9a2d20a1c540f1895d463c619ef6624e8fd5e5b23"
+  },
+  {
+   "path": "fixtures/modified/latest-bad-nav.raw",
+   "bytes": 35142,
+   "sha256": "8aeac13999878d7ef855d03fc7d476b409b071c7dd3ea69c4d3cad6cc230934a"
+  },
+  {
+   "path": "fixtures/modified/latest-bbb-mismatch.raw",
+   "bytes": 35142,
+   "sha256": "1888ac877644085ff20c4db92518fd7eae026bd8c3184a1f9231ecd38fcc5a39"
+  },
+  {
+   "path": "fixtures/modified/latest-name-mismatch.raw",
+   "bytes": 35142,
+   "sha256": "f81feeaf9a84e4f442dfa7fd8b1c808cee28e193d3c3f546bff981e1699a83bd"
+  },
+  {
+   "path": "fixtures/modified/retail-invalid-gbk-sequence.raw",
+   "bytes": 31615,
+   "sha256": "00b82e33195bff6b9d6fbef8d78b3d2f792d12b896fd8eec228d76b9d3a3c43a"
+  },
+  {
+   "path": "fixtures/real/corporate-catalog-page1.raw",
+   "bytes": 33163,
+   "sha256": "b8709a088a430c8583dcca8e9685869591e2505ac91003892edc55d9fb3b596a"
+  },
+  {
+   "path": "fixtures/real/corporate-catalog-page98.raw",
+   "bytes": 30450,
+   "sha256": "b906c5baa37eac68bfab4f33a6ddc38e39a46fd7159ba59cca18d588361a0799"
+  },
+  {
+   "path": "fixtures/real/latest-XFTLCY0101A.raw",
+   "bytes": 35137,
+   "sha256": "0586e6cddcd1af8590d5636f575cf7abdf4bc7212abd2c4a2d28f8cc47b9405a"
+  },
+  {
+   "path": "fixtures/real/latest-XFTLCY0103B.raw",
+   "bytes": 35142,
+   "sha256": "9141af0021198ac9c29052707ccad0d1d0280f6322d5433cbf0bb20dc0ff5a3c"
+  },
+  {
+   "path": "fixtures/real/retail-catalog-empty-codeB.raw",
+   "bytes": 26266,
+   "sha256": "605f5bc3112225a533ef02496f87fdd5fa15ec79f46fd70e73b2fe4f421fb1eb"
+  },
+  {
+   "path": "fixtures/real/retail-catalog-gbwm-page1.raw",
+   "bytes": 31614,
+   "sha256": "65427bc862e339d5dee6cfb23e2678563ab10d4077180d4e6d2d3c8402e814ea"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-cgb-bank-web-v1.yml",
+   "bytes": 9224,
+   "sha256": "c311cfc117cfd89773a10293e07042de46e1cc17cd6131e0c23a0afd063e1ee9"
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:15.619Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "cbhbwm-web-v1",
+ "sourceId": "cbhbwm",
+ "parserVersion": "cbhbwm-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": true,
+  "evaluate": true,
+  "repair": true,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 15,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2770,
+   "sha256": "50b85a2670f1aa3aafb19ab4fbb60c59a6b29727dae03068ac38e0efddbc9612"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 928245,
+   "sha256": "163301032676a2c64dbee1b4d9128a4d4b0ae438a65217aaa632976db325c6ca"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 855,
+   "sha256": "98cf2556731d8492cd6bcdf487a67ef6b7f34b5c2d7a927932ff5af6d7eb66ac"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 4828,
+   "sha256": "9a035d489079648db3b30ae4d9e9ae53e35846bad62d3ba585713325c2019584"
+  },
+  {
+   "path": "fixtures/modified/catalog-bad-inner-json.raw",
+   "bytes": 84,
+   "sha256": "67f30c31d88ea33ec332e3816d345b9b3348fce29c2dfefb0f32fcefe56f545a"
+  },
+  {
+   "path": "fixtures/modified/catalog-business-error.raw",
+   "bytes": 13632,
+   "sha256": "24233a612d6e7f1fe87459f61be8e1cec4b3156e7f1cfdb54f40af25dada3f9c"
+  },
+  {
+   "path": "fixtures/modified/catalog-truncated.raw",
+   "bytes": 3000,
+   "sha256": "a711d280ba08df42c6d14ec8434f53773a18b7bb843c71933aedb544e9e3d161"
+  },
+  {
+   "path": "fixtures/modified/detail-foreign-salecode.raw",
+   "bytes": 1539,
+   "sha256": "c9c527f50ebd86e33ddcb1e9ba1bc1930e4386090a110cf372ac59cc09a5b5ac"
+  },
+  {
+   "path": "fixtures/modified/nav-cash-qiriflag.raw",
+   "bytes": 24605,
+   "sha256": "bdf43b7d7e5a7df64c5ab8d4d7060304531409c1dc77089a635e8ed46846f4bc"
+  },
+  {
+   "path": "fixtures/modified/nav-duplicate-date.raw",
+   "bytes": 24706,
+   "sha256": "cb68ab6eb3d94693385ac51a2caed8a6a0bbe25aaedbe731dace9e4f372a2013"
+  },
+  {
+   "path": "fixtures/modified/nav-foreign-salecode.raw",
+   "bytes": 24605,
+   "sha256": "31bfae6bfd38063e748c48ce128ba858a1718701334ddf6fb388a375128ff13d"
+  },
+  {
+   "path": "fixtures/real/catalog-chenxiying13.raw",
+   "bytes": 5650,
+   "sha256": "093a15a480131f497b310d58a10fa5b082299894272b5fc931db9490372b49de"
+  },
+  {
+   "path": "fixtures/real/catalog-page1.raw",
+   "bytes": 13631,
+   "sha256": "0af5cd5ec26a0b3b9f857e2d8ddb709b59b8f53933a779b7e84faf9b51e7ce98"
+  },
+  {
+   "path": "fixtures/real/detail-LCYSRK13A.raw",
+   "bytes": 1539,
+   "sha256": "ebe959427287e07ab835e843d5bac38306684bb5d9b6b3a63dc9e330c3b4f377"
+  },
+  {
+   "path": "fixtures/real/detail-LCYSRK50A.raw",
+   "bytes": 1418,
+   "sha256": "05c96f74e688e539d425a373dfd981e8893fc99f4b4d0452376c82951aff9065"
+  },
+  {
+   "path": "fixtures/real/nav-LCYSRK13A-default.raw",
+   "bytes": 24605,
+   "sha256": "44f8e0dc2f0097f32075b638e94dee5f6cf18dcc4ec075f2ccbf86b4562db02f"
+  },
+  {
+   "path": "fixtures/real/nav-LCYSRK13A-windowed.raw",
+   "bytes": 14707,
+   "sha256": "0758af18002a302e4eaab6a2970d37b37a8ac2c8734d0d344a36ddeb777b04e2"
+  },
+  {
+   "path": "fixtures/real/nav-LCYSRK50A.raw",
+   "bytes": 13697,
+   "sha256": "88ccf7f84f6cdfe30733379e90907dc61507b947255c0e82412b65377773c7cb"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-cbhbwm-web-v1.yml",
+   "bytes": 10143,
+   "sha256": "3e4b5ee87d9771292087f417879195a8ea84af3cf726806ff5275cb03102b124"
+  }
+ ]
+}

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>净值公告 - 宁波银行</title>
+    <meta name="keywords"  content="宁波银行" />
+    <meta name="description" content=" 宁波银行，专业创造价值，提供信用卡申请，转账汇款，贷款消费，企业融资，汇率管理，投资理财等综合金融服务，更可登陆网上银行，手机APP办理更多业务。" />
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="bookmark" href="/images/favicon.ico" />
+<link rel="stylesheet" href="/images/global.css?v=1.0">
+<link href="/images/barrierfree/css/barrierfree.css" rel="stylesheet" />
+<style>
+.nav .nav_mid ul.nav_ul li.nav_li .creditcard_menu .menu_column ul {
+    margin: 0 60px;
+}
+.cursor{
+cursor: default;
+}
+.page_rec .rec_banner {
+height: 80px!important;
+}
+.page_rec .corporate_financial_banner {
+height: 80px!important;
+}
+.notice_banner,.page_debitcard .banner{
+height: 80px!important;
+}
+.page_notice{
+font-family: "Microsoft Yahei"!important;
+}
+.nav .nav_mid ul.nav_ul li.nav_li .about_menu {
+    left: -725px;
+}
+#footer .service_info .feedback_box {
+height:auto;
+margin-bottom:20px;
+}
+
+#footer .service_info #website_box1 li:nth-child(1) {
+    background: url(/images/partner_icon.png) no-repeat;
+    background-position: left center;
+    font-size: 16px;
+    color: #5e5e5e;
+    padding-left: 30px;
+}
+
+</style>
+    <link rel="stylesheet" href="/images/financial2.css">
+    <link rel="stylesheet" href="/images/idangerous.swiper.css">
+    <link rel="stylesheet" href="/images/layui.css" />
+	<style>
+.layui-laypage .layui-disabled {
+    display:none;
+}
+.layui-laypage .layui-laypage-limits{
+    display:none;
+}
+.layui-laypage .layui-laypage-refresh{
+    display:none;
+}
+#page{
+    text-align:center;
+    padding-top: 50px;
+}
+.layui-laypage .layui-input{ outline: none; width: 59px;  text-align: center;    height: 34px; font-size: 16px; border-radius: 2px; border: 0;    background-color: #f0f1f6; margin-right:5px;}
+.layui-laypage button{ width: 59px; height: 34px;    background-color: #f0f1f6;    border-radius: 2px;    margin-left: 5px; border: 0;    cursor: pointer;}
+.c_orange {
+    color: #f69147;    padding: 0 5px;
+}
+.crumbs li a {
+    padding: 0 5px;
+}.crumbs li:last-child {
+    color: #8c8c8c;
+}
+.main_body .l_content .list_content ul .active a i.item_icon1{background-image: url(/images/financial/item_icon1_c.png);}
+.main_body .l_content .list_content ul .active a i.item_icon2{background-image: url(/images/financial/item_icon2_c.png);}
+.main_body .l_content .list_content ul .active a i.item_icon3{background-image: url(/images/financial/item_icon3_c.png);}
+.main_body .l_content .list_content ul .active a i.item_icon4{background-image: url(/images/financial/item_icon4_c.png);}
+.main_body .l_content .list_content ul .active a i.item_icon5{background-image: url(/images/financial/item_icon5_c.png);}
+.main_body .l_content .list_content ul .active a i.item_icon6{background-image: url(/images/financial/item_icon6_c.png);}
+.main_body .l_content .list_content ul .active a i.item_icon8{background-image: url(/images/icon_cplb_c.png);}
+
+.main_body .l_content .list_content ul .active a span{color: #f79b4d }
+.main_body .l_content .list_content ul .active a .arrow_up{background-image: url(/images/financial/arrow_c.png)}
+
+
+.notice_main_right .notice_details{width: 837px;/* text-align: center; */}
+.notice_main_right .notice_details .notice_title{font-size: 22px;line-height: 48px;color: #f69147;text-align: center;}
+.notice_main_right .notice_details .notice_date{font-size: 16px;line-height: 48px;color: #4c4c4c;text-align: center;}
+.notice_main_right .notice_details .notice_content{font-size: 16px;}
+.notice_main_right .notice_details .notice_content p{text-indent:2em;line-height:2.2;word-wrap: break-word;}
+
+.one_p{
+    text-indent: 35px;
+    margin-top: 20px; margin-bottom: 20px;
+}
+.two_p{
+    text-align: right !important;
+}
+
+</style>
+</head>
+
+<body>
+	<!-- START header -->
+	<div id="wzacontainer">
+<div id="header">
+        <div class="header_top clearfix">
+            <div class="logo fl"></div>
+            <div class="r_top ">
+                <ul class="clearfix">
+                	
+                    <li>客服热线：95574</li>
+                	
+                    <li>信用卡热线：40000 95574</li>
+                	
+                    <li>本网站支持IPv6 </li>
+                    <li><a class="nav-right" href="javascript:;" onclick="toggleToolBar();">无障碍</a></li>
+                    <!--<li>简 |
+
+							<a id="StranLink" href="javascript:StranBody()" title="点击以简体中文方式浏览" >繁</a>
+							<a id="StranLink1" href="javascript:StranBody1()" title="点击以简体中文方式浏览" >简</a> 
+                    </li>-->
+<li>
+                        <a class="english" style="display:block; line-height:17px" href="/english">EN</a>
+		            	
+
+                        <a class="chinese" style="display:none; line-height:17px" href="/">CH</a>
+		            	
+</li>
+	            	                </ul>
+                <div class="tools clearfix">
+                    <a href="javascript:;" class="index_search_btn"></a>
+                    <input style="padding-right:25px" class="search" id="search1" placeholder="请输入关键字" onfocus="placeholder=''" onblur="placeholder='请输入关键字'" /></input>
+	            	
+                    <a class="recruit" href="https://zhaopin.nbcb.com.cn" target="_blank" >人才招聘</a>
+	            	
+	            	
+                    <a class="recruit1" href="/home_page/jrxx/fwsfcx/"  >服务资费</a>
+	            	
+	            	
+                    <a class="map_check" href="/./about_nbcb/profile_of_nbcb/branches_sub_branches/"  >网点查询</a>
+	            	
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav_mid">
+                <ul class="nav_ul">
+                    <li class="nav_li"><a href="/" class="a_title" id="nav首页">首页</a></li>
+                    
+                    <li class="nav_li">
+                        <a href="/individual_client/" class="a_title" id="nav个人客户">个人客户</a>
+                        <div class="nav_menu_collapse personal_menu ">
+                            <div class="menu_column clearfix">
+                            	
+                                <ul>
+                                    <li><a href="/individual_client/investment_finance/" class="column_title">投资理财</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/financial/">理财</a></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/fund/">基金</a></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/bond/">债券</a></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/online_insurance/">互联网保险</a></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/noble_metal/">贵金属</a></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/yzfw/">银证服务</a></li>
+                                    
+                                    <li><a href="/individual_client/investment_finance/wealth_open_platform/">财富开放平台</a></li>
+                                                                        <!--
+                                    <li><a href="/individual_client/investment_finance/wealth_open_platform/" target="_blank">财富开放平台</a></li>
+                                                                        
+                                    <li><a href="/individual_client/investment_finance/wealth_open_platform/">财富开放平台</a></li>
+                                    -->                                    
+                                    <li><a href="/individual_client/investment_finance/PIQP/"target="_blank">产品信息查询平台</a></li>
+                                                                        
+                                    <li><a href="/individual_client/investment_finance/qtxxpl/">其他信息披露</a></li>
+                                    
+                                </ul>
+                    			
+                            	
+                                <ul>
+                                    <li><a href="/individual_client/debit_business/" class="column_title">储蓄业务</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/./individual_client/debit_business/ck/">活期储蓄</a></li>
+                                    
+                                    <li><a href="/./individual_client/debit_business/ck/?i=2">个人通知存款</a></li>
+                                    
+                                    <li><a href="/./individual_client/debit_business/ck/?i=3">定期储蓄</a></li>
+                                    
+                                    <li><a href="/./individual_client/debit_business/ck/?i=4">大额存单</a></li>
+                                    
+                                    <li><a href="/./individual_client/debit_business/ck/?i=5">结构性存款</a></li>
+                                    
+                                    
+                                    <li><a href="/individual_client/debit_business/debit_card/">借记卡</a></li>
+                                    
+                                </ul>
+                    			
+                            	
+                                <ul>
+                                    <li><a href="/individual_client/personal_loan/" class="column_title">个人贷款</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/./individual_client/personal_loan/dk/">白领通</a></li>
+                                    
+                                    <li><a href="/./individual_client/personal_loan/dk/?i=2">贷易通</a></li>
+                                    
+                                    <li><a href="/./individual_client/personal_loan/dk/?i=3">路路通</a></li>
+                                    
+                                    <li><a href="/./individual_client/personal_loan/dk/?i=4">按揭贷款</a></li>
+                                    
+                                    <li><a href="/./individual_client/personal_loan/dk/?i=5">宁来花-直接贷</a></li>
+                                    
+                                </ul>
+                    			
+                            	
+                                <ul>
+                                    <li><a href="/individual_client/private_bank/" class="column_title">私人银行</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/./individual_client/private_bank/selection_products/">甄选产品</a></li>
+                                    
+                                    <li><a href="/./individual_client/private_bank/value_added_service/">尊享服务</a></li>
+                                    
+                                    <li><a href="/./individual_client/private_bank/exclusive_team/">专属团队</a></li>
+                                    
+                                </ul>
+                    			
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/corporate_client/"  class="a_title" id="nav公司客户">公司客户</a>
+                        <div class="nav_menu_collapse corporate_menu ">
+                            <div class="menu_column clearfix">
+                            	
+                                <ul>
+                                    <li><a href="/corporate_client/domestic_finance/" class="column_title">国内金融</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/deposit/">存款</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/loan/">贷款</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/corporate_financial/">对公理财</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/bill/">票据</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/gnxyz/">国内信用证</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/domesticLG/">国内保函</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/supply_chain/">供应链</a></li>
+                                    
+                                    <li><a href="/corporate_client/domestic_finance/SAME/">小微企业</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/corporate_client/cross_border_finance/" class="column_title">跨境金融</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/cross_border_finance/export_business/">出口业务</a></li>
+                                    
+                                    <li><a href="/corporate_client/cross_border_finance/import_business/">进口业务</a></li>
+                                    
+                                    <li><a href="/corporate_client/cross_border_finance/cross_border_investment/">跨境投资</a></li>
+                                    
+                                    <li><a href="/corporate_client/cross_border_finance/FETAH/">外汇交易和避险</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/corporate_client/financial_market/" class="column_title">金融市场</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/financial_market/FEBusiness/">外汇业务</a></li>
+                                    
+                                    <li><a href="/corporate_client/financial_market/bond_business/">债券业务</a></li>
+                                    
+                                    <li><a href="/corporate_client/financial_market/debt_financing/">融资负债</a></li>
+                                    
+                                    <li><a href="/corporate_client/financial_market/interest_rate_derivatives/">利率衍生业务</a></li>
+                                    
+                                    <li><a href="/corporate_client/financial_market/interbank_consignment/">同业代销</a></li>
+                                    
+                                    <li><a href="/corporate_client/financial_market/information_disclosure/">信息披露</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/corporate_client/government_finance/" class="column_title">政务金融</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_financial/">智慧财政</a></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_state/">智慧国资</a></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_housing/">智慧住建</a></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_government/">智慧政采</a></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_education/">智慧教培</a></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_medical/">智慧医疗</a></li>
+                                    
+                                    <li><a href="/corporate_client/government_finance/intelligent_colleges/">智慧高校</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/corporate_client/investment_banking/" class="column_title">投资银行</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/investment_banking/bond_underwriting/">债券主承</a></li>
+                                    
+                                    <li><a href="/corporate_client/investment_banking/non_bank_financing/">非银融资</a></li>
+                                    
+                                    <li><a href="/corporate_client/investment_banking/science_and_technology_innovation_consultant/">科创顾问</a></li>
+                                    
+                                    <li><a href="/corporate_client/investment_banking/financial_advisor/">资本市场</a></li>
+                                    
+                                </ul>
+                                
+                            	
+                                <ul>
+                                    <li><a href="/corporate_client/asset_custody/" class="column_title">资产托管</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/asset_custody/Ecustody_platform/"  target="_blank">易托管平台</a></li>
+                                    
+                                    
+                                    <li><a href="/corporate_client/asset_custody/custody_business/">托管业务</a></li>
+                                    
+                                    <li><a href="/corporate_client/asset_custody/escrow/">三方存管</a></li>
+                                    
+                                    <li><a href="/corporate_client/asset_custody/information_disclosure/">信息披露</a></li>
+                                    
+                                    <li><a href="/corporate_client/asset_custody/contact/">联系方式</a></li>
+                                    
+                                </ul>
+                                
+                            	
+                                <ul>
+                                    <li><a href="/corporate_client/recommendation/" class="column_title">重点推荐</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/zcdgj/">财资大管家</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/pjhgj/">票据好管家</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/whjgj/">外汇金管家</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/zwxgj/">政务新管家</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/thzgj/">投行智管家</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/tyygj/">同业易管家</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/bbzl/">波波知了</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/ysb/">易收宝</a></li>
+                                    
+                                    <li><a href="/corporate_client/recommendation/ytg/">易托管</a></li>
+                                    
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/creditcard/"  class="a_title" id="nav信用卡">信用卡</a>
+                        <div class="nav_menu_collapse creditcard_menu ">
+                            <div class="menu_column clearfix">
+                                
+                                <ul>
+                                    <li><a href="/creditcard/card_recommended/" class="column_title">卡种推荐</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/creditcard/card_recommended/bzkxl/">联名合作</a></li>
+                                    
+                                    <li><a href="/creditcard/card_recommended/jtcxxl/">交通出行</a></li>
+                                    
+                                    <li><a href="/creditcard/card_recommended/wlydxl/">乐享购物</a></li>
+                                    
+                                    <li><a href="/creditcard/card_recommended/lmkxl/">经典系列</a></li>
+                                    
+                                    <li><a href="/creditcard/card_recommended/yssjxl/">分期专享</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/creditcard/installment_business/" class="column_title">消费与分期</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/creditcard/installment_business/account/">账单分期</a></li>
+                                    
+                                    <li><a href="/creditcard/installment_business/fenqiyi/">消费分期</a></li>
+                                    
+                                    <li><a href="/creditcard/installment_business/spfq/">商品分期</a></li>
+                                    
+                                    <li><a href="/creditcard/installment_business/xianjinyi/">现金易</a></li>
+                                    
+                                    <li><a href="/creditcard/installment_business/wanlijin/">万利金</a></li>
+                                    
+                                    <li><a href="/creditcard/installment_business/xfyq/">消费延期</a></li>
+                                    
+                                </ul>
+                                
+                                <!--
+                                <ul>
+                                    <li><a href="/creditcard/#qyfq" class="column_title">权益专区</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/creditcard/#qyfq">银联卡权益</a></li>
+                                    
+                                    <li><a href="/creditcard/#qyfq">运通卡权益</a></li>
+                                    
+                                    <li><a href="/creditcard/#qyfq">特色联名卡权益</a></li>
+                                    
+                                </ul>
+                                -->
+                                
+                                <ul>
+                                    <li><a href="/creditcard/card_guide/" class="column_title">用卡指南</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/creditcard/card_guide/AUROC/">信用卡领用合约</a></li>
+                                    
+                                    <li><a href="/creditcard/card_guide/TACOCC/">信用卡章程</a></li>
+                                    
+                                    <li><a href="/creditcard/card_guide/xykqyyl/">信用卡权益一览</a></li>
+                                    
+                                    <li><a href="/creditcard/card_guide/DROPA/">积分细则</a></li>
+                                    
+                                    <li><a href="/creditcard/card_guide/jfwd/">积分问答</a></li>
+                                    
+                                    <li><a href="/creditcard/card_guide/zfbz/">资费标准</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/creditcard/client_service/" class="column_title">客户服务</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/creditcard/client_service/FAQ/">常见问题</a></li>
+                                    
+                                    <li><a href="/creditcard/client_service/service_channel/">服务渠道</a></li>
+                                    
+                                    <li><a href="/creditcard/client_service/service_hotline/">服务热线</a></li>
+                                    
+                                </ul>
+                                
+                            </div>                    
+                        </div>
+                    </li>
+                    <li class="nav_li">
+                        <a href="https://nbcbhome.com.cn/#/home/index" target="_blank" class="a_title">波波知了</a>
+                    </li>
+                    <li class="nav_li">
+                        <a href="/about_nbcb/"  class="a_title" id="nav关于宁行">关于宁行</a>
+                        <div class="nav_menu_collapse about_menu ">
+                            <div class="menu_column clearfix">
+                                
+                                <ul>
+                                    <li><a href="/about_nbcb/information_diclosure/" class="column_title">信息公开</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/about_nbcb/information_diclosure/bank_news/">行内新闻</a></li>
+                                    
+                                    <li><a href="/about_nbcb/information_diclosure/corporate_announcements/">公司公告</a></li>
+                                    
+                                    <li><a href="/about_nbcb/information_diclosure/periodic_report/">定期报告</a></li>
+                                    
+                                    
+                                    <li><a href="/about_nbcb/information_diclosure/talent_recruitment/" target="_blank">人才招聘</a></li>
+                                    
+                                </ul>
+                                
+                                
+                                <ul>
+                                    <li><a href="/about_nbcb/investor_relations/" class="column_title">投资者关系</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/directors_supervisors_management/">董事、高管</a></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/stock_structure/">股本结构</a></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/corporate_govrmance/">公司治理</a></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/rules_regulations/">规章制度</a></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/ESG/">ESG披露</a></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/regulatory_capital/">监管资本</a></li>
+                                    
+                                    <li><a href="/about_nbcb/investor_relations/gljy/">关联交易</a></li>
+                                    
+                                </ul>
+                                
+                                <ul>
+                                    <li><a href="/about_nbcb/profile_of_nbcb/" class="column_title">宁行概况</a></li>
+                                    <li class="column_line"></li>
+                                    
+                                    <li><a href="/about_nbcb/profile_of_nbcb/introduction_nbcb/">宁行简介</a></li>
+                                    
+                                    <li><a href="/about_nbcb/profile_of_nbcb/corporate_culture/">企业文化</a></li>
+                                    
+                                    <li><a href="/about_nbcb/profile_of_nbcb/organizational_structure/">组织架构</a></li>
+                                    
+                                    <li><a href="/about_nbcb/profile_of_nbcb/business_overview/">业务概况</a></li>
+                                    
+                                    <li><a href="/about_nbcb/profile_of_nbcb/branches_sub_branches/">网点查询</a></li>
+                                    
+                                    <li><a href="/about_nbcb/profile_of_nbcb/contact_us/">联系我们</a></li>
+                                    
+                                </ul>
+                                
+                            </div>                    
+                        </div>
+                    </li>
+                    
+                </ul>
+                <a href="/download_center/"  class="downld_btn">下载中心</a>
+               
+            </div>
+        </div>
+    </div>
+	<!-- END header -->
+    <div class="page_financial">
+        <div class="swiper-container swiper_financial">
+            <div class="swiper-wrapper">
+				
+                <div class="swiper-slide">
+                    <div class="banner1 banner cbg" style="background-image: url(/corporate_client/202203/W020220329737101641964.jpg)"></div>
+                </div>
+				
+            </div>
+            <div class="pagination"></div>
+        </div>
+        <div class="second_nav">
+            <span>当前位置：</span><a href="/" title="首页">首页</a>&gt;<a href="/corporate_client/" title="公司客户">公司客户</a>&gt;<a href="/corporate_client/gslccp/" title="公司理财产品">公司理财产品</a>&gt;<a href="/corporate_client/gslccp/xxpl/" title="产品和公告">产品和公告</a>&gt;<span class="c_orange">净值公告</span>
+        </div>
+        <div class="main_body clearfix">
+            <div class="l_content fl">
+                
+                                
+			<!-- START left -->
+			<div class="buy_list">
+                    <div class="list_title">
+                        <i class="car_icon"></i>
+                        <span>购买渠道</span>
+                    </div>
+                    <div class="list_content">
+                        <ul>
+							
+                            <li>
+                                <a href="javascript:;" class="app_qrcode qrcode_box">
+                                    <i class="app_icon"></i>
+                                    <span>宁波银行APP</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                                <div class="qrcode1 cbg" style="background-image: url(/corporate_client/gslccp/gmqd/202201/W020220329741404678195.png);"></div>
+                            </li>
+							
+							
+                            <li>
+                                <a href="https://cb.nbcb.com.cn"  class="person_icon_box">
+                                    <i class="person_icon"></i>
+                                    <span>企业网银</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                        </ul>
+                    </div>
+                </div>
+                <div class="info_list">
+                    <div class="list_title">
+                        <i class="xxpl_icon"></i>
+                        <span>产品和公告</span>
+                    </div>
+                    <div class="list_content">
+                        <ul>
+                            <li id="li公司理财产品">
+                                <a href="/corporate_client/gslccp/" class="list_item list_item8">
+                                    <i class="item_icon8"></i>
+                                    <span>公司理财产品</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+
+							
+                            <li id="li销售文件">
+                                <a href="/corporate_client/gslccp/xxpl/xswj/" class="list_item list_item1 ">
+                                    <i class="item_icon1"></i>
+                                    <span>销售文件</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                            <li id="li净值公告">
+                                <a href="/corporate_client/gslccp/xxpl/jzgg/" class="list_item list_item2 ">
+                                    <i class="item_icon2"></i>
+                                    <span>净值公告</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                            <li id="li发行公告">
+                                <a href="/corporate_client/gslccp/xxpl/fxgg/" class="list_item list_item3 ">
+                                    <i class="item_icon3"></i>
+                                    <span>发行公告</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                            <li id="li定期报告">
+                                <a href="/corporate_client/gslccp/xxpl/dqbg/" class="list_item list_item4 ">
+                                    <i class="item_icon4"></i>
+                                    <span>定期报告</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                            <li id="li到期公告">
+                                <a href="/corporate_client/gslccp/xxpl/dqgg/" class="list_item list_item5 ">
+                                    <i class="item_icon5"></i>
+                                    <span>到期公告</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                            <li id="li销售人员查询">
+                                <a href="/corporate_client/gslccp/xxpl/xsrycx/" class="list_item list_item6 ">
+                                    <i class="item_icon6"></i>
+                                    <span>销售人员查询</span>
+                                    <i class="arrow_up"></i>
+                                </a>
+                            </li>
+							
+                        </ul>
+                    </div>
+                </div>
+			<!-- END left -->
+
+
+            </div>
+            <div class="r_content fr">
+                
+        <!--START 公告内容 -->
+        <div class="notice_main_right">
+            <div class="notice_details">
+                <div class="notice_title">宁银理财公募定期开放产品净值公告</div>
+                <div class="notice_date">2024-12-19</div>
+                <div class="notice_content">
+                    &nbsp;
+<div style="text-align: center;"><a href="./W020241220370036784277.zip" OLDSRC="W020241220370036784277.zip">宁银理财公募定期开放产品净值公告</a></div>
+                </div>
+            </div>
+        </div>
+        <!--END 公告内容 -->
+            </div>
+        </div>
+    </div>
+	<!-- START 公用footer -->
+	<div id="footer">
+    <div class="service_info clearfix">
+        <div class="group_logo sub_column"><a href="/" class="footer_logo"></a><span class="footer_hotline"></span><span class="footer_creditcard"></span></div>
+        <div class="subsidiary_box sub_column">
+            <ul>
+                <li class="nf_title">子公司</li>
+                <li>
+                <a href="https://www.maxwealthfund.com/index" target="_blank" ><div class="dot"></div><span>永赢基金</span> </a>
+                
+                <a href="https://www.maxwealthfl.com/" target="_blank" ><div class="dot"></div><span>永赢金租</span> </a>
+                </li>
+                <li>
+                <a href="https://www.wmbnb.com/" target="_blank" ><div class="dot"></div><span>宁银理财</span> </a>
+                
+                <a href="https://www.cfcbnb.com"  ><div class="dot"></div><span>宁银消金</span> </a>
+                </li>
+                <li></li>
+            </ul>
+            <ul id="website_box1">
+                <li class="nf_title"><a href="/hzjggs/" target='_blank' style="margin: 0;">合作机构公示</a></li>
+            </ul>
+            <ul id="website_box">
+                <li class="nf_title">常用链接</li>
+                <li>
+                <a href="/resources/public_footer/xgwz/202202/t20220214_1001209.shtml"  ><div class="dot"></div><span>网站声明</span></a>
+                
+                <a href="https://zhaopin.nbcb.com.cn/" target="_blank" ><div class="dot"></div><span>人才招聘</span></a>
+                </li>
+                <li>
+                <a href="/lxwm/"  ><div class="dot"></div><span>联系我们</span></a>
+                
+                <a href="https://obss.nbcb.com.cn/95574operator/?randomCode=UH72MNCKG6#/authPage" target="_blank" ><div class="dot"></div><span>员工身份核验</span></a>
+                </li>
+                <li>
+                <a href="https://aapw.nbcb.com.cn/mobilebank/page/index.html?path=page/P40/02/P4002.html"  ><div class="dot"></div><span>隐私政策</span></a>
+                
+                <a href="https://yun.nbcb.com.cn/" target="_blank" ><div class="dot"></div><span>宁行云</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="feedback_box sub_column">
+            <ul>
+                <li class="feedback_title">意见反馈</li>     
+                
+                <li><div class="dot"></div><span><a href="/./resources/public_footer/yjfk/">投诉举报</a></span><span style="padding-left: 10px;"><a href="/home_page/xfzbhqy/jrzsjy/jrzs/202403/t20240306_1135107.shtml">投诉处理流程</a></span></li>
+                
+                
+                <li><div class="dot"></div><span>投诉电话：95574</span></li>
+                
+                <li><div class="dot"></div><span>信用卡投诉电话：4000095574</span></li>
+                
+                
+                <li><div class="dot"></div><span><a href="/resources/public_footer/zxyy/202606/t20260622_1219114.shtml">征信异议</a></span></li>
+                
+                
+                <li><div class="dot"></div><span>电子邮箱（非征信异议）：5198@nbcb.cn</span></li>
+                
+                <li><div class="dot"></div><span>消保专线：0574-83050153</span></li>
+                
+                
+                <li><span>工作日：8:30-11:30、13:30-17:30</span></li>
+                
+                
+                <li><div class="dot"></div><span>信访地址：宁波市鄞州区宁东路345号</span></li>
+                
+                
+                <li><span>宁波银行消费者权益保护部，邮编：315042</span></li>
+                
+                                
+            </ul>
+        </div>
+        <div class="qrcode_group sub_column group_bg">
+            <div class="logo_box">  
+                
+                <img src="/resources/public_footer/tbewm/202201/W020220402531582035904.png" alt="" class="logo_gs" />
+                
+                
+                <a href="https://ss.knet.cn/verifyseal.dll?sn=2010083000100001954&ct=df&a=1&pa=0.8380521044600755"  target="_blank"  class="logo_kexin">
+                    <img src="/resources/public_footer/tbewm/202201/W020220402531748120662.png" alt="" />
+                </a>                
+                
+            </div>
+            <div class="qrcode_box clearfix">
+                
+                <div class="mobile fl">
+                    <img src="/resources/public_footer/tbewm/202201/W020220329748877909360.png" alt="" />
+                    <p>手机银行</p>
+                </div>
+                
+                <div class="mobile fl">
+                    <img src="/resources/public_footer/tbewm/202201/W020220329748879274457.png" alt="" />
+                    <p>微信银行</p>
+                </div>
+                
+                
+                <div class="weibo fl">
+                    <img src="/resources/public_footer/tbewm/202201/W020220329748880528374.png" alt="" />
+                    <p>官方微博</p>
+                </div>                
+                                                
+            </div>                           
+        </div>
+    </div>
+    <div class="copyright">
+        
+<!-- 2022-05-19 14:39:22 -->
+<!-- 2026-11-03  0824:42:05 -->
+        <span>&copy;宁波银行股份有限公司版权所有</span>
+        
+        
+        <a href="http://beian.miit.gov.cn" target="_blank" >&nbsp;&nbsp;浙ICP备11055414号-2 </a>
+        
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33021202000135" target="_blank" >&nbsp;&nbsp;浙公网安备 33021202000135 号 </a>
+        
+    </div>
+</div>
+</div>
+</div>
+	<!-- END  公用footer -->
+    <script src="/images/jquery-1.11.0.min.js"></script>
+<script src="/images/common.js"></script>
+<script src="/images/barrierfree.js"></script>
+<script src="/images/barrierfree/js/barrierfreeYuyin.js"></script>
+<!--<script src="/images/Std_StranJF.js"></script>-->
+    <script language='JavaScript' charset='utf-8' src='/ubas/js/count.js'></script>
+    <script language='JavaScript' charset='utf-8' src='/ubas/js/submit.js'></script>
+<script>
+$(".tools .index_search_btn").click(function(){
+	search();
+})
+$("#search1").bind('keydown', function(event){
+	if(event.keyCode == 13){
+		search();
+	}
+})
+function search(){
+	var name = $(".tools .search").val()
+	if (name == "" || name == null){
+		alert("请输入内容！");
+	}else{
+		name = encodeURI(name);
+		window.location.href = "/search.shtml?page=1&name="+name+"";
+	}
+}
+var userAgent = navigator.userAgent;
+if(userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1){
+	window.onpageshow = function(e){
+		if(e.persisted || (window.performance && window.performance.navigation.type == 2)){
+			window.location.reload();
+		}
+	}
+	
+}
+var url = window.location.pathname;
+var re = new RegExp('english');
+if(re.test(url)){
+$('.english').hide();
+$('.chinese').show();
+}
+
+</script>
+
+
+
+<!-- baidu统计代码 begin -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8b9480950a6cadd80a66f238d3e4542e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <!-- Monitor Start -->
+	<script type='text/javascript'>
+    params.docId='1159927';
+    params.doctitle='宁银理财公募定期开放产品净值公告';
+    params.channelId='1917';
+    params.channelName='净值公告';
+    params.siteId='8';
+    params.siteName='宁波新网站';
+    </script>
+    <!-- Monitor End -->
+    <script src="/images/idangerous.swiper.min.js"></script>
+    <script type="text/javascript" src="/images/laypage.js"></script>
+    <script>
+        $(function () {
+            var swiper_financial = new Swiper('.swiper_financial', {
+                // autoplay: 3000,
+                loop: true,
+                pagination: '.pagination',
+                paginationClickable: true,
+                autoplayDisableOnInteraction: false,
+            })
+            var isopencode = false;
+            $('.qrcode_box').click(function () {
+                if (!isopencode) {
+                    $('.app_qrcode').addClass('active_qrcode1')
+                    $('.qrcode1').show();
+                    isopencode = true;
+                } else {
+                    $('.app_qrcode').removeClass('active_qrcode1')
+                    $('.qrcode1').hide();
+                    isopencode = false;
+                }
+            })
+
+        })
+		
+	$("#nav公司客户").addClass("activeTitle");
+
+		var $link = $("#li净值公告");
+		$link.addClass('active');
+    </script>
+</body>
+
+</html>

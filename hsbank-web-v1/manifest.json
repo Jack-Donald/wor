@@ -1,0 +1,143 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:16.081Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "hsbank-web-v1",
+ "sourceId": "hsbank",
+ "parserVersion": "hsbank-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": true,
+  "evaluate": true,
+  "repair": true,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 12,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2771,
+   "sha256": "7871d4877b122ceb1fb0667696382798bc5ce83057ceb07059d9f171f05612cd"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 921772,
+   "sha256": "e91c792b4aff568515decd76b09140bb60679f5df7f6e26db544a14c71e95032"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 856,
+   "sha256": "eed53e270cb9e934f43aec7b67af59fc73b0e6f71512dd03f1bae249d55d66dc"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 4230,
+   "sha256": "db5329fb93e04341cef97e7af1736dbb6b17d9b3f7d8294c585b56716e2567ca"
+  },
+  {
+   "path": "fixtures/modified/nav-bad-decimal.raw",
+   "bytes": 1464,
+   "sha256": "a7ad2d6a51361cc826bf8e9cedb66ff3389a3809885714dfcc2555531ce399f8"
+  },
+  {
+   "path": "fixtures/modified/nav-duplicate-date.raw",
+   "bytes": 1466,
+   "sha256": "44d5c5f016ef2295cd11c09285a023c0c9b5337c213c5a5420fec23882638aa9"
+  },
+  {
+   "path": "fixtures/modified/nav-foreign-productcode.raw",
+   "bytes": 1463,
+   "sha256": "ba318d4342c38bb463f342290bf59c47067629756036f7b836427f93a437ecc9"
+  },
+  {
+   "path": "fixtures/modified/nav-truncated.raw",
+   "bytes": 896,
+   "sha256": "b168020e80037d154f168588f4cc60ef06d7134452d1cf19403646c93bf6360c"
+  },
+  {
+   "path": "fixtures/real/catalog-implcprodoct-page1.raw",
+   "bytes": 3669,
+   "sha256": "1d4e3d049edc7326ebbbef33aba042428fb31928234fefedfe505f68804728ed"
+  },
+  {
+   "path": "fixtures/real/nav-productNetValue-J02037-1.raw",
+   "bytes": 1453,
+   "sha256": "880d1b69c103f59c090d12e7f61a73e6f3881d79abc237e6166f77d5f4225a6f"
+  },
+  {
+   "path": "fixtures/real/nav-productNetValue-PN19000100_A-1.raw",
+   "bytes": 1466,
+   "sha256": "4355807d2825d787e28a26cfc30ac11fe4f319696fb66c834b87f32e8fd1718f"
+  },
+  {
+   "path": "fixtures/real/nav-productNetValue-PN19000100_A-2.raw",
+   "bytes": 1475,
+   "sha256": "1bbe9c333ab1ac979d463f9805a735f202c3fc5b677e744cb706e9f298b2c8ac"
+  },
+  {
+   "path": "fixtures/real/nav-productNetValue-PN19000100_A-282.raw",
+   "bytes": 1349,
+   "sha256": "e108b53f6ad3dfe457efa90b04d88e30d611a25344ee36092c3bac78dfd81257"
+  },
+  {
+   "path": "fixtures/real/nav-productNetValue-PNHY200013-1.raw",
+   "bytes": 1488,
+   "sha256": "958bb95cc5d5b25592da69fbe9700634d32d08f3b93504daac74e304169dac2f"
+  },
+  {
+   "path": "fixtures/real/nav-productNetValue-PNHY200013-37.raw",
+   "bytes": 1502,
+   "sha256": "09613805ea6c2bc60936daf4d6f57db3e1523dad3a33bdf7d74786874ccc9b25"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-hsbank-web-v1.yml",
+   "bytes": 10143,
+   "sha256": "04f391860e2ee438b4f4e13eea73b3e9f8589c235e2dc7b15130dabc3ee6ec25"
+  }
+ ]
+}

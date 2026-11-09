@@ -1,0 +1,148 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261109T101502Z-rel13",
+ "generatedAt": "2026-11-09T10:15:13.674Z",
+ "implementationCommit": "1bd0440b4c8cb12143e777d68c8d4f1775e34487",
+ "buildCommand": "node --import tsx scripts/p4-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map）",
+ "collectorId": "icbcwm-web-v1",
+ "sourceId": "icbcwm",
+ "parserVersion": "icbcwm-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": true,
+  "evaluate": true,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "config.example.json 全部为占位值并经契约 Schema 校验（不含秘密）",
+   "产物敏感串扫描零命中（规则见 scripts/p4-release/scan.ts）"
+  ]
+ },
+ "fixtures": 13,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 2767,
+   "sha256": "17e78f99fe69d2481e8ce162cbbcbbb05c6ffcf843c28cba9587573baef388e0"
+  },
+  {
+   "path": "collector.mjs",
+   "bytes": 923265,
+   "sha256": "4423c858695fc19901739d5cde054f5aca8121a6c5092d6050a61a95f893b679"
+  },
+  {
+   "path": "config.example.json",
+   "bytes": 852,
+   "sha256": "11185bb25b42e0e37d7a1c05c701f232a879d9106af117d4f6287e3386a0aebb"
+  },
+  {
+   "path": "fixtures/README.md",
+   "bytes": 3853,
+   "sha256": "839ba219dff2d4056c75edad6e5fda932c8dc51068d48a04187eecfe365348c8"
+  },
+  {
+   "path": "fixtures/modified/detail-bad-registration.raw",
+   "bytes": 71051,
+   "sha256": "e637fc6634360046730e0410a4a028b3acb08afc3abd96f0d4d78bc2f6d28b28"
+  },
+  {
+   "path": "fixtures/modified/detail-status-not-on-sale.raw",
+   "bytes": 71059,
+   "sha256": "8f32080a2faea95a30d983b3c34ccc2ae18cfb17551eda0dea964eb4a03cdc36"
+  },
+  {
+   "path": "fixtures/modified/lookup-corporate-only.raw",
+   "bytes": 13120,
+   "sha256": "b4bed670b371c967aca203e94cee04d1cf51a77faf86ab1af3138fab775e29b5"
+  },
+  {
+   "path": "fixtures/modified/lookup-truncated.raw",
+   "bytes": 900,
+   "sha256": "238d16a5d50d3d7182afe388105975166d8914fc8e033d6e4dc5c2cddf0696b3"
+  },
+  {
+   "path": "fixtures/modified/nav-foreign-salescode.raw",
+   "bytes": 4953,
+   "sha256": "2c1e86b1f8c5389cbcb385966616b702830c8afebd7fe5ce6b7dc9cb041b7833"
+  },
+  {
+   "path": "fixtures/modified/navindex-wrong-product.raw",
+   "bytes": 384,
+   "sha256": "c7051aadcc4ce64f488f2da9dd72abe73a7dbab9daad22fecbcd585598c90642"
+  },
+  {
+   "path": "fixtures/real/detail-114003-25G2955J.raw",
+   "bytes": 71059,
+   "sha256": "efb4fc927376e7de848a9345254a7fb94d06a0e27354afc195e3db3ab33fd7db"
+  },
+  {
+   "path": "fixtures/real/lookup-114002-25G2955J.raw",
+   "bytes": 4114,
+   "sha256": "873ca7c320ccfbc452642bb683a43b92e92ae55ad0b58bf3f238a5f4836cb1ab"
+  },
+  {
+   "path": "fixtures/real/lookup-114002-page1.raw",
+   "bytes": 13120,
+   "sha256": "e3e8a7bab2c87e0dd1646c95e94986db907612a849f6a95b4d6c83263f79f635"
+  },
+  {
+   "path": "fixtures/real/nav-112902-25G2955J-p1.raw",
+   "bytes": 4955,
+   "sha256": "307a824aa33e4e56864b3c7739fb366bc92b9eb9b5b116f427aac834a1e94546"
+  },
+  {
+   "path": "fixtures/real/nav-112902-pagesize-error.raw",
+   "bytes": 107,
+   "sha256": "38a76ac2b1607050db8efd48f0c557a530819797c6f0628d0006624c71da275c"
+  },
+  {
+   "path": "fixtures/real/navindex-112901-25GS2955.raw",
+   "bytes": 387,
+   "sha256": "310e113f1b9a2c9cc2a4ccce6b1ca64716c84ac9e053c228251af0635e8d68a0"
+  },
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 335,
+   "sha256": "67c016babf1e872567d841b5d0843a886c7563c22d0f6e07062bbb5332ae5ff2"
+  },
+  {
+   "path": "p4.mjs",
+   "bytes": 1445515,
+   "sha256": "f411c272892c1df64dadffbda2554145f99e2889dfb8287ab2efedf75c621b53"
+  },
+  {
+   "path": "workflow-icbcwm-web-v1.yml",
+   "bytes": 10143,
+   "sha256": "cfbb937438047a2d56fa4e435a3f9513674935b8f516eca32bef594cfc621948"
+  }
+ ]
+}

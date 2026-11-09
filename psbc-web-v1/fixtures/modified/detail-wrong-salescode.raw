@@ -1,0 +1,621 @@
+理财产品详情
+          <span class="cplx1">0</span>
+          <span class="cplx2">03</span>
+        </div>
+        <div class="fdInfo fundIqeClist">
+          <div class="fdqU clear">
+            <div class="fsqTitle">
+              <a href="">
+                南银理财悦稳最低持有7天4号-B份额
+              </a>
+            </div>
+            <div class="fundCode fundCodeBs">
+              A99999
+            </div>
+            
+
+            <div class="fundType typeZy" zsbs='00000000000240000000'>
+            </div>
+            <div class="proItcn">
+              <a href='/cn/channels/licai/material/A99999.pdf'> 产品说明书(PDF)</a>
+            </div>
+          </div>
+          <style>
+              .eaCal,.cplx1,.cplx2,.yqxcp,.jzxcp,.hbxcp,.hbxcpyj,.yjbjinfo{
+                  display: none;
+              }
+          </style>
+         <script>
+              $(function(){
+  if ($(".cplx1").html().trim() == '1') {
+                  if($(".cplx1").html() == '1'){
+                    $(".hbxcp").show().addClass("on");
+					
+					 if($(".cplx2").html() == '04' || $(".cplx2").html() == '02'){
+						//隐藏业绩比较基准概述
+						$(".yjbjjz_gs").hide();
+						//console.log('是02或04不显示')
+                      }else if($(".cplx2").html() == '01' || $(".cplx2").html() == '03'){
+						//显示业绩比较基准概述
+						$(".yjbjjz_gs").show();
+						//console.log('是01或03显示')
+						if($(".yjbjjz_gs").text().trim()==''){
+							   $(".yjbjjz_gs").text('业绩比较基准综合投资范围、策略和市场环境等测算')
+						}
+                      }
+					  
+					  
+                  }else{
+                      if($(".cplx2").html() == '04' || $(".cplx2").html() == '02'){
+                        $(".yqxcp").show();
+						//隐藏业绩比较基准概述
+						$(".yjbjjz_gs").hide();
+                      }else if($(".cplx2").html() == '01' || $(".cplx2").html() == '03'){
+                        $(".jzxcp").show();
+						//显示业绩比较基准概述
+						$(".yjbjjz_gs").show();
+						if($(".yjbjjz_gs").text().trim()==''){
+							   $(".yjbjjz_gs").text('业绩比较基准综合投资范围、策略和市场环境等测算')
+						}
+                      }
+                  }
+                 /*if($(".cplx1").html() == '0'&&($(".cplx2").html() == '04' || $(".cplx2").html() == '02')){
+                    //$(".yqxcp,.eaCal").show();
+					          $(".yqxcp").show();
+					
+                  }
+                  if($(".cplx1").html() == '0'&& ($(".cplx2").html() == '01' || $(".cplx2").html() == '03')){
+                    $(".jzxcp").show();
+                  }*/
+                if($(".dqjz").html() == ''){
+                    var yjbjjzNum = ''
+                    var yjbjjzPec = (Number(yjbjjzNum)*100).toFixed(2)+'%'
+                    if (yjbjjzNum == ''){
+						$(".dqjz").html('详见说明书')
+						$(".dqjzHtml").html('业绩比较基准')
+						$(".jzrqBox").hide();
+						$(".yjbjinfo").show();
+					}else {
+						$(".dqjz").html(yjbjjzPec)
+						$(".dqjzHtml").html('业绩比较基准')
+						$(".yjbjinfo").show();
+						$(".jzrqBox").hide();
+					}
+				}
+                  if($(".jzrq").html() == ''){
+                    $(".jzrqBox").hide();
+                  }
+
+                  if($(".hbxcpPd").html().trim() == '%' && $(".hbxcp").hasClass("on")){
+                    $(".hbxcp").hide();
+                    $(".hbxcpyj").show();
+                  }
+                  
+              })
+          </script>
+
+          
+          <div class="fdqB clear yqxcp">
+            <div class="fdqbRate fdqBI">
+              <div class="yieldRate fdqbSatmT">
+                  
+                  
+                 
+                    
+                        <span></span>
+                    
+                    
+                
+                
+                
+                    
+                    
+                      <i  class="functionX100">0.0000</i> 
+                    
+                
+              </div>
+              <div class="fdqbRateB">
+                预期年化收益率
+              </div>
+            </div>
+            <div class="fdqbSatm  fdqBI ">
+                <div class="fdqbSatmT lcqgje xycywd">
+                   <i class="dwbcwNew">
+                                    1.0000
+                                </i>
+                                <i class="dwbcwNewNew">
+                                    人民币
+                                </i>
+                                
+                </div>
+                <div class="fdqbRateB">
+                  起购金额
+                </div>
+            </div>
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT">
+                 持有7天后每日可赎
+              </div>
+              <div class="fdqbRateB">
+                申赎规则
+              </div>
+            </div>
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT">
+                
+                
+                  
+                  
+                    <div class="riskL" style="font-size: 24px;">
+                      <img class="" src="../../../../../images/fxdjIcon2.png" alt="" />PR2中低风险
+                    </div>  
+                  
+                  
+                  
+                  
+              
+              </div>
+              <div class="fdqbRateB">
+                风险等级
+              </div>
+            </div>
+          </div>
+
+           
+          
+          <div class="fdqB clear jzxcp">
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT dqjz" style="color: black; font-size: 14px;">1.0496</div>
+              <div class="fdqbRateB dqjzHtml" style="color: black;">
+                当前净值
+              </div>
+            </div>
+			
+			
+			
+            <div class="fdqbSatm fdqBI lstVal jzrqBox">
+              <div class="fdqbSatmT jzrq">2026-10-28</div>
+              <div class="fdqbRateB">
+                净值日期
+              </div>
+            </div>
+            
+            <div class="fdqbSatm  fdqBI ">
+              <div class="fdqbSatmT lcqgje xycywd">
+                 
+                                <i class="dwbcwNew">
+                                    1.0000
+                                </i>
+                                <i class="dwbcwNewNew">
+                                    人民币
+                                </i> 
+              </div>
+              <div class="fdqbRateB">
+                起购金额
+              </div>
+          </div>
+          <div class="fdqbSatm fdqBI lstVal">
+            <div class="fdqbSatmT">
+              
+              
+                
+                
+                  <div class="riskL" style="line-height:50px;font-size: 24px;">
+                    <img class="" src="../../../../../images/fxdjIcon2.png" alt="" />PR2中低风险
+                  </div>  
+                
+                
+                
+                
+            
+            </div>
+            <div class="fdqbRateB">
+              风险等级
+            </div>
+          </div>
+		  
+		  <div class="yjbjjz_gs">
+		     A份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率+0.2%。 B份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率。 C份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率。 本理财产品业绩比较基准是管理人基于过往投资经验、对产品存续期拟投资标的和相应投资市场波动的预判设定的投资目标。本理财产品投资于固定收益类资产的比例不低于总资产的80%。结合债券市场的收益和波动水平预判，在本理财产品约定的投资策略基础上，管理人设定了本理财产品投资周期内业绩比较基准。 注：管理人可根据市场情况对业绩比较基准进行适当调整，如有调整，将至少于调整前3个工作日公布调整方案。 本理财产品为净值型理财产品，业绩比较基准不是预期收益率，不代表产品的未来表现和实际收益，不构成对产品收益的承诺。
+		  </div>
+		  
+		  
+		  
+          </div>
+
+          
+          <div class="fdqB clear hbxcp">
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT hbxcpPd">
+                <i class="functionX100">0.0000 </i> 
+              </div>
+              <div class="fdqbRateB">
+                七日年化
+              </div>
+            </div>
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT">
+                 0.0000
+              </div>
+              <div class="fdqbRateB">
+                万分收益
+              </div>
+            </div>
+            <div class="fdqbSatm fdqBI lstVal" style="width: 130px;">
+              <div class="fdqbSatmT">
+                 2026-10-28
+              </div>
+              <div class="fdqbRateB">
+                日期
+              </div>
+            </div>
+            <div class="fdqbSatm  fdqBI ">
+                <div class="fdqbSatmT lcqgje xycywd">
+                  <i class="dwbcwNew">
+                                    1.0000
+                                </i>
+                                <i class="dwbcwNewNew">
+                                    人民币
+                                </i>
+                                
+                </div>
+                <div class="fdqbRateB">
+                  起购金额
+                </div>
+            </div>
+            
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT">
+                
+                
+                  
+                  
+                    <div class="riskL" style="line-height:50px;font-size: 24px;">
+                      <img class="" src="../../../../../images/fxdjIcon2.png" alt="" />PR2中低风险
+                    </div>  
+                  
+                  
+                  
+                  
+              
+              </div>
+              <div class="fdqbRateB">
+                风险等级
+              </div>
+            </div>
+						
+			<div class="yjbjjz_gs">
+		     A份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率+0.2%。 B份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率。 C份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率。 本理财产品业绩比较基准是管理人基于过往投资经验、对产品存续期拟投资标的和相应投资市场波动的预判设定的投资目标。本理财产品投资于固定收益类资产的比例不低于总资产的80%。结合债券市场的收益和波动水平预判，在本理财产品约定的投资策略基础上，管理人设定了本理财产品投资周期内业绩比较基准。 注：管理人可根据市场情况对业绩比较基准进行适当调整，如有调整，将至少于调整前3个工作日公布调整方案。 本理财产品为净值型理财产品，业绩比较基准不是预期收益率，不代表产品的未来表现和实际收益，不构成对产品收益的承诺。
+			</div>
+          </div>
+
+
+          
+
+          
+          <div class="fdqB clear hbxcpyj">
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT">
+                 
+                    
+                        <span>详见说明书</span>
+                    
+                    
+                
+              </div>
+              <div class="fdqbRateB"style="font-size: 12px; color: #000000;">
+                业绩比较基准
+              </div>
+            </div>
+			<div class="fdqbSatm fdqBI lstVal">
+             <div class="" style="font-size: 12px; color: black;line-height: 13px;width: 112px;padding-top: 14px;">
+              业绩比较基准综合投资范围、策略和市场环境等测算</div>
+            </div>
+            <div class="fdqbSatm  fdqBI ">
+                <div class="fdqbSatmT lcqgje xycywd">
+                   <i class="dwbcwNew">
+                                    1.0000
+                                </i>
+                                <i class="dwbcwNewNew">
+                                    人民币
+                                </i>
+                                
+                </div>
+                <div class="fdqbRateB">
+                  起购金额
+                </div>
+            </div>
+            <div class="fdqbSatm fdqBI lstVal">
+              <div class="fdqbSatmT">
+                
+                
+                  
+                  
+                    <div class="riskL" style="line-height:50px;font-size: 24px;">
+                      <img class="" src="../../../../../images/fxdjIcon2.png" alt="" />PR2中低风险
+                    </div>  
+                  
+                  
+                  
+                  
+              
+              </div>
+              <div class="fdqbRateB">
+                风险等级
+              </div>
+            </div>
+			<div class="yjbjjz_gs">
+		     A份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率+0.2%。 B份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率。 C份额：业绩比较基准为中国人民银行发布的7天通知存款基准利率。 本理财产品业绩比较基准是管理人基于过往投资经验、对产品存续期拟投资标的和相应投资市场波动的预判设定的投资目标。本理财产品投资于固定收益类资产的比例不低于总资产的80%。结合债券市场的收益和波动水平预判，在本理财产品约定的投资策略基础上，管理人设定了本理财产品投资周期内业绩比较基准。 注：管理人可根据市场情况对业绩比较基准进行适当调整，如有调整，将至少于调整前3个工作日公布调整方案。 本理财产品为净值型理财产品，业绩比较基准不是预期收益率，不代表产品的未来表现和实际收益，不构成对产品收益的承诺。
+			</div>
+          </div>
+
+
+        </div>
+        
+        
+        <div class="eaCal">
+          <div class="baseInfoT">
+            <a href="">投资收益试算计算器</a>
+          </div>
+          <div class="eaCalB clear">
+            <img src="../../../../../images/psbc02_lcEarcal_v2020.png" alt="" />
+            <span>投资金额</span>
+            <i class="subArtamts">-</i>
+            <input type="text" id="ARTAMTS" />
+            <i class="plusArtamts">+</i>
+            <span>预期投资收益</span>
+            <span class="mm"></span>
+            <span>元</span>
+          </div>
+        </div>
+        
+        
+        <div class="baseInfo">
+          <div class="baseInfoT">
+            基本信息
+          </div>
+          <div class="baseInfoC">
+            <ul>
+              <li>
+                <div class="title">产品名称/代码</div>
+                <div class="infoC">南银理财悦稳最低持有7天4号-B份额/A99999</div>
+              </li>
+              
+              <li>
+                <div class="title">递增金额</div>
+                <div class="infoC"> 1.0000</div>
+              </li>
+              <li>
+                <div class="title">收益类型</div>
+                <div class="infoC"> 非保本浮动收益</div>
+              </li>
+              
+              <li>
+                <div class="title">最低持有份额</div>
+                <div class="infoC">0.00</div>
+              </li>
+              <li>
+                <div class="title">产品状态</div>
+                <div class="infoC cpzt">
+                  <span class="cpzt_buy">1</span>
+                  <span class="cpzt_product">1</span>
+                </div>
+              </li>
+              <li>
+                <div class="title">分红方式</div>
+                <div class="infoC fhfs">1</div>
+              </li>
+              <li>
+                <div class="title">是否VIP产品</div>
+                <div class="infoC sfvip">0</div>
+              </li>
+              <li>
+                <div class="title">是否积分兑换产品</div>
+                <div class="infoC sfjfdhcp">0</div>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div>
+        <script>
+            $(function () {
+                        if ($(".fhfs").html().trim() == '0') {
+                            $(".fhfs").html('不区分')
+                        } else if ($(".fhfs").html().trim() == '1') {
+                            $(".fhfs").html('现金分红')
+                        } else if ($(".fhfs").html().trim() == '2') {
+                            $(".fhfs").html('红利再投')
+                        }
+
+                        if ($(".sfvip").html().trim() == '0') {
+                            $(".sfvip").html('否')
+                        } else if ($(".sfvip").html().trim() == '3') {
+                            $(".sfvip").html('是')
+                        }
+
+                        if ($(".sfjfdhcp").html().trim() == '0') {
+                            $(".sfjfdhcp").html('否')
+                        } else if ($(".sfjfdhcp").html().trim() == '1') {
+                            $(".sfjfdhcp").html('是')
+                        }
+
+                        if ($(".vipdj").html() == '1') {
+                            $(".vipdj").html('银卡级及以上')
+                        } else if ($(".vipdj").html() == '2') {
+                            $(".vipdj").html('金卡级及以上')
+                        } else if ($(".vipdj").html() == '3') {
+                            $(".vipdj").html('白金级及以上')
+                        } else if ($(".vipdj").html() == '9') {
+                            $(".vipdj").html('钻石级')
+                        }
+
+                        if ($(".fxdj").html() == '1') {
+                            $(".fxdj").html('一级（低）')
+                        } else if ($(".fxdj").html() == '2') {
+                            $(".fxdj").html('二级（中低）')
+                        } else if ($(".fxdj").html() == '3') {
+                            $(".fxdj").html('三级（中）')
+                        } else if ($(".fxdj").html() == '4') {
+                            $(".fxdj").html('四级（中高）')
+                        } else if ($(".fxdj").html() == '5') {
+                            $(".fxdj").html('五级（高）')
+                        }
+                        if ($(".cpzt_product").html().trim() == '0') {
+                            $(".cpzt").html('募集')
+                        } else if ($(".cpzt_product").html().trim() == '1') {
+                            $(".cpzt").html('存续')
+                        } else if ($(".cpzt_product").html().trim() == '5') {
+                            $(".cpzt").html('已到期')
+                        } else if ($(".cpzt_buy").html().trim() == '1' || $(".cpzt_buy").html().trim() == '4' || $(".cpzt_buy").html().trim() == '1,4') {
+                            $(".cpzt").html('在售')
+                        } else if ($(".cpzt_buy").html().trim() == '3') {
+                            $(".cpzt").html('预约')
+                        }
+
+                    })
+        </script>
+        
+        
+        <div class="manaChan">
+          <div class="baseInfoT">
+            办理渠道
+          </div>
+          <div class="manaChanB">
+            <ul>
+              <li><a href="psbc://mainpage:/page/new_financial/financial_products/financial_products.html?PRODUCT_ID=A99999">手机银行</a><p><span></span>产品当前不在开放期，暂不支持购买。</p>
+</li>
+              <li class="pcBank"><a href="https://pbank.psbc.com/perbank/?financialCode^=A99999&financialType=03&finaIsCoin=0">网银申请</a> <p><span></span>产品当前不在开放期，暂不支持购买。</p></li>
+              <li class="busSite"><a href="https://www.psbc.com/cn/common/fwwd/">营业网点</a> <p><span></span>产品当前不在开放期，暂不支持购买。</p></li>
+            </ul>
+          </div>
+        </div>
+		<script>
+              $(function(){
+                        var bzType = '人民币'
+                        if (bzType != '人民币') {
+                            $(".busSite").css({ "display": "none" })
+                            $(".pcBank").css({ "display": "none" })
+                        }
+			      //不能购买的产品，弹出提示框删除链接不跳转
+				  var buystatus='1';
+				  if( buystatus != '1'){
+					 $(".manaChanB ul li").click(function(){
+					       $(".manaChanB ul li p").css({"display":"none"})
+						   $(this).find('a').removeAttr('href');
+					       $(this).find('p').toggle();
+					})
+				  } 
+              })
+          </script>
+        
+        
+        <div class="proSmC">
+          <div class="baseInfoT">
+            产品说明
+          </div>
+          <div class="proSmB">
+            <p><em class="proSmBAdd"></em>理财非存款，产品有风险，投资须谨慎。</p>
+            
+          </div>
+        </div>
+        
+        
+        <div class="lcxgg">
+          <div class="clear">
+            <div class="baseInfoT baseInfoTNew fl">
+              产品公告
+            </div>
+            <a href="../../ywgg/" class="seemoret seemoretNew">更多>></a>
+          </div>
+          <div class="fdPaMmB">
+		      <ul>
+                
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+            </ul>
+            
+            <div class="seemore pc_none">
+              <a href="../../ywgg/">
+                查看更多
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <style>
+            .tableCplx1,.tableCplx2,.tableJzx,.tableHbx,.tableYqx,.info{
+                display: none;
+            }
+			.fdqBI {
+				position: relative;
+				height: 65px;
+				float: left;
+				border-right: 1px solid #E2E2E2;
+				padding: 0 20px 0 20px;
+				width: 103px;
+			}
+            .width120 {
+			   width:120px;
+			}
+            @media screen and (max-width:750px){
+              .width120 {
+			     width:33%;
+			   }
+            }				
+        </style>
+        <script>
+            $(function(){
+
+                for( var l = 0 ; l < $(".tableCplx1").length; l ++){
+                    if($(".tableCplx1").eq(l).html().trim() == '1'){
+                        console.log('货币型')
+                        $(".tableHbx").eq(l).show();
+                    }else{
+                        if($(".tableCplx2").eq(l).html().trim() == '02' || $(".tableCplx2").eq(l).html().trim() == '04'){
+                            console.log('预期型')
+                            $(".tableYqx").eq(l).show();
+                        }
+                        if($(".tableCplx2").eq(l).html().trim() == '01' || $(".tableCplx2").eq(l).html().trim() == '03'){
+                        console.log('净值型')
+                        $(".tableJzx").eq(l).show();
+                        }
+                    }
+
+//20210624
+                    /*if($(".typeZylc").eq(l).html().trim().substring(8,9) == '1'){
+                        $(".typeZylc").eq(l).html('中邮理财')
+                    }else{
+                        $(".typeZylc").eq(l).hide()
+                    }*/
+                }
+
+                for( var x = 0 ; x < (".functionX100").length; x++){
+                  $(".functionX100").eq(x).html(Number(($(".functionX100").eq(x).html())*100).toFixed(2)+'%');
+                }
+				
+				//显示业绩比较基准提示
+				$('.info').each(function(){
+					
+					var prd=$(this).attr('CURTYPEPRODUCT');/*收益类型*/
+					var thr=$(this).attr('NET_EXPECT_PRODUCT');/*是否货币类型*/
+					if((prd=='1')&&($(this).attr('SEVEN_ANNUAL_YIELD')=='')){
+						$(this).show();
+					}else if(((thr=='01')||(thr=='03'))&&$(this).attr('LATEST_NET')==''){
+						$(this).show();
+					}
+				});
+                
+            })
+        </script>
+         
+        <div class="retPoRec">
+          <div class="baseInfoT ">
+            相关产品推荐

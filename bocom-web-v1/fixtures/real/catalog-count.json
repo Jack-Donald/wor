@@ -1,0 +1,14 @@
+{
+  "RSP_HEAD": {
+    "TRAN_SUCCESS": "1"
+  },
+  "RSP_BODY": {
+    "result": 3,
+    "product": "personal",
+    "pageStart": 1,
+    "pageEnd": 15,
+    "TRAN_PROCESS": "",
+    "TRAN_ID": "",
+    "keyWord": ""
+  }
+}

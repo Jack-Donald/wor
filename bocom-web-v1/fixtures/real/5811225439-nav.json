@@ -1,0 +1,120 @@
+{
+  "RSP_BODY": {
+    "realIp": "118.122.113.181",
+    "result": {
+      "dateList": null,
+      "profitList": [
+        {
+          "d_cdate": "2026-10-19",
+          "f_netvalue": "1.02677",
+          "f_totalnetvalue": "1.02677",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-20",
+          "f_netvalue": "1.02678",
+          "f_totalnetvalue": "1.02678",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-21",
+          "f_netvalue": "1.02685",
+          "f_totalnetvalue": "1.02685",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-22",
+          "f_netvalue": "1.02687",
+          "f_totalnetvalue": "1.02687",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-23",
+          "f_netvalue": "1.02691",
+          "f_totalnetvalue": "1.02691",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-26",
+          "f_netvalue": "1.02708",
+          "f_totalnetvalue": "1.02708",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-27",
+          "f_netvalue": "1.02720",
+          "f_totalnetvalue": "1.02720",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-28",
+          "f_netvalue": "1.02722",
+          "f_totalnetvalue": "1.02722",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-29",
+          "f_netvalue": "1.02725",
+          "f_totalnetvalue": "1.02725",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-10-30",
+          "f_netvalue": "1.02723",
+          "f_totalnetvalue": "1.02723",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-11-02",
+          "f_netvalue": "1.02731",
+          "f_totalnetvalue": "1.02731",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        },
+        {
+          "d_cdate": "2026-11-03",
+          "f_netvalue": "1.02735",
+          "f_totalnetvalue": "1.02735",
+          "zcjz": "--",
+          "sgjg": null,
+          "shjg": null
+        }
+      ]
+    },
+    "c_productcode": "",
+    "TRAN_PROCESS": "",
+    "type": "max",
+    "c_interestway": "0",
+    "TRAN_ID": "",
+    "c_fundcode": "5811225439",
+    "queryList": 1
+  },
+  "RSP_HEAD": {
+    "TRAN_SUCCESS": "1",
+    "TRACE_NO": "site-prd-sweb-79888cf5f6-rcxk7-9075409052",
+    "TRACE_ID": "8d0b0af2.1.253.4wmf76r01zn",
+    "PROCESS_STATUS_CODE": null,
+    "BIZ_TRACE_NO": null
+  }
+}
