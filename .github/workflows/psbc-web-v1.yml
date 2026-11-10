@@ -1,4 +1,4 @@
-# psbc-web-v1（psbc）独立采集/维护 workflow 模板（P4 W08；A03/A04/B02 整改轮）。
+# psbc-web-v1（psbc）独立采集/维护 workflow 模板（A03/A04/B02 整改轮语义）。
 # 用法：复制到执行仓库 .github/workflows/（受保护分支、经维护者审定后启用）；
 # 配置文件放执行仓库 config/psbc-web-v1.run.json（wealth-observer-p4-run/v1，无秘密）；
 # run 块以 $GITHUB_WORKSPACE 拼接其绝对路径传入 --config（CLI requireAbsolute
@@ -22,7 +22,7 @@
 # 本模板不预设任何真实 cron 启用：cron 为错峰示例窗口（UTC），正式启用（含
 # schedule.json 放行与 Secret 配置）由执行仓库维护者按运维流程显式操作。
 # 公开 runner 只输出 CLI 安全摘要；不配置 upload-artifact（真实本地包不上传）。
-name: p4-psbc-run
+name: collector-psbc
 
 on:
   workflow_dispatch:
@@ -40,7 +40,7 @@ on:
         type: boolean
         default: false
   schedule:
-    # UTC；错峰示例窗口，正式时间由 P5 按站点窗口/礼貌间隔证据核定后调整。
+    # UTC；错峰示例窗口，正式时间由执行仓库维护者按站点窗口/礼貌间隔证据核定后调整。
     - cron: '46 2 * * *'
 permissions:
   # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
@@ -48,7 +48,7 @@ permissions:
 
 concurrency:
   # 同源任务串行且不互相取消（礼貌间隔与请求预算按任务维度生效，防止重叠突破预算）。
-  group: p4-psbc-run
+  group: collector-psbc
   cancel-in-progress: false
 
 defaults:
@@ -163,15 +163,15 @@ jobs:
           # 模板默认 preview（不写目标）；实际应用由执行仓库维护者按运维流程执行。
           case "$COMMAND" in
             collect)
-              node dist/p4-release/psbc-web-v1/p4.mjs collect \
+              node dist/psbc-web-v1/orchestrator.mjs collect \
                 --config "$GITHUB_WORKSPACE/config/psbc-web-v1.run.json" --mode daily "$MODE"
               ;;
             catalog)
-              node dist/p4-release/psbc-web-v1/p4.mjs catalog \
+              node dist/psbc-web-v1/orchestrator.mjs catalog \
                 --config "$GITHUB_WORKSPACE/config/psbc-web-v1.run.json" --preview
               ;;
             evaluate)
-              node dist/p4-release/psbc-web-v1/p4.mjs evaluate \
+              node dist/psbc-web-v1/orchestrator.mjs evaluate \
                 --config "$GITHUB_WORKSPACE/config/psbc-web-v1.run.json" --preview
               ;;
             *)

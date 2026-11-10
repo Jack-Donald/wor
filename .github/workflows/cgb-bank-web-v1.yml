@@ -1,4 +1,4 @@
-# cgb-bank-web-v1（cgb-bank）独立采集/维护 workflow 模板（P4 W08；A03/A04/B02 整改轮）。
+# cgb-bank-web-v1（cgb-bank）独立采集/维护 workflow 模板（A03/A04/B02 整改轮语义）。
 # 用法：复制到执行仓库 .github/workflows/（受保护分支、经维护者审定后启用）；
 # 配置文件放执行仓库 config/cgb-bank-web-v1.run.json（wealth-observer-p4-run/v1，无秘密）；
 # run 块以 $GITHUB_WORKSPACE 拼接其绝对路径传入 --config（CLI requireAbsolute
@@ -8,10 +8,10 @@
 # 独立调度：本文件只调度 cgb-bank 一个来源；没有总任务/矩阵调所有源。
 # 手动 dispatch：默认 --local-only（保存本地包，不写目标）；写入置 write=true
 # （write=true 时 CLI 按目标类型自行要求凭据，dispatch 语义与 B02 整改前不变）。
-# 定时任务：本模板未配置 schedule 触发（该源无 collect 能力，定时窗口由 P5 凭
+# 定时任务：本模板未配置 schedule 触发（该源无 collect 能力，定时窗口由执行仓库维护者凭
 # 站点证据核定后另行启用）；run 块 schedule 分支为模板共享形态，触发缺失时不执行。
 # 公开 runner 只输出 CLI 安全摘要；不配置 upload-artifact（真实本地包不上传）。
-name: p4-cgb-bank-run
+name: collector-cgb-bank
 
 on:
   workflow_dispatch:
@@ -27,14 +27,14 @@ on:
         description: '写入目标（false=--local-only 仅保存本地包；true 需 Secrets 已配置）'
         type: boolean
         default: false
-  # 无 schedule：该源在线能力受限（collect 不可用或待核实），定时窗口由 P5 凭证据启用。
+  # 无 schedule：该源在线能力受限（collect 不可用或待核实），定时窗口由执行仓库维护者凭证据启用。
 permissions:
   # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
   contents: read
 
 concurrency:
   # 同源任务串行且不互相取消（礼貌间隔与请求预算按任务维度生效，防止重叠突破预算）。
-  group: p4-cgb-bank-run
+  group: collector-cgb-bank
   cancel-in-progress: false
 
 defaults:
@@ -149,15 +149,15 @@ jobs:
           # 模板默认 preview（不写目标）；实际应用由执行仓库维护者按运维流程执行。
           case "$COMMAND" in
             collect)
-              node dist/p4-release/cgb-bank-web-v1/p4.mjs collect \
+              node dist/cgb-bank-web-v1/orchestrator.mjs collect \
                 --config "$GITHUB_WORKSPACE/config/cgb-bank-web-v1.run.json" --mode daily "$MODE"
               ;;
             catalog)
-              node dist/p4-release/cgb-bank-web-v1/p4.mjs catalog \
+              node dist/cgb-bank-web-v1/orchestrator.mjs catalog \
                 --config "$GITHUB_WORKSPACE/config/cgb-bank-web-v1.run.json" --preview
               ;;
             evaluate)
-              node dist/p4-release/cgb-bank-web-v1/p4.mjs evaluate \
+              node dist/cgb-bank-web-v1/orchestrator.mjs evaluate \
                 --config "$GITHUB_WORKSPACE/config/cgb-bank-web-v1.run.json" --preview
               ;;
             *)

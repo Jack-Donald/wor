@@ -1,0 +1,62 @@
+{
+ "schemaVersion": "wealth-observer-p4-release/v1",
+ "runId": "20261110T102148Z-rel21",
+ "generatedAt": "2026-11-10T10:21:50.699Z",
+ "implementationCommit": "ab04310712f31c947abf2c388c90216975eb65fc",
+ "buildCommand": "node --import tsx scripts/collector-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map；门禁通过后同步直写执行仓库 wor/dist）",
+ "collectorId": "example-web-v1",
+ "sourceId": "example",
+ "parserVersion": "example-web/v1",
+ "commands": {
+  "catalog": true,
+  "collect": false,
+  "evaluate": false,
+  "repair": false,
+  "importLocal": true
+ },
+ "kernel": "p4-orchestration/v1",
+ "protocolVersion": "wo-ingest-v2",
+ "algorithmVersion": "wo-return-v1",
+ "runtime": {
+  "node": ">=22",
+  "os": [
+   "windows",
+   "linux"
+  ],
+  "externalClients": "docker exec psql（容器通道）或本机 psql（原生主机；非回环必须 PGSSLMODE=verify-full）或 HTTPS PostgREST（内置 fetch）"
+ },
+ "database": {
+  "postgresql": "18.4（P2/P3 隔离验证版本）",
+  "postgrest": "14.5（P2 验证版本）",
+  "transports": [
+   "psql-container",
+   "psql-native-host",
+   "https"
+  ]
+ },
+ "credentialFreeBuild": {
+  "status": true,
+  "basis": [
+   "构建输入仅仓库源码/模板/根 LICENSE，未读取任何凭据文件或凭据环境变量",
+   "发行包仅含 orchestrator.mjs/manifest.json/licenses，不含 fixtures、示例配置、源码与迁移",
+   "产物敏感串扫描零命中（规则见 scripts/collector-release/scan.ts）"
+  ]
+ },
+ "files": [
+  {
+   "path": "licenses/LICENSE",
+   "bytes": 1062,
+   "sha256": "35f3fcea70dc3677d5f30e3ca083b57eba5db76520c914015239715265484d6a"
+  },
+  {
+   "path": "licenses/THIRD-PARTY.md",
+   "bytes": 341,
+   "sha256": "b053b75f9bfc7faa38ee6d89e913f84408924e4a4d509ffe56f2220458a495de"
+  },
+  {
+   "path": "orchestrator.mjs",
+   "bytes": 1451736,
+   "sha256": "e1aa3c2bcafbe3f04cd30a2cebdf98fe4079909d4d0396c6360e8a74481b24ed"
+  }
+ ]
+}
