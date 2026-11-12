@@ -20777,6 +20777,9 @@ var init_schemas3 = __esm({
       // 0 仅在来源证据明确支持"无持有限制"时出现；未知不再被降级为 0。
       restrictionDays: external_exports.number().int().min(0).max(31).nullable(),
       lifecycleState: LifecycleSchema,
+      // 官方到期日证据（2026-11-12 ADR-20261112）：目录行可空投影，终止状态展示到期日用；
+      // null 表示最新证据为无固定期限/无该字段，不虚构。
+      endDate: DateSchema.nullable(),
       collectionCapability: CollectionCapabilitySchema,
       included: external_exports.boolean(),
       catalogUpdatedAt: external_exports.iso.datetime(),
@@ -20994,6 +20997,10 @@ var init_schemas3 = __esm({
       shareName: external_exports.string().min(1).max(300),
       inceptionDate: DateSchema.nullable(),
       lifecycleState: LifecycleSchema,
+      // 官方到期日证据（ADR-20261112）：解析器只输出纯字段（哨兵日期归一为 null，不与
+      // 当前日期比较）；键存在（含 null）表示最新证据并覆盖存储值，键缺失＝本轮无证据。
+      // 服务端目录同步以北京业务日判定 ended，冲突守卫与自愈见迁移 202611120024。
+      endDate: DateSchema.nullable().optional(),
       operatingMode: OperatingModeSchema.nullable(),
       restrictionDays: external_exports.number().int().min(0).max(31).nullable(),
       collectionCapability: CollectionCapabilitySchema.nullable(),
@@ -24395,16 +24402,62 @@ function operatingModeOf(text) {
   if (text === "\u73B0\u91D1\u7BA1\u7406\u7C7B") return "cash_management";
   return null;
 }
+function minimumHoldingDaysFromName(shareName) {
+  const match = /最短持有(\d+)天/.exec(shareName);
+  return match ? Number(match[1]) : null;
+}
+function isDailyOpenName(shareName) {
+  return shareName.includes("\u65E5\u5F00") || shareName.includes("\u6BCF\u65E5\u5F00\u653E");
+}
+function isRolloverLockName(shareName) {
+  return shareName.includes("\u5B9A\u5F00") || shareName.includes("\u5468\u671F");
+}
+function termEvidenceNote(kind, shareCode) {
+  if (kind === "minimum_holding")
+    return `\u7EF4\u62A4\u80052026-11-11\u88C1\u5B9A\uFF1A\u5B98\u65B9\u76EE\u5F55\u540D\u79F0\u300C\u6700\u77ED\u6301\u6709N\u5929\u300D\u5373\u6700\u77ED\u6301\u6709\u671F\uFF08\u4EFD\u989D${shareCode}\uFF09`;
+  if (kind === "daily_open")
+    return `\u7EF4\u62A4\u80052026-11-11\u88C1\u5B9A\uFF1A\u65E5\u5F00/\u6BCF\u65E5\u5F00\u653E\uFF1D\u6BCF\u65E5\u5F00\u653E\u65E0\u6301\u6709\u671F\uFF1D0\u5929\uFF08\u4EFD\u989D${shareCode}\uFF09`;
+  return `\u7EF4\u62A4\u80052026-11-11\u88C1\u5B9A\uFF1A\u73B0\u91D1\u7BA1\u7406\u7C7B\u6BCF\u65E5\u53EF\u7533\u8D4E\uFF1D0\u5929\uFF08NFRA\u901A\u77E5docId=989851\uFF09\uFF08\u4EFD\u989D${shareCode}\uFF09`;
+}
 function parseDetailFacts2(body, expectedShareCode, today) {
   const catalog = parseCatalog2(body);
   const row = catalog.rows.find(function match(entry) {
     return entry.shareCode === expectedShareCode;
   });
   if (!row) throw new ParseError8("share_mismatch");
-  const operatingMode = operatingModeOf(row.operatingModeText);
-  const termDays = operatingMode === "closed" ? closedTermDays(row.productInceptionDate, row.maturityDate) : null;
+  const modeText = operatingModeOf(row.operatingModeText);
+  let termDays;
+  let catalogOperatingMode;
+  let evidenceKind = null;
+  if (modeText === "closed") {
+    termDays = closedTermDays(row.productInceptionDate, row.maturityDate);
+    catalogOperatingMode = "closed";
+  } else if (modeText === "cash_management") {
+    termDays = 0;
+    catalogOperatingMode = "cash_management";
+    evidenceKind = "cash";
+  } else {
+    const minimumHolding = minimumHoldingDaysFromName(row.shareName);
+    if (minimumHolding !== null) {
+      termDays = minimumHolding;
+      catalogOperatingMode = "minimum_holding";
+      evidenceKind = "minimum_holding";
+    } else if (isDailyOpenName(row.shareName)) {
+      termDays = 0;
+      catalogOperatingMode = "open";
+      evidenceKind = "daily_open";
+    } else {
+      termDays = null;
+      catalogOperatingMode = "open";
+    }
+  }
   const restrictionDays = termDays !== null && termDays >= 0 && termDays <= 31 ? termDays : null;
-  const restrictionNote = termDays === null ? "unknown_no_term" : termDays > 31 ? `out_of_scope:${termDays}days` : null;
+  let restrictionNote;
+  if (termDays !== null && termDays > 31) restrictionNote = `out_of_scope:${termDays}days`;
+  else if (termDays === null && modeText === "open" && isRolloverLockName(row.shareName))
+    restrictionNote = "rollover_lock_ineligible";
+  else if (termDays === null) restrictionNote = "unknown_no_term";
+  else restrictionNote = null;
   const validToday = /^\d{4}-\d{2}-\d{2}$/.test(today) ? today : null;
   const matured = validToday !== null && row.maturityDate !== NO_FIXED_MATURITY_DATE && row.maturityDate < addDaysIso4(validToday, 1);
   const started = validToday !== null ? row.shareInceptionDate <= addDaysIso4(validToday, 1) : false;
@@ -24420,14 +24473,16 @@ function parseDetailFacts2(body, expectedShareCode, today) {
     shareName: row.shareName,
     inceptionDate: row.shareInceptionDate,
     lifecycleState,
-    operatingMode,
+    operatingMode: catalogOperatingMode,
     restrictionDays,
     collectionCapability: "available",
     // 管理人直销来源：目录无渠道销售代码行，offerings 为空（渠道关系由渠道源另行登记）
     offerings: [],
     externalIds: [
       { kind: "product:registration", value: row.registrationCode },
-      { kind: "share:hxwm_sales_code", value: row.shareCode }
+      { kind: "share:hxwm_sales_code", value: row.shareCode },
+      // 名称语义/现金类 0 天准入的证据摘要（裁定可追溯，逐份额唯一，防 identifier_conflict）
+      ...evidenceKind !== null ? [{ kind: "share:term_evidence", value: termEvidenceNote(evidenceKind, row.shareCode) }] : []
     ]
   });
   return {
@@ -25049,7 +25104,7 @@ function parseCatalogRow3(entry) {
   const registrationCode = requireString8(entry.checkInon, "checkInon");
   if (!/^Z\d{13}$/.test(registrationCode)) throw new ParseError10("bad_registration_code");
   const endDateCompact = requireString8(entry.endDate, "endDate");
-  const endDate = endDateCompact === NO_FIXED_MATURITY_COMPACT ? null : normalizeCbhbDate(endDateCompact, "endDate");
+  const endDate = NO_FIXED_MATURITY_COMPACT_SET.includes(endDateCompact) ? null : normalizeCbhbDate(endDateCompact, "endDate");
   const periodRaw = entry.prodPeriod;
   const prodPeriodDays = typeof periodRaw === "number" && Number.isInteger(periodRaw) && periodRaw >= 0 ? periodRaw : typeof periodRaw === "string" && /^\d{1,4}$/.test(periodRaw) ? Number(periodRaw) : null;
   const orgnoName = requireString8(entry.orgnoName, "orgnoName");
@@ -25097,6 +25152,15 @@ function intField(value, field, min2, max2) {
   if (!valid) throw new ParseError10(`bad_int:${field}`);
   return value;
 }
+function parseOpenClassNameTerm(productName) {
+  const daily = productName.includes("\u65E5\u5F00") || productName.includes("\u6BCF\u65E5\u5F00\u653E");
+  const dayMatches = [...productName.matchAll(/(\d+)天/g)];
+  if (daily && dayMatches.length === 0) return { mode: "open", days: 0 };
+  if (!daily && dayMatches.length === 1)
+    return { mode: "minimum_holding", days: Number(dayMatches[0][1]) };
+  if (daily || dayMatches.length > 1) return "ambiguous";
+  return null;
+}
 function parseDetailFacts4(body, expectedSaleCode, today) {
   const page = parseCatalogPage4(body, 1);
   if (page.totalRecords !== 1 || page.rows.length !== 1)
@@ -25121,6 +25185,19 @@ function parseDetailFacts4(body, expectedSaleCode, today) {
       restrictionDays = row.prodPeriodDays;
       restrictionNote = restrictionDays > 31 ? `out_of_scope:${restrictionDays}days` : null;
       if (restrictionDays > 31) restrictionDays = null;
+    }
+  } else {
+    const nameTerm = parseOpenClassNameTerm(row.productName);
+    if (nameTerm === "ambiguous") {
+      restrictionNote = "term_ambiguous_name";
+    } else if (nameTerm !== null) {
+      operatingMode = nameTerm.mode;
+      if (nameTerm.days > 31) {
+        restrictionNote = `out_of_scope:${nameTerm.days}days`;
+      } else {
+        restrictionDays = nameTerm.days;
+        restrictionNote = null;
+      }
     }
   }
   const validToday = /^\d{4}-\d{2}-\d{2}$/.test(today) ? today : null;
@@ -25285,7 +25362,7 @@ function verifyAdjustmentProof4(nav) {
 function addDaysIso6(date5, days) {
   return new Date(Date.parse(`${date5}T00:00:00Z`) + days * 864e5).toISOString().slice(0, 10);
 }
-var PARSER_VERSION12, COLLECTOR_ID12, SOURCE_ID12, HOSTS4, GATEWAY_ROOT2, ENDPOINTS8, DETAIL_REFERER_PREFIX2, OFFICIAL_DETAIL_URL_PREFIX4, MANAGER_NAME5, MANAGER_LEGAL_NAME2, NO_FIXED_MATURITY_COMPACT, NAV_WINDOW_MAX_DAYS, NAV_PAGE_SIZE, ParseError10;
+var PARSER_VERSION12, COLLECTOR_ID12, SOURCE_ID12, HOSTS4, GATEWAY_ROOT2, ENDPOINTS8, DETAIL_REFERER_PREFIX2, OFFICIAL_DETAIL_URL_PREFIX4, MANAGER_NAME5, MANAGER_LEGAL_NAME2, NO_FIXED_MATURITY_COMPACT_SET, NAV_WINDOW_MAX_DAYS, NAV_PAGE_SIZE, ParseError10;
 var init_cli12 = __esm({
   "collectors/cbhbwm-web-v1/src/modules/collection/cli.ts"() {
     "use strict";
@@ -25303,7 +25380,7 @@ var init_cli12 = __esm({
     OFFICIAL_DETAIL_URL_PREFIX4 = DETAIL_REFERER_PREFIX2;
     MANAGER_NAME5 = "\u6E24\u94F6\u7406\u8D22";
     MANAGER_LEGAL_NAME2 = "\u6E24\u94F6\u7406\u8D22\u6709\u9650\u8D23\u4EFB\u516C\u53F8";
-    NO_FIXED_MATURITY_COMPACT = "99991231";
+    NO_FIXED_MATURITY_COMPACT_SET = ["99991231", "20991231", "99991230"];
     NAV_WINDOW_MAX_DAYS = 92;
     NAV_PAGE_SIZE = 2e3;
     ParseError10 = class extends Error {
@@ -25689,6 +25766,11 @@ function parseShareInfo(text, expectedProdCode) {
   );
   const termRaw = data.PROD_TERM_DAYS;
   const termDays = typeof termRaw === "string" && /^\d{1,3}$/.test(termRaw) ? Number(termRaw) : null;
+  const endRaw = data.END_DATE;
+  let endDate = null;
+  if (typeof endRaw === "string" && endRaw.length > 0) {
+    if (endRaw !== "20991231") endDate = normalizeBobwmDate(endRaw, "END_DATE");
+  }
   return {
     prodCode,
     prodName: requireString10(data.PROD_NAME, "PROD_NAME"),
@@ -25696,6 +25778,7 @@ function parseShareInfo(text, expectedProdCode) {
     managerName: "\u5317\u94F6\u7406\u8D22",
     riskLevel: `R${risk[1]}`,
     inceptionDate,
+    endDate,
     currencyCny: true,
     termDays,
     parentProdCode: parentCode,
@@ -25810,7 +25893,10 @@ function toCatalogSyncItem5(detail) {
     shareCode: detail.prodCode,
     shareName: detail.prodName,
     inceptionDate: detail.inceptionDate,
-    // R04：解析器永不输出 ended（生命周期变更须维护身份官方依据）
+    // 到期日证据恒随条目输出（含 null＝无固定期限/无证据）；键存在即覆盖存储值，
+    // 服务端按 ADR-20261112 以北京业务日判定 ended（解析器保持纯函数，不比今天）
+    endDate: detail.endDate,
+    // R04：解析器不直接输出 ended（终止由服务端到期证据判定或维护者显式操作）
     lifecycleState: "unknown",
     // OPEN_TYPE=5（持有期份额）实证；termDays 为官方字段
     operatingMode: detail.termDays !== null ? "minimum_holding" : null,
@@ -33305,7 +33391,11 @@ async function fetchNavSequence(options) {
       return { nav: null, pagesSaved: 0, detail: null, unitKind: "windows" };
     if (options.targetDates.length === 0)
       throw new Error("nav_window_requires_targets\uFF08\u7A97\u53E3\u89C4\u5212\u9700\u8981\u7F3A\u53E3/\u533A\u95F4\u65E5\u671F\uFF09");
-    const sorted = [...options.targetDates].sort();
+    const inceptionFloor = detail.inceptionDate;
+    const effectiveTargets = inceptionFloor ? options.targetDates.filter((date5) => date5 >= inceptionFloor) : options.targetDates;
+    if (effectiveTargets.length === 0)
+      return { nav: null, pagesSaved: 0, detail: null, unitKind: "windows" };
+    const sorted = [...effectiveTargets].sort();
     const rangeFrom = sorted[0];
     const rangeThrough = sorted[sorted.length - 1];
     const planned = [];
@@ -33321,6 +33411,7 @@ async function fetchNavSequence(options) {
       cursorMs = endMs + 864e5;
     }
     const navPages = [];
+    let emptyWindowCount = 0;
     for (const window of planned) {
       requireBudget();
       const built2 = windows.windowRequest(share, facts, window.begin, window.end);
@@ -33328,13 +33419,24 @@ async function fetchNavSequence(options) {
         built2,
         `nav-window:${window.begin}..${window.end}-${share}:${options.phase}`
       );
-      const nav2 = await saveAndVerifyNavPage(response2.text, adapter.endpoints.navHistory);
+      let nav2;
+      try {
+        nav2 = await saveAndVerifyNavPage(response2.text, adapter.endpoints.navHistory);
+      } catch (error62) {
+        if (error62 instanceof Error && error62.message.includes("empty_nav_history")) {
+          emptyWindowCount += 1;
+          continue;
+        }
+        throw error62;
+      }
       navPages.push(nav2);
-      if (navPageCovers(navPages, options.targetDates)) break;
+      if (navPageCovers(navPages, effectiveTargets)) break;
     }
+    if (navPages.length === 0)
+      throw new Error("empty_nav_history\uFF08\u5168\u90E8\u7A97\u53E3\u7A7A\u2014\u2014\u771F\u7A7A\u5E8F\u5217\uFF0C\u6574\u652F\u62D2\u7EDD\uFF09");
     return {
       nav: mergeNavPages(navPages),
-      pagesSaved: navPages.length,
+      pagesSaved: navPages.length + emptyWindowCount,
       detail: null,
       unitKind: "windows"
     };
