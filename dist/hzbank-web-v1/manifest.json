@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "20261112T100000Z-rel22",
- "generatedAt": "2026-11-12T01:25:55.126Z",
- "implementationCommit": "1d846e5200081f937c38ffc3552ac28acb00b066",
+ "runId": "20261112T111500Z-rel23",
+ "generatedAt": "2026-11-12T03:09:24.681Z",
+ "implementationCommit": "e9680d14d6927146249427471452dc1d3488ff78",
  "buildCommand": "node --import tsx scripts/collector-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map；门禁通过后同步直写执行仓库 wor/dist）",
  "collectorId": "hzbank-web-v1",
  "sourceId": "hzbank",
@@ -55,8 +55,8 @@
   },
   {
    "path": "orchestrator.mjs",
-   "bytes": 1456898,
-   "sha256": "d2d7ecc24d507f19bd7b228db73774434dd0e7c9c1accaed71def74b992992b9"
+   "bytes": 1467252,
+   "sha256": "17efd2cff5d86d73cea680b63c3630b279f68f8f10d9fbeaba711e5fe0f7fce0"
   }
  ]
 }

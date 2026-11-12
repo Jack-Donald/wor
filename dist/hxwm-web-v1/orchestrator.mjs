@@ -20422,7 +20422,7 @@ var init_zod = __esm({
 });
 
 // packages/contracts/src/modules/contracts/schemas.ts
-var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
+var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
 var init_schemas3 = __esm({
   "packages/contracts/src/modules/contracts/schemas.ts"() {
     "use strict";
@@ -20443,6 +20443,7 @@ var init_schemas3 = __esm({
     HXWM_LOCAL_PAGE_BYTES = 16 * 1024 * 1024;
     MAX_LOCAL_PAGE_BYTES = 16 * 1024 * 1024;
     LIMITS = { rows: 200, bytes: 262144, softMs: 9e4, hardMs: 1e5 };
+    MAX_CATALOG_RESTRICTION_DAYS = 3649635;
     ERROR_CODES = {
       invalid_payload: 21001,
       not_included: 21002,
@@ -20499,7 +20500,10 @@ var init_schemas3 = __esm({
       "minimum_holding",
       "closed",
       "periodic",
-      "cash_management"
+      "cash_management",
+      // 全量目录扩容（ADR-20261112）：列表页行无运作形态官方证据时的显式未知态；
+      // 已收录份额经准入核实时仍有具体形态，unknown 只出现在目录层。
+      "unknown"
     ]);
     CollectionCapabilitySchema = external_exports.enum(["available", "unavailable", "unknown"]);
     IncomeBasisSchema = external_exports.enum(["daily", "period_total", "daily_average"]);
@@ -20715,7 +20719,7 @@ var init_schemas3 = __esm({
       manager: external_exports.array(external_exports.string().min(1).max(200)).max(50).optional(),
       bank: external_exports.array(KeySchema).max(50).optional(),
       riskLevel: external_exports.array(external_exports.string().min(1).max(32)).max(10).optional(),
-      operatingMode: external_exports.array(OperatingModeSchema).max(5).optional(),
+      operatingMode: external_exports.array(OperatingModeSchema).max(6).optional(),
       restrictionDaysMax: external_exports.coerce.number().int().min(0).max(31).optional(),
       // W00 冻结点3（W04 CR-009 裁定纳入）：期限未知筛选——true 时匹配 restriction_days
       // IS NULL 的目录行（期限未经官方条款核实）；与 restrictionDaysMax 同时给出时按"且"
@@ -20775,7 +20779,9 @@ var init_schemas3 = __esm({
       operatingMode: OperatingModeSchema,
       // restrictionDays 可空（整改 F08）：null 表示期限未知（未经官方条款核实），
       // 0 仅在来源证据明确支持"无持有限制"时出现；未知不再被降级为 0。
-      restrictionDays: external_exports.number().int().min(0).max(31).nullable(),
+      // 全量目录扩容（ADR-20261112）：上限放宽至 MAX_CATALOG_RESTRICTION_DAYS，
+      // 目录行可含超 31 天期限（如 90/180 天乃至长期/永续推导值）。
+      restrictionDays: external_exports.number().int().min(0).max(MAX_CATALOG_RESTRICTION_DAYS).nullable(),
       lifecycleState: LifecycleSchema,
       // 官方到期日证据（2026-11-12 ADR-20261112）：目录行可空投影，终止状态展示到期日用；
       // null 表示最新证据为无固定期限/无该字段，不虚构。
@@ -21001,17 +21007,31 @@ var init_schemas3 = __esm({
       // 当前日期比较）；键存在（含 null）表示最新证据并覆盖存储值，键缺失＝本轮无证据。
       // 服务端目录同步以北京业务日判定 ended，冲突守卫与自愈见迁移 202611120024。
       endDate: DateSchema.nullable().optional(),
+      // 期限证据原文（ADR-20261112 全量目录扩容）：官方期限字段的原始文本（≤128 字），
+      // 供期限重判与人工复核；名称不是期限原文，无字段证据时省略键（键缺失＝本轮无
+      // 证据保留现值；键存在含 null＝最新证据为无原文，覆盖存储值）。
+      termLabel: external_exports.string().min(1).max(128).nullable().optional(),
       operatingMode: OperatingModeSchema.nullable(),
-      restrictionDays: external_exports.number().int().min(0).max(31).nullable(),
+      // 全量目录扩容（ADR-20261112）：上限放宽至 MAX_CATALOG_RESTRICTION_DAYS；null＝
+      // 期限未知（更新路径不降级既有已核实值）。
+      restrictionDays: external_exports.number().int().min(0).max(MAX_CATALOG_RESTRICTION_DAYS).nullable(),
       collectionCapability: CollectionCapabilitySchema.nullable(),
       offerings: external_exports.array(CatalogOfferingInputSchema).max(64),
       externalIds: external_exports.array(ExternalIdInputSchema).max(64),
       // R04 显式状态纠错标记：仅维护身份 + 官方依据的人工维护动作可携带；携带 true 才
       // 允许把已确认 ended 的份额改回 active/unknown（默认缺省 false，ended 粘滞）。
       lifecycleCorrection: external_exports.boolean().optional()
-    }).refine((item) => item.registrationCode !== null || item.productCode !== null, {
-      message: "product_identity_required"
     }).refine(
+      (item) => (
+        // 全量目录扩容（ADR-20261112）：码缺失列表行允许（registrationCode/productCode
+        // 均为 null 时服务端按份额标识＋管理人锚点定位/建行）；share_identity_required
+        // refine 仍是身份底线——无产品码且无份额标识的项不可构造。
+        item.registrationCode !== null || item.productCode !== null || item.shareCode !== null || item.externalIds.some((id) => id.kind.startsWith("share:"))
+      ),
+      {
+        message: "product_identity_required"
+      }
+    ).refine(
       (item) => item.shareCode !== null || item.externalIds.some((id) => id.kind.startsWith("share:")),
       {
         message: "share_identity_required"
@@ -21224,7 +21244,7 @@ var init_schemas3 = __esm({
       manager: external_exports.array(external_exports.string().min(1).max(200)).max(50).nullable(),
       bank: external_exports.array(KeySchema).max(50).nullable(),
       riskLevel: external_exports.array(external_exports.string().min(1).max(32)).max(10).nullable(),
-      operatingMode: external_exports.array(OperatingModeSchema).max(5).nullable(),
+      operatingMode: external_exports.array(OperatingModeSchema).max(6).nullable(),
       restrictionDaysMax: external_exports.number().int().min(0).max(31).nullable(),
       // 与 ListQuerySchema.restrictionDaysUnknown 对应的 RPC 通道字段（冻结点3）；
       // nullish 保持通道向后兼容——未传等价 null（不过滤），W02 整改轮在 SQL 侧落实语义。
@@ -24064,7 +24084,7 @@ function parseDetailFacts(body, expectedShareCode, today) {
   });
   if (!row) throw new ParseError7("share_mismatch");
   const term = parseTerm(row.termText);
-  const restrictionDays = term.restrictionDays !== null && term.restrictionDays >= 0 && term.restrictionDays <= 31 ? term.restrictionDays : null;
+  const restrictionDays = term.restrictionDays !== null && term.restrictionDays >= 0 && term.restrictionDays <= MAX_CATALOG_RESTRICTION_DAYS ? term.restrictionDays : null;
   const restrictionNote = term.restrictionDays === null ? "unknown_no_term" : term.restrictionDays > 31 ? `out_of_scope:${term.restrictionDays}days` : null;
   const operatingMode = term.operatingMode ?? (row.operatingModeText === "\u5C01\u95ED\u5F0F" ? "closed" : row.operatingModeText === "\u5F00\u653E\u5F0F" ? "open" : null);
   const fresh = /^\d{4}-\d{2}-\d{2}$/.test(today) && row.navDate >= addDaysIso3(today, -LIFECYCLE_EVIDENCE_DAYS2) && row.navDate <= addDaysIso3(today, 1);
@@ -24082,6 +24102,8 @@ function parseDetailFacts(body, expectedShareCode, today) {
     lifecycleState: fresh ? "active" : "unknown",
     operatingMode,
     restrictionDays,
+    // 期限证据原文（ADR-20261112）：官方理财期限字段文本；键仅在字段非空时携带
+    termLabel: row.termText.length > 0 ? row.termText : null,
     collectionCapability: "available",
     // 管理人直销来源：目录无渠道销售代码行，offerings 为空（渠道关系由渠道源另行登记）
     offerings: [],
@@ -24092,13 +24114,49 @@ function parseDetailFacts(body, expectedShareCode, today) {
   });
   return {
     catalogItem,
-    catalogAdmissible: restrictionDays !== null,
+    // 可收录判定（ADR-20261112 语义）：期限已核实且 ≤31；>31/未知行入目录但不收录
+    catalogAdmissible: restrictionDays !== null && restrictionDays <= 31,
     restrictionNote,
     inceptionDate: row.inceptionDate,
     lifecycleState: fresh ? "active" : "unknown",
     // 目录无官方分红清单：调整证明只依赖净值文件累计连续性（bonusEvents 恒空）
     bonusEvents: []
   };
+}
+function listCatalogItems(body, today) {
+  const catalog = parseCatalog(body);
+  const items = [];
+  for (const row of catalog.rows) {
+    const term = parseTerm(row.termText);
+    const restrictionDays = term.restrictionDays !== null && term.restrictionDays >= 0 && term.restrictionDays <= MAX_CATALOG_RESTRICTION_DAYS ? term.restrictionDays : null;
+    const operatingMode = term.operatingMode ?? (row.operatingModeText === "\u5C01\u95ED\u5F0F" ? "closed" : row.operatingModeText === "\u5F00\u653E\u5F0F" ? "open" : "unknown");
+    const fresh = /^\d{4}-\d{2}-\d{2}$/.test(today) && row.navDate >= addDaysIso3(today, -LIFECYCLE_EVIDENCE_DAYS2) && row.navDate <= addDaysIso3(today, 1);
+    items.push(
+      CatalogSyncItemSchema.parse({
+        registrationCode: row.registrationCode,
+        productCode: row.shareCode,
+        productName: row.name,
+        managerName: MANAGER_NAME2,
+        riskLevel: row.riskLevelText.length > 0 ? row.riskLevelText : null,
+        shareCode: row.shareCode,
+        shareName: row.name,
+        inceptionDate: row.inceptionDate,
+        lifecycleState: fresh ? "active" : "unknown",
+        operatingMode,
+        restrictionDays,
+        // 期限证据原文＝官方理财期限字段；键仅在字段非空时携带（空＝无证据）
+        termLabel: row.termText.length > 0 ? row.termText : null,
+        collectionCapability: "unknown",
+        // 管理人直销来源：目录无渠道销售代码行（与 parseDetailFacts 同口径）
+        offerings: [],
+        externalIds: [
+          { kind: "product:registration", value: row.registrationCode },
+          { kind: "share:hzbankwm_code", value: row.shareCode }
+        ]
+      })
+    );
+  }
+  return { items, pending: [] };
 }
 function parseNavHistory(text) {
   const stripped = text.replace(/^\uFEFF/, "").trim();
@@ -26757,7 +26815,7 @@ function toCatalogSyncItem7(detail) {
     lifecycleState: detail.status === "\u5B58\u7EED" ? "active" : "unknown",
     // 运作方式只依据官方申赎规则（持有N天后每日可赎 → minimum_holding）
     operatingMode: "minimum_holding",
-    restrictionDays: detail.holdingDays >= 0 && detail.holdingDays <= 31 ? detail.holdingDays : null,
+    restrictionDays: detail.holdingDays >= 0 && detail.holdingDays <= MAX_CATALOG_RESTRICTION_DAYS ? detail.holdingDays : null,
     collectionCapability: "available",
     offerings: disclosedBankOfferings(detail),
     externalIds: [
@@ -26765,6 +26823,44 @@ function toCatalogSyncItem7(detail) {
       parentProductExternalId(detail.parentProductCode)
     ]
   });
+}
+function listCatalogItems2(body) {
+  const rows = parseCatalogPage6(body, 1).rows;
+  const items = [];
+  const pending = [];
+  for (const row of rows) {
+    if (row.publicOfferingLabel !== "\u516C\u52DF") {
+      pending.push({ shareCode: row.shareCode, shareName: row.name, note: "not_public_offering" });
+      continue;
+    }
+    if (row.currencyLabel !== "\u4EBA\u6C11\u5E01" && row.currencyLabel !== "\u5143") {
+      pending.push({ shareCode: row.shareCode, shareName: row.name, note: "not_cny" });
+      continue;
+    }
+    const holdingDays = row.holdingDaysFromRule;
+    items.push(
+      CatalogSyncItemSchema.parse({
+        registrationCode: null,
+        productCode: null,
+        productName: row.name,
+        managerName: "\u5174\u94F6\u7406\u8D22",
+        riskLevel: row.riskLevel.length > 0 ? row.riskLevel : null,
+        shareCode: row.shareCode,
+        shareName: row.name,
+        inceptionDate: null,
+        lifecycleState: row.status === "\u5B58\u7EED" ? "active" : "unknown",
+        operatingMode: holdingDays !== null ? "minimum_holding" : "unknown",
+        restrictionDays: holdingDays,
+        // 期限证据原文＝官方申赎规则字段；键仅在字段非空时携带（空＝无证据留空）
+        termLabel: row.invStartRule.length > 0 ? row.invStartRule : null,
+        collectionCapability: "unknown",
+        // 列表行无渠道销售码证据：销售关系由详情通道补充，不凭列表伪造
+        offerings: [],
+        externalIds: [shareCodeExternalId2(row.shareCode)]
+      })
+    );
+  }
+  return { items, pending };
 }
 var PARSER_VERSION17, COLLECTOR_ID17, SOURCE_ID17, SERVICE_ROOT7, ENDPOINTS13, OFFICIAL_DETAIL_PREFIX3, CATALOG_KEYWORDS2, ParseError15, DECIMAL_FIELDS;
 var init_cli17 = __esm({
@@ -27011,7 +27107,7 @@ function toCatalogSyncItem8(detail) {
     lifecycleState: "active",
     // 运作方式依据官方"最短持有期"字段 → minimum_holding
     operatingMode: "minimum_holding",
-    restrictionDays: detail.holdingDays >= 0 && detail.holdingDays <= 31 ? detail.holdingDays : null,
+    restrictionDays: detail.holdingDays >= 0 && detail.holdingDays <= MAX_CATALOG_RESTRICTION_DAYS ? detail.holdingDays : null,
     collectionCapability: "available",
     offerings: [
       {
@@ -27022,6 +27118,32 @@ function toCatalogSyncItem8(detail) {
     ],
     externalIds: [shareCodeExternalId3(detail.shareCode), productCodeExternalId(detail.productCode)]
   });
+}
+function listCatalogItems3(body) {
+  const rows = parseCatalogPage7(body, 1).rows;
+  const items = [];
+  for (const row of rows) {
+    items.push(
+      CatalogSyncItemSchema.parse({
+        registrationCode: null,
+        productCode: null,
+        productName: row.name,
+        managerName: "\u4E2D\u94F6\u7406\u8D22",
+        riskLevel: row.riskLevel.length > 0 ? row.riskLevel : null,
+        shareCode: row.shareCode,
+        shareName: row.name,
+        inceptionDate: null,
+        lifecycleState: "unknown",
+        operatingMode: "unknown",
+        restrictionDays: null,
+        collectionCapability: "unknown",
+        // 列表行无渠道销售码证据：销售关系（中国银行）由详情通道补充，不凭列表伪造
+        offerings: [],
+        externalIds: [shareCodeExternalId3(row.shareCode)]
+      })
+    );
+  }
+  return { items, pending: [] };
 }
 var PARSER_VERSION18, COLLECTOR_ID18, SOURCE_ID18, SERVICE_ROOT8, ENDPOINTS14, OFFICIAL_DETAIL_PREFIX4, CATALOG_KEYWORDS3, ParseError16;
 var init_cli18 = __esm({
@@ -27233,6 +27355,22 @@ function toAdapterNav(facts) {
 function restrictionNoteFor(termDays) {
   if (termDays === null) return "unknown_no_term";
   return termDays > 31 ? `out_of_scope:${termDays}days` : "name";
+}
+function listItemWithCurrencyGuard(output2) {
+  const items = [];
+  const pending = [...output2.pending];
+  for (const item of output2.items) {
+    if (FOREIGN_CURRENCY_NAME_PATTERN.test(item.shareName) || FOREIGN_CURRENCY_NAME_PATTERN.test(item.productName)) {
+      pending.push({
+        shareCode: item.shareCode ?? "",
+        shareName: item.shareName,
+        note: "foreign_currency_suspect"
+      });
+      continue;
+    }
+    items.push(item);
+  }
+  return { items, pending };
 }
 function cmbAdapterDetail(detail) {
   const transientKey = `CMBPENDING${detail.shareCode.toUpperCase().replaceAll(/[^A-Z0-9]/g, "")}`.slice(0, 20);
@@ -27532,7 +27670,7 @@ function adapterFor(config3) {
     );
   return adapter;
 }
-var CHINA_HOLIDAY_CLOSED_DATES, bocomAdapter, exampleAdapter, hzbankwmAdapter, hxwmAdapter, cmbcwmAdapter, cbhbwmAdapter, cmbAdapter, bobwmAdapter, icbcwmAdapter, hsbankAdapter, hxbAdapter, hzbankAdapter, CGBWM_CATALOG_PAGE_SIZE, cgbwmAdapter, cgbBankAdapter, nbcbAnnouncementObservation, nbcbArchiveAdapter, nbcbSalesAdapter, psbcAdapter, cibwmAdapter, bocwmAdapter, adapterRegistry;
+var CHINA_HOLIDAY_CLOSED_DATES, bocomAdapter, exampleAdapter, hzbankwmAdapter, hxwmAdapter, cmbcwmAdapter, cbhbwmAdapter, FOREIGN_CURRENCY_NAME_PATTERN, cmbAdapter, bobwmAdapter, icbcwmAdapter, hsbankAdapter, hxbAdapter, hzbankAdapter, CGBWM_CATALOG_PAGE_SIZE, cgbwmAdapter, cgbBankAdapter, nbcbAnnouncementObservation, nbcbArchiveAdapter, nbcbSalesAdapter, psbcAdapter, cibwmAdapter, bocwmAdapter, adapterRegistry;
 var init_adapters = __esm({
   "scripts/collector-kernel/adapters.ts"() {
     init_cli();
@@ -27747,6 +27885,32 @@ var init_adapters = __esm({
         },
         navHistoryRequest(shareCode) {
           return { url: navRequest2(shareCode).url };
+        }
+      },
+      catalog: {
+        // 静态全量目录单文件（与详情同 URL）：无关键词/分页语义——count/list 都取同一
+        // 请求，parseCount 即全目录行数（单页穷尽），parseList 输出全量行键。目录块此前
+        // 缺省（详情可由静态 URL 直达，冷启动无需扫描）；ADR-20261112 全量目录轮为挂载
+        // listItem 列表通道补齐声明，不改既有采集行为。
+        countRequest() {
+          return { url: catalogRequest().url };
+        },
+        listRequest() {
+          return { url: catalogRequest().url };
+        },
+        parseCount(body) {
+          return listCatalogItems(body, "1970-01-01").items.length;
+        },
+        parseList(body) {
+          return listCatalogItems(body, "1970-01-01").items.map(function toRow(item) {
+            return { shareCode: item.shareCode ?? "" };
+          });
+        },
+        scanPageNumber: true,
+        // 全量目录列表页通道（ADR-20261112）：本源目录 JSON 即主数据源——行带登记编码/
+        // 管理人/期限原文/运作形态原文，期限全量透传；绑定层叠加名称外币词根守卫。
+        listItem(body, today) {
+          return listItemWithCurrencyGuard(listCatalogItems(body, today));
         }
       },
       parse: {
@@ -28043,6 +28207,7 @@ var init_adapters = __esm({
         navHistory: "SITE/eportalapply/portlet/bwmweb/queryProJz"
       }
     });
+    FOREIGN_CURRENCY_NAME_PATTERN = /(美元|美元版|USD|港元|港币|HKD|欧元|EUR|英镑|GBP|澳元|AUD|日元|JPY|新加坡元|SGD)/;
     cmbAdapter = defineSourceAdapter({
       identity: {
         collectorId: COLLECTOR_ID13,
@@ -29437,7 +29602,12 @@ var init_adapters = __esm({
         maxScanPages: 50,
         // CR-R3（R05-N1）：getProdInfoByPage 是 pageNumber 1 基页号翻页（100 行/页）——
         // 页号递增、空页或 maxScanPages 即穷尽，不得按行窗口算术切页。
-        scanPageNumber: true
+        scanPageNumber: true,
+        // 全量目录列表页通道（ADR-20261112）：包级 listCatalogItems 按官方字段判别公募/
+        // 币种并解析申赎规则期限，绑定层叠加名称外币词根守卫兜底。
+        listItem(body) {
+          return listItemWithCurrencyGuard(listCatalogItems2(body));
+        }
       },
       parse: {
         // A02/CR-R1：详情解析自足（结构/身份/范围校验全在包解析器：登记码形态/管理人
@@ -29580,7 +29750,12 @@ var init_adapters = __esm({
         maxScanPages: 100,
         // CR-R3（R05-N1）：queryStaticProducts 是 pageNo 1 基页号翻页（默认 ≈10 行/页）——
         // 页号递增、空页或 maxScanPages 即穷尽，不得按行窗口算术切页。
-        scanPageNumber: true
+        scanPageNumber: true,
+        // 全量目录列表页通道（ADR-20261112）：包级 listCatalogItems 构造码缺失目录项
+        //（期限/形态未知随详情回填），绑定层叠加名称外币词根守卫。
+        listItem(body) {
+          return listItemWithCurrencyGuard(listCatalogItems3(body));
+        }
       },
       parse: {
         // A02/CR-R1：详情解析自足（三码分层/风险/成立日/期限交叉验证/管理人锚点全在包
@@ -29684,6 +29859,12 @@ var init_adapters = __esm({
 });
 
 // scripts/collector-kernel/catalog-items.ts
+function shareKeyOf(item) {
+  if (item.shareCode !== null) return item.shareCode;
+  return item.externalIds.find(function isShare(id) {
+    return id.kind.startsWith("share:");
+  })?.value ?? JSON.stringify(item.externalIds);
+}
 async function detailContextsFromStore(store, adapter) {
   const contexts = /* @__PURE__ */ new Map();
   if (!adapter.catalog) return contexts;
@@ -29727,14 +29908,48 @@ async function catalogSyncItemsFromStore(store, adapter, today) {
   const items = [];
   const pendingCandidates = [];
   for (const detail of byShare.values()) {
-    if (detail.catalogAdmissible) {
-      items.push(CatalogSyncItemSchema.parse(detail.catalogItem));
+    const item = detail.catalogItem;
+    if (item.registrationCode !== null || item.productCode !== null) {
+      items.push(CatalogSyncItemSchema.parse(item));
     } else {
       pendingCandidates.push({
-        shareCode: detail.catalogItem.shareCode ?? "",
-        shareName: detail.catalogItem.shareName,
-        restrictionNote: detail.restrictionNote ?? "unknown"
+        shareCode: item.shareCode ?? "",
+        shareName: item.shareName,
+        restrictionNote: detail.restrictionNote ?? "registration_required"
       });
+    }
+  }
+  const listItem = adapter.catalog?.listItem;
+  if (listItem) {
+    const detailKeys = new Set(items.map(shareKeyOf));
+    const listByShare = /* @__PURE__ */ new Map();
+    const seenBodyHashes = /* @__PURE__ */ new Set();
+    for (const packageId of (await store.listPackages()).sort()) {
+      const opened = await store.openPackage(packageId);
+      for (const page of opened.manifest.pages) {
+        if (page.kind !== "catalog_page" && page.kind !== adapter.pageKinds.shareDetail) continue;
+        if (page.classification !== "live") continue;
+        if (seenBodyHashes.has(page.sha256)) continue;
+        seenBodyHashes.add(page.sha256);
+        try {
+          const out = listItem(await opened.readBody(page.pageId), today);
+          for (const listItemValue of out.items) {
+            listByShare.set(shareKeyOf(listItemValue), listItemValue);
+          }
+          for (const pending of out.pending) {
+            pendingCandidates.push({
+              shareCode: pending.shareCode,
+              shareName: pending.shareName,
+              restrictionNote: pending.note
+            });
+          }
+        } catch {
+        }
+      }
+    }
+    for (const [key, listItemValue] of listByShare) {
+      if (detailKeys.has(key)) continue;
+      items.push(listItemValue);
     }
   }
   return { items, pendingCandidates };
@@ -33134,7 +33349,7 @@ async function catalogMain(argv) {
   } = await catalogSyncItemsFromStore(store, adapter, beijingToday());
   if (items.length === 0)
     throw new Error(
-      pendingCandidates.length > 0 ? `\u7F13\u5B58\u4E2D\u7684\u771F\u5B9E\u8BE6\u60C5\u9875\u5747\u4E0D\u53EF\u51C6\u5165\u6B63\u5F0F\u76EE\u5F55\uFF08${pendingCandidates.length} \u4E2A\u5F85\u6838\u5B9E\u5019\u9009\uFF0C\u89C1\u8F93\u51FA\uFF09\uFF1B\u5148\u7528\u53EF\u51C6\u5165\u4EFD\u989D\u8FD0\u884C\u6216\u4EBA\u5DE5\u6838\u5B9E\u671F\u9650` : "\u7F13\u5B58\u4E2D\u6CA1\u6709\u53EF\u7528\u7684\u771F\u5B9E share_detail \u9875\u9762\uFF1B\u5148\u8FD0\u884C collect --local-only \u4FDD\u5B58\u9875\u9762"
+      pendingCandidates.length > 0 ? `\u7F13\u5B58\u4E2D\u7684\u771F\u5B9E\u9875\u9762\u5747\u4E0D\u80FD\u751F\u6210\u76EE\u5F55\u9879\uFF08${pendingCandidates.length} \u4E2A\u5F85\u6838\u5B9E\u5019\u9009\uFF0C\u89C1\u8F93\u51FA\uFF09\uFF1B\u5148\u91C7\u96C6\u76EE\u5F55/\u8BE6\u60C5\u9875\u6216\u4EBA\u5DE5\u6838\u5B9E\u8EAB\u4EFD\u4E0E\u8303\u56F4` : "\u7F13\u5B58\u4E2D\u6CA1\u6709\u53EF\u7528\u7684\u771F\u5B9E share_detail/catalog_page \u9875\u9762\uFF1B\u5148\u8FD0\u884C collect --local-only \u4FDD\u5B58\u9875\u9762"
     );
   const chunkSize = LIMITS.rows;
   const chunks = [];
@@ -33204,7 +33419,7 @@ async function catalogMain(argv) {
     command: `p4 catalog ${apply ? "apply" : "preview"} (${adapter.identity.collectorId}#${config3.runId})`,
     status: exitCode === 2 ? "partial" : "completed",
     exitCode,
-    summary: `${apply ? "\u5DF2\u5E94\u7528" : "\u9884\u89C8\uFF08\u5DF2\u56DE\u6EDA\uFF09"} ${parsed.items.length} \u4E2A\u76EE\u5F55\u9879\uFF1A${JSON.stringify(counts)}${pendingCandidates.length > 0 ? `\uFF1B${pendingCandidates.length} \u4E2A\u5F85\u6838\u5B9E\u5019\u9009\u672A\u4E0A\u9001\uFF08\u671F\u9650\u672A\u77E5/\u8D85\u8303\u56F4/\u51B2\u7A81\uFF09` : ""}`,
+    summary: `${apply ? "\u5DF2\u5E94\u7528" : "\u9884\u89C8\uFF08\u5DF2\u56DE\u6EDA\uFF09"} ${parsed.items.length} \u4E2A\u76EE\u5F55\u9879\uFF1A${JSON.stringify(counts)}${pendingCandidates.length > 0 ? `\uFF1B${pendingCandidates.length} \u4E2A\u5F85\u6838\u5B9E\u5019\u9009\u672A\u4E0A\u9001\uFF08\u7F3A\u4EA7\u54C1\u8EAB\u4EFD/\u5916\u5E01\u79C1\u52DF\u5ACC\u7591\u7B49\uFF09` : ""}`,
     details: {
       collectorId: adapter.identity.collectorId,
       sourceId: config3.source.sourceId,
