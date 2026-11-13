@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261113T134500Z-cmb",
+  "runId": "20261113T134500Z-cmbdaily",
   "collectorId": "cmb-web-v1",
   "target": {
     "type": "https",
