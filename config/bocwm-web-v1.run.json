@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T120000Zbocwm",
+  "runId": "20261113T134500Z-bocwm",
   "collectorId": "bocwm-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "bocwm",
     "principal": "collector_bocwm"
   },
-  "shares": [
-    "CYQWFZDJQ7D2A"
-  ],
   "network": {
     "hosts": [
       "www.bocwm.cn"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,

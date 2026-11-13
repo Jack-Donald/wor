@@ -45,8 +45,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     # 作业级时限（A03 整改）：GitHub Actions 只认 jobs.<job_id>.timeout-minutes；
-    # 此前写在 YAML 顶层属无效键。上限 30 分钟，与并发串行共同限制单次运行面。
-    timeout-minutes: 30
+    # 此前写在 YAML 顶层属无效键。全源日常采集上限 120 分钟，程序 110 分钟后停止新工作并收尾。
+    timeout-minutes: 120
     steps:
       - name: 检出执行仓库（固定 SHA）
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -64,6 +64,8 @@ jobs:
           P4_HTTPS_SCHEMA: wo_rpc
         run: |
           set -euo pipefail
+          # 总截止预留十分钟收尾；不改变任何请求预算、随机礼貌间隔或单片写入时限。
+          export WO_P4_COLLECT_DEADLINE_EPOCH_MS="$(( $(date +%s) * 1000 + 110 * 60 * 1000 ))"
           # 命令解析（A04 分流＋B02 配置驱动）：schedule 事件不携带 dispatch inputs
           # （inputs.command 展开为空），必须显式分流——schedule 固定执行模板生成时
           # 注入的默认命令 'catalog'，启用与写入模式由执行仓库

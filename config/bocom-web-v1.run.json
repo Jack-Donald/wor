@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T121648Z-bocomwebv1",
+  "runId": "20261113T134500Z-bocom",
   "collectorId": "bocom-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "bocom",
     "principal": "collector_bocom"
   },
-  "shares": [
-    "5811225439"
-  ],
   "network": {
     "hosts": [
       "www.bocommwm.com"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,

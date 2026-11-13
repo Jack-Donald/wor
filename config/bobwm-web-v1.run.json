@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T121648Z-bobwmwebv1",
+  "runId": "20261113T134500Z-bobwm",
   "collectorId": "bobwm-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "bobwm",
     "principal": "collector_bobwm"
   },
-  "shares": [
-    "YJ01251204A"
-  ],
   "network": {
     "hosts": [
       "www.beijingbobwealth.com.cn"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,

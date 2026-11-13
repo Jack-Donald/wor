@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T121648Z-cmbcwmwebv",
+  "runId": "20261113T134500Z-cmbcwm",
   "collectorId": "cmbcwm-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "cmbcwm",
     "principal": "collector_cmbcwm"
   },
-  "shares": [
-    "FGAE61002G"
-  ],
   "network": {
     "hosts": [
       "www.cmbcwm.com.cn"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 2000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,

@@ -8,19 +8,8 @@
 # 独立调度：本文件只调度 cgbwm 一个来源；没有总任务/矩阵调所有源。
 # 手动 dispatch：默认 --local-only（保存本地包，不写目标）；写入置 write=true
 # （write=true 时 CLI 按目标类型自行要求凭据，dispatch 语义与 B02 整改前不变）。
-# 定时任务（B02 整改）：schedule 分支由执行仓库配置文件
-# config/cgbwm-web-v1.schedule.json 驱动，字段：{"enabled": boolean, "mode": "write"|"local-only"}
-# - 默认关闭：文件缺失、enabled 不为 true 或 JSON 解析失败 → 输出跳过原因（含
-#   collectorId 与原因）并 exit 0，不执行任何 CLI 命令（不请求来源、不写库）；
-# - enabled=true 且 mode=write → 先核对 config/cgbwm-web-v1.run.json 的 target.type：
-#   https 目标要求 Secret P4_HTTPS_BEARER 非空，缺失则明确 exit 1（不静默降级
-#   local-only）；psql 目标凭据由运行环境提供、跳过该前置检查；通过后执行
-#   collect --mode daily --write；
-# - enabled=true 且 mode=local-only → 执行 collect --mode daily --local-only（显式
-#   配置的定时只保存本地包，不写目标）；
-# - mode 为其他值 → 明确 exit 1，不猜默认。
-# 本模板不预设任何真实 cron 启用：cron 为错峰示例窗口（UTC），正式启用（含
-# schedule.json 放行与 Secret 配置）由执行仓库维护者按运维流程显式操作。
+# 定时任务：本模板未配置 schedule 触发（该源无 collect 能力，定时窗口由执行仓库维护者凭
+# 站点证据核定后另行启用）；run 块 schedule 分支为模板共享形态，触发缺失时不执行。
 # 公开 runner 只输出 CLI 安全摘要；不配置 upload-artifact（真实本地包不上传）。
 name: collector-cgbwm
 
@@ -39,9 +28,7 @@ on:
         description: '写入目标（false=--local-only 仅保存本地包；true 需 Secrets 已配置）'
         type: boolean
         default: false
-  schedule:
-    # UTC；错峰示例窗口，正式时间由执行仓库维护者按站点窗口/礼貌间隔证据核定后调整。
-    - cron: '42 2 * * *'
+  # 无 schedule：该源在线能力受限（collect 不可用或待核实），定时窗口由执行仓库维护者凭证据启用。
 permissions:
   # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
   contents: read
@@ -59,8 +46,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     # 作业级时限（A03 整改）：GitHub Actions 只认 jobs.<job_id>.timeout-minutes；
-    # 此前写在 YAML 顶层属无效键。上限 30 分钟，与并发串行共同限制单次运行面。
-    timeout-minutes: 30
+    # 此前写在 YAML 顶层属无效键。全源日常采集上限 120 分钟，程序 110 分钟后停止新工作并收尾。
+    timeout-minutes: 120
     steps:
       - name: 检出执行仓库（固定 SHA）
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -78,6 +65,8 @@ jobs:
           P4_HTTPS_SCHEMA: wo_rpc
         run: |
           set -euo pipefail
+          # 总截止预留十分钟收尾；不改变任何请求预算、随机礼貌间隔或单片写入时限。
+          export WO_P4_COLLECT_DEADLINE_EPOCH_MS="$(( $(date +%s) * 1000 + 110 * 60 * 1000 ))"
           # 命令解析（A04 分流＋B02 配置驱动）：schedule 事件不携带 dispatch inputs
           # （inputs.command 展开为空），必须显式分流——schedule 固定执行模板生成时
           # 注入的默认命令 'collect'，启用与写入模式由执行仓库

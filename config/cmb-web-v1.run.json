@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T121648Z-cmbwebv1",
+  "runId": "20261113T134500Z-cmb",
   "collectorId": "cmb-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "cmb",
     "principal": "collector_cmb"
   },
-  "shares": [
-    "107507"
-  ],
   "network": {
     "hosts": [
       "mobile.cmbchina.com"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T121648Z-hzbankwmwe",
+  "runId": "20261113T134500Z-hzbankwm",
   "collectorId": "hzbankwm-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "hzbankwm",
     "principal": "collector_hzbankwm"
   },
-  "shares": [
-    "LQB2001F"
-  ],
   "network": {
     "hosts": [
       "www.hzbankwealth.com.cn"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 8388608,

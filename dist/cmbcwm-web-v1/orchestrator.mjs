@@ -20422,7 +20422,7 @@ var init_zod = __esm({
 });
 
 // packages/contracts/src/modules/contracts/schemas.ts
-var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, RiskLevelSchema, riskLevelAliases, RiskLevelInputSchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
+var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, RiskLevelSchema, riskLevelAliases, RiskLevelInputSchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema, CollectionTargetsRequestSchema, CollectionTargetsResultSchema;
 var init_schemas3 = __esm({
   "packages/contracts/src/modules/contracts/schemas.ts"() {
     "use strict";
@@ -21383,8 +21383,8 @@ var init_schemas3 = __esm({
         // 数据库受限登录角色（必须出现在生效来源策略的 principals 中，由数据库校验）。
         principal: external_exports.string().regex(/^collector_[a-z][a-z0-9_-]{0,40}$/)
       }),
-      // 有界批次：单次任务处理的份额列表上限 500，更大集合由调用方分批。
-      shares: external_exports.array(external_exports.string().min(1).max(128)).min(1).max(500),
+      // 人工采样/评估名单；日常 write 从数据库分页发现全部收录目标，不消费此名单。
+      shares: external_exports.array(external_exports.string().min(1).max(128)).max(500).default([]),
       network: external_exports.strictObject({
         hosts: external_exports.array(external_exports.string().min(1).max(200)).min(0).max(8),
         maxRequestsTotal: external_exports.number().int().min(1).max(2e3),
@@ -21403,6 +21403,18 @@ var init_schemas3 = __esm({
       }),
       evidenceRoot: external_exports.string().min(1).max(400),
       policyFile: external_exports.string().min(1).max(400)
+    });
+    CollectionTargetsRequestSchema = external_exports.strictObject({
+      protocolVersion: external_exports.literal("wo-ingest-v2"),
+      sourceId: KeySchema,
+      afterShareId: external_exports.uuid().nullable(),
+      limit: external_exports.number().int().min(1).max(500)
+    });
+    CollectionTargetsResultSchema = external_exports.strictObject({
+      protocolVersion: external_exports.literal("wo-ingest-v2"),
+      sourceId: KeySchema,
+      shares: external_exports.array(external_exports.strictObject({ shareId: external_exports.uuid(), shareCode: external_exports.string().min(1).max(128) })).max(500),
+      nextCursor: external_exports.uuid().nullable()
     });
   }
 });
@@ -33225,6 +33237,7 @@ async function evaluateMain(argv) {
   if (apply === preview) throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --preview \u6216 --apply \u4E4B\u4E00");
   const configPath = requireAbsolute(args.values.get("config"), "config");
   const config3 = await loadP4RunConfig(configPath);
+  if (config3.shares.length === 0) throw new Error("evaluate_requires_explicit_shares");
   const adapter = adapterFor(config3);
   const refused = adapterCommandRefused(adapter, "evaluate");
   if (refused) throw new Error(refused);
@@ -33980,6 +33993,42 @@ var init_nav_fetch = __esm({
   }
 });
 
+// scripts/collector-kernel/collection-targets.ts
+async function discoverCollectionTargets(sourceId, readPage, deadlineReached) {
+  const targets = [];
+  const codes = /* @__PURE__ */ new Set();
+  let cursor = null;
+  for (; ; ) {
+    if (deadlineReached()) throw new Error("collection_targets_deadline_reached");
+    const request2 = CollectionTargetsRequestSchema.parse({
+      protocolVersion: "wo-ingest-v2",
+      sourceId,
+      afterShareId: cursor,
+      limit: 500
+    });
+    const page = CollectionTargetsResultSchema.parse(await readPage(request2));
+    if (page.sourceId !== sourceId) throw new Error("collection_targets_source_mismatch");
+    let previous = cursor;
+    for (const target of page.shares) {
+      if (previous !== null && target.shareId <= previous)
+        throw new Error("collection_targets_cursor_not_increasing");
+      if (codes.has(target.shareCode)) throw new Error("collection_targets_ambiguous_share_code");
+      codes.add(target.shareCode);
+      targets.push(target);
+      previous = target.shareId;
+    }
+    if (page.nextCursor === null) return targets;
+    if (page.shares.length !== 500 || page.nextCursor !== previous)
+      throw new Error("collection_targets_invalid_next_cursor");
+    cursor = page.nextCursor;
+  }
+}
+var init_collection_targets = __esm({
+  "scripts/collector-kernel/collection-targets.ts"() {
+    init_schemas3();
+  }
+});
+
 // scripts/collector-kernel/collect.ts
 var collect_exports = {};
 __export(collect_exports, {
@@ -33994,7 +34043,8 @@ function usage2() {
   return [
     "\u7528\u6CD5\uFF1Anode --import tsx scripts/collector-kernel/cli.ts collect --config <\u7EDD\u5BF9\u8DEF\u5F84> --mode daily --local-only|--write",
     "\u9ED8\u8BA4 local-only\uFF1A\u53EA\u4FDD\u5B58\u4E0E\u89E3\u6790\u771F\u5B9E\u9875\u9762\uFF0C\u4E0D\u8BBF\u95EE\u6570\u636E\u5E93\uFF08\u65E0\u51ED\u636E\u4E5F\u53EF\u8FD0\u884C\uFF09\u3002",
-    "--write\uFF1A\u8BF7\u6C42\u524D\u89C4\u5212\u8D44\u683C/\u8986\u76D6/\u4EE4\u724C\uFF0C\u672C\u5730\u7F13\u5B58\u4F18\u5148\u8865\u7F3A\uFF0C\u9010\u9875\u7ACB\u5373\u5206\u7247\u5199\u5165\u3002"
+    "--write\uFF1A\u4ECE\u6570\u636E\u5E93\u53D1\u73B0\u672C\u6765\u6E90\u5168\u90E8\u5DF2\u6536\u5F55\u672A\u7EC8\u6B62\u4EFD\u989D\uFF08\u5FFD\u7565 config.shares\uFF09\uFF0C\u518D\u89C4\u5212\u8986\u76D6/\u4EE4\u724C\u3001\u8865\u7F3A\u5E76\u9010\u9875\u5199\u5165\u3002",
+    "--local-only\uFF1A\u4EBA\u5DE5\u91C7\u6837\uFF0C\u5FC5\u987B\u5728 config.shares \u663E\u5F0F\u63D0\u4F9B\u76EE\u6807\uFF1B\u4E0D\u8FDE\u63A5\u6570\u636E\u5E93\u3002"
   ].join("\n");
 }
 function eligibilitySkip(prepared) {
@@ -34114,6 +34164,8 @@ async function collectMainWithPorts(argv, ports) {
   if (write === localOnly) throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --local-only \u6216 --write \u4E4B\u4E00");
   const configPath = requireAbsolute(args.values.get("config"), "config");
   const config3 = await loadP4RunConfig(configPath);
+  if (localOnly && config3.shares.length === 0)
+    throw new Error("local_only_requires_explicit_shares\uFF08\u672C\u5730\u91C7\u6837\u5FC5\u987B\u663E\u5F0F\u914D\u7F6E shares\uFF09");
   const adapter = adapterFor(config3);
   const refused = adapterCommandRefused(adapter, "collect");
   if (refused) throw new Error(refused);
@@ -34235,22 +34287,6 @@ async function collectMainWithPorts(argv, ports) {
         `SELECT wo_rpc.wo_read_coverage_v1('${JSON.stringify(payload).replaceAll("'", "''")}'::jsonb);`
       )
     );
-  };
-  const resolveShareId = async function resolveShareId2(share) {
-    if (config3.target.type === "https") {
-      const context = await targetRpc("wo_p3_import_context_v1", {
-        protocolVersion: "wo-ingest-v2",
-        sourceId: config3.source.sourceId,
-        shareCodes: [share]
-      });
-      return context.shares.find((entry) => entry.shareCode === share)?.shareId ?? null;
-    }
-    return targetSql(
-      // A02/D1：目录身份登记源专属 kind（如 share:cibwm_share_code）参与解析——与
-      // 迁移 202611070014 的 RPC 口径一字不差（kind LIKE 'share:%'、fundcode 精确
-      // 优先、LIMIT 1 保证多身份行单行输出；https 分支由该迁移内 RPC 覆盖无需改）。
-      shareIdentitySql(config3.source.sourceId, share)
-    ) || null;
   };
   const readEligibility = async function readEligibility2(plan) {
     if (!plan.shareId) return "catalog_not_synced";
@@ -34438,7 +34474,23 @@ async function collectMainWithPorts(argv, ports) {
   }
   const pageOpenCache = createPageOpenCache();
   const plans = [];
-  for (const share of config3.shares) {
+  const targets = write ? await discoverCollectionTargets(
+    config3.source.sourceId,
+    async function readTargets(payload) {
+      if (config3.target.type === "https")
+        return await targetRpc("wo_list_collection_targets_v1", payload);
+      return JSON.parse(
+        targetSql(
+          `SELECT wo_rpc.wo_list_collection_targets_v1('${JSON.stringify(payload).replaceAll("'", "''")}'::jsonb);`
+        )
+      );
+    },
+    runDeadlineReached
+  ) : config3.shares.map(function localTarget(shareCode) {
+    return { shareCode, shareId: null };
+  });
+  for (const target of targets) {
+    const share = target.shareCode;
     const plan = {
       share,
       shareId: null,
@@ -34473,7 +34525,7 @@ async function collectMainWithPorts(argv, ports) {
       sourcePolicy.calendar
     );
     if (write && runtime && collector) {
-      const shareId = await resolveShareId(share);
+      const shareId = target.shareId;
       if (!shareId) {
         plan.skip = "catalog_not_synced";
         summary.skips.push({ share, reason: plan.skip });
@@ -35234,7 +35286,7 @@ var init_collect = __esm({
     init_common();
     init_run_config();
     init_adapters();
-    init_evaluate();
+    init_collection_targets();
     ESTIMATE_CHUNK_ID = "00000000-0000-4000-8000-000000000000";
     CATALOG_SCAN_PAGE_ROWS = 50;
     CATALOG_SCAN_PAGES_DEFAULT = 50;

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "wealth-observer-p4-run/v1",
-  "runId": "20261109T120000Zcibwm",
+  "runId": "20261113T134500Z-cibwm",
   "collectorId": "cibwm-web-v1",
   "target": {
     "type": "https",
@@ -12,14 +12,11 @@
     "sourceId": "cibwm",
     "principal": "collector_cibwm"
   },
-  "shares": [
-    "9K41057A"
-  ],
   "network": {
     "hosts": [
       "www.cibwm.com.cn"
     ],
-    "maxRequestsTotal": 300,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,
