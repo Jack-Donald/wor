@@ -34179,6 +34179,12 @@ async function collectMainWithPorts(argv, ports) {
     sourceId: config3.source.sourceId
   });
   const SITE_REQUEST_HEADERS = {
+    // 2026-11-13 全源 runner 返回非 JSON，而同版本本地同码可解析；补齐该站缺失的
+    // 官方站点上下文头进行有界复验。头部不代表已绕过网络限制，真实结果以运行日志为准。
+    "bobwm-web-v1": {
+      Referer: "https://www.beijingbobwealth.com.cn/",
+      Accept: "application/json, text/plain, */*"
+    },
     "cibwm-web-v1": {
       Referer: "https://www.cibwm.com.cn/personal-products/list",
       Accept: "application/json, text/plain, */*"
