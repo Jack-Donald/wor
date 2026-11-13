@@ -22467,7 +22467,10 @@ function toCatalogSyncItem3(row) {
     shareCode: null,
     shareName: row.famname,
     inceptionDate: row.careatDate,
-    // 渠道清单无法证明 active/ended（endDate 未来不构成 ended 证据）→ unknown
+    // 到期日证据恒随条目输出（ADR-20261112；含 null＝缺失/无固定期限证据）：endDate
+    // 作为证据随条目输出，键存在即覆盖存储值，终止由服务端按北京业务日判定——渠道
+    // 清单自身仍无法证明 active/ended → lifecycleState 保持 unknown
+    endDate: row.endDate,
     lifecycleState: "unknown",
     // 运作方式：现金类官方可证 cash_management；其余期限形态（封闭/持有）不能从
     // famTerm 单字段区分 → null（未知，不偏向任一形态）
@@ -22691,6 +22694,11 @@ function hzbankListRequest(page, pageSize = PAGE_SIZE4) {
 function managerShortName(taName) {
   return taName.replace(/(有限责任公司|股份有限公司|有限公司)$/, "");
 }
+function optionalEndDate(value) {
+  if (typeof value !== "string" || value.length === 0) return null;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new ParseError5("bad_date:endDate");
+  return value;
+}
 function parseHzbankCatalogPage(text) {
   let parsed;
   try {
@@ -22719,7 +22727,9 @@ function parseHzbankCatalogPage(text) {
       currency: typeof row.curType === "string" ? row.curType : null,
       raisingScope: typeof row.ipoType === "string" && row.ipoType.length > 0 ? row.ipoType : null,
       cash: String(row.prdTimelyFlag) === "1",
-      redeemExplain: typeof row.redTimeExplain === "string" && row.redTimeExplain.trim().length > 0 ? row.redTimeExplain.trim() : null
+      redeemExplain: typeof row.redTimeExplain === "string" && row.redTimeExplain.trim().length > 0 ? row.redTimeExplain.trim() : null,
+      // 到期日证据（ADR-20261112）：行级 endDate 纯字段归一（缺失/null → null，非法 fail-closed）
+      endDate: optionalEndDate(row.endDate)
     };
   });
   return {
@@ -22763,7 +22773,8 @@ function parseHzbankInstructionUrl(raw, prdCode) {
       }
     }
   }
-  return { prdCode, instructionUrl, foreignEntries };
+  const endDate = optionalEndDate(responseBody.endDate);
+  return { prdCode, endDate, instructionUrl, foreignEntries };
 }
 var PARSER_VERSION7, COLLECTOR_ID7, SOURCE_ID7, API_HOST, API_ROOT2, DETAIL_URL_PREFIX, CHANNEL_CODE, SYSTEM_CODE, PAGE_SIZE4, SAME_HOST_ALLOWLIST, ParseError5;
 var init_cli7 = __esm({
@@ -23760,6 +23771,13 @@ function parseDetailResponse(text, expectedFundCode, today) {
   let lifecycleState = "unknown";
   if (today && latestDetailDate && latestDetailDate >= addDaysIso2(today, -LIFECYCLE_EVIDENCE_DAYS) && latestDetailDate <= addDaysIso2(today, 1))
     lifecycleState = "active";
+  const endRaw = bo.l_timeend;
+  let endDate = null;
+  if (typeof endRaw === "string" && endRaw.length > 0) {
+    const endMatch = /^\d{8}/.exec(endRaw);
+    if (!endMatch) throw new ParseError6("bad_date:l_timeend");
+    endDate = endMatch[0] === "20991230" ? null : normalizeDate(endMatch[0], "l_timeend");
+  }
   return {
     catalogItem: {
       registrationCode,
@@ -23770,6 +23788,9 @@ function parseDetailResponse(text, expectedFundCode, today) {
       shareCode: fundCode,
       shareName: fundName,
       inceptionDate: normalizeDate(requireString4(bo.d_setupdate, "d_setupdate"), "d_setupdate"),
+      // 到期日证据恒随条目输出（含 null＝无固定期限/无证据）；键存在即覆盖存储值，
+      // 服务端按 ADR-20261112 以北京业务日判定 ended（解析器保持纯函数，不比今天）
+      endDate,
       lifecycleState,
       operatingMode,
       restrictionDays,
@@ -24036,6 +24057,13 @@ function parseCatalogRow(entry) {
   const cumulativeRaw = entry.leijijingzhi;
   if (entry.licaiqixian !== null && typeof entry.licaiqixian !== "string")
     throw new ParseError7("not_a_string:licaiqixian");
+  const endRaw = entry.jieshuriqi;
+  if (endRaw !== null && endRaw !== void 0 && typeof endRaw !== "string")
+    throw new ParseError7("not_a_string:jieshuriqi");
+  let endDate = null;
+  if (typeof endRaw === "string" && endRaw.length > 0) {
+    endDate = endRaw === "2099-12-31" ? null : normalizeHzbankwmDate(endRaw, "jieshuriqi");
+  }
   return {
     registrationCode,
     shareCode,
@@ -24046,6 +24074,7 @@ function parseCatalogRow(entry) {
       requireString5(entry.chengliriqi, "chengliriqi"),
       "chengliriqi"
     ),
+    endDate,
     navDate: normalizeHzbankwmDate(requireString5(entry.jingzhiriqi, "jingzhiriqi"), "jingzhiriqi"),
     latestUnitNav: requireString5(entry.danweijingzhi, "danweijingzhi"),
     latestCumulativeNav: typeof cumulativeRaw === "string" && cumulativeRaw.length > 0 ? cumulativeRaw : null,
@@ -24120,6 +24149,9 @@ function parseDetailFacts(body, expectedShareCode, today) {
     shareCode: row.shareCode,
     shareName: row.name,
     inceptionDate: row.inceptionDate,
+    // 到期日证据恒随条目输出（含 null＝无固定期限/无证据）；键存在即覆盖存储值，
+    // 服务端按 ADR-20261112 以北京业务日判定 ended（解析器保持纯函数，不比今天）
+    endDate: row.endDate,
     lifecycleState: fresh ? "active" : "unknown",
     operatingMode,
     restrictionDays,
@@ -24162,6 +24194,9 @@ function listCatalogItems(body, today) {
         shareCode: row.shareCode,
         shareName: row.name,
         inceptionDate: row.inceptionDate,
+        // 到期日证据恒随条目输出（含 null＝无固定期限/无证据）；键存在即覆盖存储值，
+        // 服务端按 ADR-20261112 以北京业务日判定 ended（解析器保持纯函数，不比今天）
+        endDate: row.endDate,
         lifecycleState: fresh ? "active" : "unknown",
         operatingMode,
         restrictionDays,
@@ -24472,6 +24507,9 @@ function closedTermDays(cdate, mdate) {
   );
   return days >= 0 ? days : null;
 }
+function endDateEvidence(maturityDate) {
+  return maturityDate === NO_FIXED_MATURITY_DATE ? null : maturityDate;
+}
 function addDaysIso4(date5, days) {
   return new Date(Date.parse(`${date5}T00:00:00Z`) + days * 864e5).toISOString().slice(0, 10);
 }
@@ -24551,6 +24589,9 @@ function parseDetailFacts2(body, expectedShareCode, today) {
     shareCode: row.shareCode,
     shareName: row.shareName,
     inceptionDate: row.shareInceptionDate,
+    // 到期日证据恒随条目输出（ADR-20261112；含 null＝哨兵无固定期限）：键存在即覆盖
+    // 存储值，服务端按北京业务日判定 ended——解析器保持纯函数，不与当前日期比较
+    endDate: endDateEvidence(row.maturityDate),
     lifecycleState,
     operatingMode: catalogOperatingMode,
     restrictionDays,
@@ -24863,6 +24904,12 @@ function parseCatalogRow2(entry) {
   const optionalDate2 = function optional2(value, field) {
     return typeof value === "string" && value.length > 0 ? normalizeCmbcDate(value, field) : null;
   };
+  const optionalEndDate2 = function optionalEndDate3(value) {
+    if (typeof value !== "string" && typeof value !== "number") return null;
+    const raw = String(value);
+    if (raw.length === 0 || raw === "20991231") return null;
+    return normalizeCmbcDate(raw, "END_DATE");
+  };
   const optionalDecimal = function optional2(value) {
     return typeof value === "string" && value.length > 0 ? value : null;
   };
@@ -24880,7 +24927,7 @@ function parseCatalogRow2(entry) {
     cashFlag: requireString7(entry.CASH_FLAG, "CASH_FLAG"),
     productType: typeof entry.PRD_TYPE === "string" && entry.PRD_TYPE.length > 0 ? entry.PRD_TYPE : null,
     status: typeof entry.STATUS === "string" && entry.STATUS.length > 0 ? entry.STATUS : null,
-    endDate: optionalDate2(entry.END_DATE, "END_DATE")
+    endDate: optionalEndDate2(entry.END_DATE)
   };
 }
 function parseCatalogPage3(text, requestedPageNo) {
@@ -24927,6 +24974,9 @@ function parseDetailFacts3(body, expectedShareCode, today) {
     shareCode: row.shareCode,
     shareName: row.name2 ?? row.name,
     inceptionDate: row.inceptionDate,
+    // 到期日证据恒随条目输出（ADR-20261112；含 null＝哨兵归一/无固定期限/无证据）：
+    // 键存在即覆盖存储值，服务端按北京业务日判定 ended（解析器纯字段输出，不比今天）
+    endDate: row.endDate,
     lifecycleState: fresh ? "active" : "unknown",
     operatingMode,
     restrictionDays: null,
@@ -25295,6 +25345,9 @@ function parseDetailFacts4(body, expectedSaleCode, today) {
     shareCode: row.saleCode,
     shareName: row.shareClass ? `${row.productName}${row.shareClass}\u4EFD\u989D` : row.productName,
     inceptionDate: row.establishDate,
+    // 到期日证据恒随条目输出（ADR-20261112；含 null＝哨兵无固定期限）：键存在即覆盖
+    // 存储值，服务端按北京业务日判定 ended——解析器保持纯函数，不与当前日期比较
+    endDate: row.endDate,
     lifecycleState,
     operatingMode,
     restrictionDays,
@@ -26151,6 +26204,11 @@ function parseShareDetail2(text, expectedSalesCode) {
       recentHistoryRowCount++;
     }
   }
+  const prodEndRaw = root2.prod_end_date;
+  let endDate = null;
+  if (typeof prodEndRaw === "string" && prodEndRaw.length > 0) {
+    if (prodEndRaw !== "99991231") endDate = normalizeIcbcwmDate(prodEndRaw, "prod_end_date");
+  }
   return {
     prodId: requireString11(root2.prod_id, "prod_id"),
     prodCode,
@@ -26160,6 +26218,7 @@ function parseShareDetail2(text, expectedSalesCode) {
     managerName: "\u5DE5\u94F6\u7406\u8D22",
     riskLevel: `R${risk[1]}`,
     inceptionDate: normalizeIcbcwmDate(requireString11(root2.setup_date, "setup_date"), "setup_date"),
+    endDate,
     currencyCny: true,
     onSale: true,
     sellTarget: "\u4E2A\u4EBA",
@@ -26344,6 +26403,9 @@ function toCatalogSyncItem6(detail, evidence) {
     shareCode: detail.prodCode,
     shareName: detail.prodName,
     inceptionDate: detail.inceptionDate,
+    // 到期日证据恒随条目输出（含 null＝哨兵 99991231/无证据，ADR-20261112）；键存在
+    // 即覆盖存储值，服务端按北京业务日判定 ended（解析器保持纯函数，不比今天）
+    endDate: detail.endDate,
     // R04：解析器永不输出 ended（生命周期变更须维护身份官方依据）
     lifecycleState: "unknown",
     operatingMode: termDays !== null ? "minimum_holding" : null,
@@ -26753,6 +26815,12 @@ function parseDetailResponse2(text) {
   const raiseEndDate = normalizeCibDate(requireString13(data.raiseEnd, "raiseEnd"), "raiseEnd");
   if (raiseBeginDate > raiseEndDate || raiseEndDate > inceptionDate)
     throw new ParseError15("bad_raise_sequence");
+  const dueRaw = data.dueDate;
+  let endDate = null;
+  if (typeof dueRaw === "string" && dueRaw.length > 0) {
+    const dueDate2 = normalizeCibDate(dueRaw, "dueDate");
+    endDate = dueDate2 === "2099-12-30" ? null : dueDate2;
+  }
   const disclosedBanks = [
     ...new Set(
       requireString13(data.distributionChannel, "distributionChannel").split(/[,，、]/).map(function trim(bank) {
@@ -26779,6 +26847,7 @@ function parseDetailResponse2(text) {
     raiseBeginDate,
     raiseEndDate,
     holdingDays,
+    endDate,
     disclosedBanks,
     status: requireString13(data.productStatus, "productStatus")
   };
@@ -26836,6 +26905,9 @@ function toCatalogSyncItem7(detail) {
     shareCode: detail.shareCode,
     shareName: detail.shareName,
     inceptionDate: detail.inceptionDate,
+    // 到期日证据恒随条目输出（含 null＝无固定期限/无证据，ADR-20261112）；键存在即
+    // 覆盖存储值，服务端按北京业务日判定 ended（解析器保持纯函数，不比今天）
+    endDate: detail.endDate,
     lifecycleState: detail.status === "\u5B58\u7EED" ? "active" : "unknown",
     // 运作方式只依据官方申赎规则（持有N天后每日可赎 → minimum_holding）
     operatingMode: "minimum_holding",
@@ -26872,6 +26944,9 @@ function listCatalogItems2(body) {
         shareCode: row.shareCode,
         shareName: row.name,
         inceptionDate: null,
+        // 到期日证据接线（ADR-20261112）：目录行 wire 无 dueDate 字段（实测 3 份真实
+        // 目录页）→ 恒 null；键存在即覆盖存储值，到期证据由详情通道补充
+        endDate: null,
         lifecycleState: row.status === "\u5B58\u7EED" ? "active" : "unknown",
         operatingMode: holdingDays !== null ? "minimum_holding" : "unknown",
         restrictionDays: holdingDays,
@@ -27046,6 +27121,11 @@ function parseDetailPage(html, expected) {
   if (!html.includes("\u7BA1\u7406\u4EBA\u4E2D\u94F6\u7406\u8D22\u6709\u9650\u8D23\u4EFB\u516C\u53F8")) throw new ParseError16("manager_mismatch");
   const feclr = /feclrDate\s*:\s*'([^']*)'/.exec(html);
   const shareInceptionDate = feclr && /^\d{4}-\d{2}-\d{2}$/.test(feclr[1]) ? feclr[1] : null;
+  const endTag = /<span>到期日:<\/span>([^<]*)/.exec(html);
+  let endDate = null;
+  if (endTag && endTag[1].length > 0) {
+    endDate = endTag[1] === "2099-12-31" ? null : normalizeBocDate(endTag[1], "endDate");
+  }
   const facts = {
     productCode,
     shareCode,
@@ -27054,6 +27134,7 @@ function parseDetailPage(html, expected) {
     riskLevel: riskRaw,
     inceptionDate,
     shareInceptionDate,
+    endDate,
     holdingDays,
     currencyCny: true,
     cashManagement: false,
@@ -27128,6 +27209,9 @@ function toCatalogSyncItem8(detail) {
     shareCode: detail.shareCode,
     shareName: detail.name,
     inceptionDate: detail.inceptionDate,
+    // 到期日证据恒随条目输出（含 null＝无固定期限/无证据）；键存在即覆盖存储值，
+    // 服务端按 ADR-20261112 以北京业务日判定 ended（解析器保持纯函数，不比今天）
+    endDate: detail.endDate,
     lifecycleState: "active",
     // 运作方式依据官方"最短持有期"字段 → minimum_holding
     operatingMode: "minimum_holding",
@@ -27157,6 +27241,9 @@ function listCatalogItems3(body) {
         shareCode: row.shareCode,
         shareName: row.name,
         inceptionDate: null,
+        // 目录行无到期日标签证据（「到期日:」是详情页静态字段）：恒含键输出 null＝
+        // 本轮证据为无固定期限/无证据（ADR-20261112，键存在即覆盖存储值）
+        endDate: null,
         lifecycleState: "unknown",
         operatingMode: "unknown",
         restrictionDays: null,
