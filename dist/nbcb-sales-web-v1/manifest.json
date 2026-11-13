@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "20261112T111500Z-rel23",
- "generatedAt": "2026-11-12T03:09:26.677Z",
- "implementationCommit": "e9680d14d6927146249427471452dc1d3488ff78",
+ "runId": "20261113T003000Z-rel24",
+ "generatedAt": "2026-11-13T01:38:25.873Z",
+ "implementationCommit": "f3c3811a475598b4233e1273be6754bb0c08b584",
  "buildCommand": "node --import tsx scripts/collector-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map；门禁通过后同步直写执行仓库 wor/dist）",
  "collectorId": "nbcb-sales-web-v1",
  "sourceId": "nbcb-sales",
@@ -55,8 +55,8 @@
   },
   {
    "path": "orchestrator.mjs",
-   "bytes": 1467252,
-   "sha256": "17efd2cff5d86d73cea680b63c3630b279f68f8f10d9fbeaba711e5fe0f7fce0"
+   "bytes": 1470109,
+   "sha256": "b5790a19af04332f51408cf25c108f37c72370b722e6478c335b375fc7d4f808"
   }
  ]
 }

@@ -20422,7 +20422,7 @@ var init_zod = __esm({
 });
 
 // packages/contracts/src/modules/contracts/schemas.ts
-var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
+var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, RiskLevelSchema, riskLevelAliases, RiskLevelInputSchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema;
 var init_schemas3 = __esm({
   "packages/contracts/src/modules/contracts/schemas.ts"() {
     "use strict";
@@ -20464,6 +20464,20 @@ var init_schemas3 = __esm({
     DateSchema = external_exports.iso.date().refine((date5) => date5 >= "1900-01-01" && date5 <= "2199-12-31");
     IdSchema = external_exports.uuid();
     KeySchema = external_exports.string().regex(/^[a-z][a-z0-9_-]{0,62}$/);
+    RiskLevelSchema = external_exports.enum(["R1", "R2", "R3", "R4", "R5"]);
+    riskLevelAliases = {
+      \u4F4E\u98CE\u9669: "R1",
+      \u4F4E\u98CE\u9669\u4EA7\u54C1: "R1",
+      \u4E2D\u4F4E\u98CE\u9669: "R2",
+      \u8F83\u4F4E\u98CE\u9669\u4EA7\u54C1: "R2",
+      \u4E2D\u98CE\u9669: "R3",
+      \u4E2D\u7B49\u98CE\u9669\u4EA7\u54C1: "R3",
+      \u4E2D\u9AD8\u98CE\u9669: "R4",
+      \u9AD8\u98CE\u9669: "R5"
+    };
+    RiskLevelInputSchema = external_exports.string().trim().transform(function normalizeRiskLevel(value) {
+      return Object.hasOwn(riskLevelAliases, value) ? riskLevelAliases[value] : value;
+    }).pipe(RiskLevelSchema);
     DecimalSchema = external_exports.string().regex(/^-?(?:0|[1-9]\d{0,17})(?:\.\d{1,36})?$/);
     PositiveDecimalSchema = DecimalSchema.refine(
       (value) => !value.startsWith("-") && /[1-9]/.test(value)
@@ -20485,6 +20499,8 @@ var init_schemas3 = __esm({
     UnavailableReasonSchema = external_exports.enum([
       "insufficient_history",
       "missing_disclosure",
+      // missing_adjustment 自 2026-11-12 零分红假设（ADR-20261112）起不再产生，
+      // 保留以兼容历史行、数据库 CHECK 与旧发行。
       "missing_adjustment",
       "not_applicable",
       "unknown_income_basis",
@@ -20773,7 +20789,7 @@ var init_schemas3 = __esm({
       registrationCode: external_exports.string().nullable(),
       shareCode: external_exports.string().nullable(),
       manager: external_exports.string(),
-      riskLevel: external_exports.string().nullable(),
+      riskLevel: RiskLevelSchema.nullable(),
       currency: external_exports.literal("CNY"),
       isPublic: external_exports.literal(true),
       operatingMode: OperatingModeSchema,
@@ -20906,7 +20922,8 @@ var init_schemas3 = __esm({
         scope: external_exports.enum(["catalog", "included"]),
         managers: external_exports.array(external_exports.string()),
         banks: external_exports.array(external_exports.strictObject({ key: KeySchema, name: external_exports.string() })),
-        riskLevels: external_exports.array(external_exports.string()),
+        // __unknown__ 只是筛选 SQL NULL 的哨兵，不是第六种风险等级。
+        riskLevels: external_exports.array(external_exports.union([RiskLevelSchema, external_exports.literal("__unknown__")])),
         operatingModes: external_exports.array(OperatingModeSchema),
         lifecycleStates: external_exports.array(LifecycleSchema)
       })
@@ -20998,7 +21015,8 @@ var init_schemas3 = __esm({
       productCode: external_exports.string().min(1).max(128).nullable(),
       productName: external_exports.string().min(1).max(300),
       managerName: external_exports.string().min(1).max(200),
-      riskLevel: external_exports.string().min(1).max(32).nullable(),
+      // 全部采集器共用此边界，输出保证为 R1–R5 或 null，原始缓存仍保留原文。
+      riskLevel: RiskLevelInputSchema.nullable(),
       shareCode: external_exports.string().min(1).max(128).nullable(),
       shareName: external_exports.string().min(1).max(300),
       inceptionDate: DateSchema.nullable(),
@@ -22442,7 +22460,10 @@ function toCatalogSyncItem3(row) {
     productCode: null,
     productName: row.famname,
     managerName: row.proManager,
-    riskLevel: row.riskLevel,
+    // 官网明确的一至五级序号转换为 R1–R5；其他文本仍由共享契约精确校验。
+    riskLevel: row.riskLevel?.replace(/^[一二三四五]级$/, function ordinalRiskLevel(value) {
+      return `R${"\u4E00\u4E8C\u4E09\u56DB\u4E94".indexOf(value[0]) + 1}`;
+    }) ?? null,
     shareCode: null,
     shareName: row.famname,
     inceptionDate: row.careatDate,
@@ -24323,10 +24344,10 @@ function normalizeHxwmDate(raw, field) {
   return value;
 }
 function catalogRequest2() {
-  return { url: `${SITE_ROOT}${ENDPOINTS6.catalog}` };
+  return { url: `${CATALOG_BASE_URL}?_${CACHE_BUST_STAMP}` };
 }
 function navIndexRequest() {
-  return { url: `${SITE_ROOT}${ENDPOINTS6.navIndex}` };
+  return { url: `${NAV_INDEX_BASE_URL}?_${CACHE_BUST_STAMP}` };
 }
 function navReportRequest(reportUrl) {
   if (!reportUrl.startsWith(`${SITE_ROOT}/images/xxpl/gmcpgg/jzbg/`))
@@ -24732,7 +24753,7 @@ function verifyAdjustmentProof2(nav) {
     firstMismatch: null
   };
 }
-var PARSER_VERSION10, COLLECTOR_ID10, SOURCE_ID10, HOSTS2, SITE_ROOT, ENDPOINTS6, OFFICIAL_DETAIL_URL_PREFIX2, MANAGER_NAME3, NO_FIXED_MATURITY_DATE, JS_REPORT_PATH_PATTERN, ParseError8;
+var PARSER_VERSION10, COLLECTOR_ID10, SOURCE_ID10, HOSTS2, SITE_ROOT, ENDPOINTS6, OFFICIAL_DETAIL_URL_PREFIX2, MANAGER_NAME3, NO_FIXED_MATURITY_DATE, JS_REPORT_PATH_PATTERN, ParseError8, CACHE_BUST_STAMP, CATALOG_BASE_URL, NAV_INDEX_BASE_URL;
 var init_cli10 = __esm({
   "collectors/hxwm-web-v1/src/modules/collection/cli.ts"() {
     "use strict";
@@ -24758,6 +24779,9 @@ var init_cli10 = __esm({
       }
       code;
     };
+    CACHE_BUST_STAMP = `cb${Date.now().toString(36)}`;
+    CATALOG_BASE_URL = `${SITE_ROOT}${ENDPOINTS6.catalog}`;
+    NAV_INDEX_BASE_URL = `${SITE_ROOT}${ENDPOINTS6.navIndex}`;
   }
 });
 
@@ -27193,7 +27217,11 @@ function bocomSourcePolicy(principal) {
 }
 function toAdapterDetail(detail) {
   return {
-    catalogItem: detail.catalogItem,
+    // bocom 的详情事实保留来源原文；跨入公共端口前转换为正式风险等级。
+    catalogItem: {
+      ...detail.catalogItem,
+      riskLevel: RiskLevelInputSchema.nullable().parse(detail.catalogItem.riskLevel)
+    },
     catalogAdmissible: detail.catalogAdmissible,
     restrictionNote: detail.restrictionNote,
     inceptionDate: detail.catalogItem.inceptionDate,
@@ -27220,7 +27248,8 @@ function parseExampleDetail(body, expectedShareCode) {
       productCode: null,
       productName: parsed.productName,
       managerName: parsed.managerName,
-      riskLevel: parsed.riskLevel ?? null,
+      // 示例适配器也执行真实输入边界，避免绕过生产枚举。
+      riskLevel: RiskLevelInputSchema.nullable().parse(parsed.riskLevel ?? null),
       shareCode: parsed.shareCode,
       shareName,
       inceptionDate: parsed.inceptionDate,
@@ -27966,8 +27995,11 @@ var init_adapters = __esm({
         // 共享 transport 2 MiB 上限 → 以请求构造器产出的完整 URL 为前缀精确豁免；两者都是
         // 跨份额共享静态资源（目录=详情数据源、索引=报告地址表）→ 声明同轮复用，多份额
         // 采集各只传输一次（第二次起零传输、不消耗预算，解析按份额各自切片/解析）。
-        capExemptUrlPrefixes: [catalogRequest2().url, navIndexRequest().url],
-        reusableUrlPrefixes: [catalogRequest2().url, navIndexRequest().url],
+        // 前缀按基础 URL（不带查询串）声明：请求构造器自 2026-11-12 起携带进程级 CDN
+        // 缓存击穿查询串（边缘缓存滞后数日，无参数取回旧索引致报告解析滞后），前缀匹配
+        // 对任意查询串的完整 URL 均成立，豁免与同轮复用语义不变。
+        capExemptUrlPrefixes: [CATALOG_BASE_URL, NAV_INDEX_BASE_URL],
+        reusableUrlPrefixes: [CATALOG_BASE_URL, NAV_INDEX_BASE_URL],
         shareDetailRequest(shareCode) {
           void shareCode;
           return { url: catalogRequest2().url };
@@ -28982,7 +29014,8 @@ var init_adapters = __esm({
             productCode: detail.parentProductCode,
             productName: detail.productName,
             managerName: "\u5E7F\u94F6\u7406\u8D22",
-            riskLevel: detail.riskLevelCode ? riskLevelLabel(detail.riskLevelCode) : null,
+            // 待核实项仍需遵循公共端口的风险等级契约。
+            riskLevel: detail.riskLevelCode ? RiskLevelInputSchema.parse(riskLevelLabel(detail.riskLevelCode)) : null,
             shareCode: detail.shareCode,
             shareName: detail.shareShortName,
             inceptionDate: null,
@@ -29431,7 +29464,11 @@ var init_adapters = __esm({
             returnStartDate: context.returnStartDate
           });
           return {
-            catalogItem: pendingItem,
+            // 身份未齐全的待核实项也归一化等级，不把来源文案传播到后续编排。
+            catalogItem: {
+              ...pendingItem,
+              riskLevel: RiskLevelInputSchema.parse(pendingItem.riskLevel)
+            },
             catalogAdmissible: false,
             restrictionNote: "registration_required",
             inceptionDate: context.returnStartDate,
@@ -29909,6 +29946,14 @@ async function catalogSyncItemsFromStore(store, adapter, today) {
   const pendingCandidates = [];
   for (const detail of byShare.values()) {
     const item = detail.catalogItem;
+    if (FOREIGN_CURRENCY_NAME_PATTERN.test(item.shareName) || FOREIGN_CURRENCY_NAME_PATTERN.test(item.productName)) {
+      pendingCandidates.push({
+        shareCode: item.shareCode ?? "",
+        shareName: item.shareName,
+        restrictionNote: "foreign_currency_suspect"
+      });
+      continue;
+    }
     if (item.registrationCode !== null || item.productCode !== null) {
       items.push(CatalogSyncItemSchema.parse(item));
     } else {
@@ -29957,6 +30002,7 @@ async function catalogSyncItemsFromStore(store, adapter, today) {
 var init_catalog_items = __esm({
   "scripts/collector-kernel/catalog-items.ts"() {
     init_schemas3();
+    init_adapters();
   }
 });
 
@@ -32972,10 +33018,6 @@ function intervalReturn(input2, source, requestedStart, requestedEnd) {
     if (expectsDisclosure(source, date5) && !rows.some((row) => row.valueDate === date5 && row.unitNav !== void 0))
       return fail("missing_disclosure");
   }
-  const proof = rows.some(
-    (row) => row.valueDate >= end && row.adjustmentVerifiedFrom !== null && row.adjustmentVerifiedFrom <= start
-  );
-  if (!proof) return fail("missing_adjustment");
   let quantity = new D(1);
   let cash = new D(0);
   for (const event of events.filter((event2) => event2.effectiveDate > start && event2.effectiveDate <= end).sort((a, b) => a.effectiveDate.localeCompare(b.effectiveDate))) {
@@ -33074,10 +33116,17 @@ function usage() {
 function shareIdentitySql(sourceId, value) {
   return `SELECT share_id FROM wo_v2.external_identifiers WHERE source_id='${sourceId}' AND kind LIKE 'share:%' AND value='${value}' ORDER BY kind='share:fundcode' DESC LIMIT 1;`;
 }
-async function loadVerifiedPages(store, adapter, share, today) {
-  const best = await latestVerifiedNavFromStore(store, adapter, share);
+async function loadVerifiedPages(store, adapter, share, today, pageOpenCache) {
+  const best = await latestVerifiedNavFromStore(store, adapter, share, pageOpenCache);
   if (!best) return null;
-  const detail = await latestVerifiedDetailFromStore(store, adapter, share, today);
+  const detail = await latestVerifiedDetailFromStore(
+    store,
+    adapter,
+    share,
+    today,
+    adapter.catalog,
+    pageOpenCache
+  );
   const proof = adapter.adjustmentProof(best.nav, detail);
   return { nav: best.nav, detail, proof };
 }
@@ -33104,6 +33153,7 @@ async function evaluateMain(argv) {
     collectorId: adapter.identity.collectorId,
     sourceId: config3.source.sourceId
   });
+  const pageOpenCache = createPageOpenCache();
   const today = beijingToday();
   const lower = subtractMonths(today, snapshot.policy.hot.months);
   const reports = [];
@@ -33125,7 +33175,7 @@ async function evaluateMain(argv) {
     );
   };
   for (const share of config3.shares) {
-    const loaded = await loadVerifiedPages(store, adapter, share, today);
+    const loaded = await loadVerifiedPages(store, adapter, share, today, pageOpenCache);
     if (!loaded) {
       reports.push({ shareCode: share, error: "no_verified_live_nav" });
       continue;
