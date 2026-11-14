@@ -40,8 +40,8 @@ on:
         type: boolean
         default: false
   schedule:
-    # UTC；生产七源已按2026-11-13授权排期，北京02:37–03:07错峰。
-    - cron: '42 18 * * *'
+    # UTC；生产七源已按2026-11-14授权提前270分钟，北京22:07–22:37错峰。
+    - cron: '12 14 * * *'
 permissions:
   # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
   contents: read
