@@ -16,7 +16,7 @@
     "hosts": [
       "www.cibwm.com.cn"
     ],
-    "maxRequestsTotal": 1000,
+    "maxRequestsTotal": 2000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,
