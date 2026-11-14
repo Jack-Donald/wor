@@ -33994,6 +33994,19 @@ var init_nav_fetch = __esm({
 });
 
 // scripts/collector-kernel/collection-targets.ts
+function prioritizeCollectionPlans(plans, through) {
+  const ranked = plans.map(function rank(plan, index) {
+    let latest = "";
+    for (const date5 of plan.coveredDates) if (date5 <= through && date5 > latest) latest = date5;
+    return { plan, index, latest };
+  });
+  ranked.sort(function oldestFirst(left, right) {
+    return Number(left.plan.skip !== null) - Number(right.plan.skip !== null) || left.latest.localeCompare(right.latest) || left.index - right.index;
+  });
+  return ranked.map(function unwrap(row) {
+    return row.plan;
+  });
+}
 async function discoverCollectionTargets(sourceId, readPage, deadlineReached) {
   const targets = [];
   const codes = /* @__PURE__ */ new Set();
@@ -34479,7 +34492,7 @@ async function collectMainWithPorts(argv, ports) {
     return void 0;
   }
   const pageOpenCache = createPageOpenCache();
-  const plans = [];
+  let plans = [];
   const targets = write ? await discoverCollectionTargets(
     config3.source.sourceId,
     async function readTargets(payload) {
@@ -34642,6 +34655,14 @@ async function collectMainWithPorts(argv, ports) {
     }
     plans.push(plan);
     summary.plannedShares.push(share);
+  }
+  if (write) {
+    plans = prioritizeCollectionPlans(plans, dueDate2);
+    summary.plannedShares = plans.filter(function active(plan) {
+      return !plan.skip;
+    }).map(function code(plan) {
+      return plan.share;
+    });
   }
   if (write && maintainer) {
     for (const plan of plans) {
