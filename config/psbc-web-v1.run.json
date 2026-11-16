@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "wealth-observer-p4-run/v1",
+  "runId": "20261109T121648Zpsbc",
+  "collectorId": "psbc-web-v1",
+  "target": {
+    "type": "https",
+    "containerName": null,
+    "endpoint": "https://knwcpkuowdqnigxtnfjv.supabase.co/rest/v1/rpc",
+    "database": "postgres"
+  },
+  "source": {
+    "sourceId": "psbc",
+    "principal": "collector_psbc"
+  },
+  "shares": [
+    "A32042"
+  ],
+  "network": {
+    "hosts": [
+      "s.psbc.com",
+      "www.psbc.com"
+    ],
+    "maxRequestsTotal": 100,
+    "minIntervalMs": 1800,
+    "timeoutMs": 30000,
+    "responseCapBytes": 2097152,
+    "mainRoundImmediateRetries": 0,
+    "finalRoundMax": 1,
+    "politenessMinMs": 1800,
+    "politenessMaxMs": 3200,
+    "siteRequiredIntervalMs": null
+  },
+  "cache": {
+    "root": "/home/runner/work/wor/wor/.state/cache/psbc-web-v1",
+    "maxBytes": 1073741824
+  },
+  "evidenceRoot": "/home/runner/work/wor/wor/.state/evidence/psbc-web-v1",
+  "policyFile": "/home/runner/work/wor/wor/config/policy.json"
+}
