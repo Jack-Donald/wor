@@ -59,13 +59,17 @@ jobs:
       - name: 执行编排命令（安全摘要输出）
         env:
           # GitHub 业务 Secret 映射到已发行包的旧环境变量；写入缺凭据明确失败，local-only 不依赖凭据。
+          COLLECTOR_HTTPS_BEARER: ${{ secrets.COLLECTOR_HTTPS_BEARER }}
+          COLLECTOR_HTTPS_API_KEY: ${{ secrets.COLLECTOR_HTTPS_API_KEY }}
+          COLLECTOR_HTTPS_SCHEMA: wo_rpc
           P4_HTTPS_BEARER: ${{ secrets.COLLECTOR_HTTPS_BEARER }}
           P4_HTTPS_API_KEY: ${{ secrets.COLLECTOR_HTTPS_API_KEY }}
           P4_HTTPS_SCHEMA: wo_rpc
         run: |
           set -euo pipefail
           # 总截止预留十分钟收尾；不改变任何请求预算、随机礼貌间隔或单片写入时限。
-          export WO_P4_COLLECT_DEADLINE_EPOCH_MS="$(( $(date +%s) * 1000 + 110 * 60 * 1000 ))"
+          export WO_COLLECT_DEADLINE_EPOCH_MS="$(( $(date +%s) * 1000 + 110 * 60 * 1000 ))"
+          export WO_P4_COLLECT_DEADLINE_EPOCH_MS="$WO_COLLECT_DEADLINE_EPOCH_MS"
           # 命令解析（A04 分流＋B02 配置驱动）：schedule 事件不携带 dispatch inputs
           # （inputs.command 展开为空），必须显式分流——schedule 固定执行模板生成时
           # 注入的默认命令 'catalog'，启用与写入模式由执行仓库

@@ -20422,7 +20422,7 @@ var init_zod = __esm({
 });
 
 // packages/contracts/src/modules/contracts/schemas.ts
-var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, RiskLevelSchema, riskLevelAliases, RiskLevelInputSchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, P4_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, P4ContainerNameSchema, P4RunTargetPsqlSchema, P4RunTargetHttpsSchema, P4RunTargetSchema, P4RunConfigSchema, CollectionTargetsRequestSchema, CollectionTargetsResultSchema;
+var BootstrapHealthSchema, PROTOCOL_VERSION, ALGORITHM_VERSION, LEGACY_LOCAL_PACKAGE_VERSION, LOCAL_PACKAGE_VERSION, LOCAL_PAGE_DEFAULT_BYTES, HZBANKWM_LOCAL_PAGE_BYTES, HXWM_LOCAL_PAGE_BYTES, MAX_LOCAL_PAGE_BYTES, LIMITS, MAX_CATALOG_RESTRICTION_DAYS, ERROR_CODES, ErrorCodeSchema, DateSchema, IdSchema, KeySchema, RiskLevelSchema, riskLevelAliases, RiskLevelInputSchema, DecimalSchema, PositiveDecimalSchema, NonnegativeDecimalSchema, MetricCodeSchema, UnavailableReasonSchema, LifecycleSchema, OperatingModeSchema, CollectionCapabilitySchema, IncomeBasisSchema, ObservationSchema, AdjustmentSchema, CoverageSchema, RepairDeletionSchema, RepairClearSchema, RulesVersionSchema, ChunkSchema, PrepareRequestSchema, PrepareResultSchema, CommitResultSchema, ReconcileResultSchema, CalendarSchema, SourcePolicySchema, PolicySchema, PolicySnapshotSchema, PolicyApplicationSchema, PolicyApplicationResultSchema, MetricSchema, PublicMetadataSchema, ShareIdParamsSchema, IntervalQuerySchema, ListQuerySchema, HistoryQuerySchema, BatchQuerySchema, EvaluationSchema, EvaluationResultSchema, CalculationInputSchema, ApiFailureSchema, CatalogShareSchema, PublicObservationSchema, IncludedShareSchema, CatalogPageSchema, IncludedPageSchema, ShareDetailSchema, HistoryPageSchema, IntervalResponseSchema, BatchResponseSchema, SourceSummarySchema, SourceResponseSchema, StatsResponseSchema, FilterOptionsSchema, IncludedListQuerySchema, MetadataResponseSchema, SourceObservationQuerySchema, Sha256Schema, GitCommitSchema, PageKindSchema, PageClassificationSchema, ParseStatusSchema, ParserVersionSchema, LocalPageMetaSchema, LocalManifestSchema, CatalogOfferingInputSchema, ExternalIdInputSchema, CatalogSyncItemSchema, CatalogSyncRequestSchema, CatalogSyncItemResultSchema, CatalogSyncResultSchema, CoverageRequestSchema, CoverageRowSchema, CoverageAdjustmentRowSchema, CoverageResultSchema, ImportDispositionSchema, ImportFieldDiffSchema, ImportEntrySchema, ImportSharePreviewSchema, ImportPreviewSchema, ImportApplyResultSchema, HotEvaluationReportSchema, CliStatusSchema, CliResultSchema, RunTargetSchema, RunConfigSchema, CatalogQueryRpcSchema, HistoryQueryRpcSchema, QueryRowsResultSchema, ShareDetailRpcResultSchema, HistoryRpcResultSchema, ObservationSourceRowSchema, ObservationSourcesResponseSchema, ObservationSourcesQueryRpcSchema, ObservationSourcesRpcResultSchema, IntervalQueryRpcSchema, IntervalRpcResultSchema, ShareSummariesQueryRpcSchema, ShareSummariesRpcResultSchema, FilterOptionsQueryRpcSchema, FilterOptionsRpcResultSchema, SourcesRpcResultSchema, StatsRpcResultSchema, COLLECTOR_RUN_CONFIG_VERSION, PREVIOUS_COLLECTOR_RUN_CONFIG_VERSION, LEGACY_RUN_CONFIG_VERSIONS, CollectorContainerNameSchema, CollectorRunTargetPsqlSchema, CollectorRunTargetHttpsSchema, CollectorRunTargetSchema, CollectorRunConfigSchema, CollectionTargetsRequestSchema, CollectionTargetsResultSchema;
 var init_schemas3 = __esm({
   "packages/contracts/src/modules/contracts/schemas.ts"() {
     "use strict";
@@ -20644,6 +20644,9 @@ var init_schemas3 = __esm({
       hot: external_exports.strictObject({
         months: external_exports.number().int().min(1).max(6),
         threshold: NonnegativeDecimalSchema,
+        // 披露新鲜度（ADR-20261116）：评估日 D 前 freshDays 天内须有已采集净值。
+        // default(15) 兼容未携带该键的旧运行 policy 文件，解析后补齐缺省值。
+        freshDays: external_exports.number().int().min(1).max(60).default(15),
         newShares: external_exports.literal(true)
       }),
       catalog: external_exports.strictObject({
@@ -21346,19 +21349,20 @@ var init_schemas3 = __esm({
     });
     SourcesRpcResultSchema = external_exports.strictObject({ data: SourceResponseSchema.shape.data });
     StatsRpcResultSchema = external_exports.strictObject({ data: StatsResponseSchema.shape.data });
-    P4_RUN_CONFIG_VERSION = "wealth-observer-p4-run/v1";
+    COLLECTOR_RUN_CONFIG_VERSION = "wealth-observer-collector-run/v1";
+    PREVIOUS_COLLECTOR_RUN_CONFIG_VERSION = "wealth-observer-p4-run/v1";
     LEGACY_RUN_CONFIG_VERSIONS = ["wealth-observer-p3-run/v1"];
-    P4ContainerNameSchema = external_exports.string().regex(/^wo-p4-(env|verify)-[a-z0-9][a-z0-9-]{0,30}$/);
-    P4RunTargetPsqlSchema = external_exports.strictObject({
+    CollectorContainerNameSchema = external_exports.string().regex(/^wo-p4-(env|verify)-[a-z0-9][a-z0-9-]{0,30}$/);
+    CollectorRunTargetPsqlSchema = external_exports.strictObject({
       type: external_exports.literal("psql"),
-      containerName: P4ContainerNameSchema.nullable(),
+      containerName: CollectorContainerNameSchema.nullable(),
       host: external_exports.string().min(1).max(253),
       port: external_exports.number().int().min(1).max(65535).nullable(),
       database: external_exports.string().min(1).max(64)
     });
-    P4RunTargetHttpsSchema = external_exports.strictObject({
+    CollectorRunTargetHttpsSchema = external_exports.strictObject({
       type: external_exports.literal("https"),
-      containerName: P4ContainerNameSchema.nullable(),
+      containerName: CollectorContainerNameSchema.nullable(),
       endpoint: external_exports.string().url().max(300).refine(
         (value) => {
           const url2 = new URL(value);
@@ -21368,16 +21372,16 @@ var init_schemas3 = __esm({
       ),
       database: external_exports.string().min(1).max(64)
     });
-    P4RunTargetSchema = external_exports.discriminatedUnion("type", [
-      P4RunTargetPsqlSchema,
-      P4RunTargetHttpsSchema
+    CollectorRunTargetSchema = external_exports.discriminatedUnion("type", [
+      CollectorRunTargetPsqlSchema,
+      CollectorRunTargetHttpsSchema
     ]);
-    P4RunConfigSchema = external_exports.strictObject({
-      schemaVersion: external_exports.literal(P4_RUN_CONFIG_VERSION),
+    CollectorRunConfigSchema = external_exports.strictObject({
+      schemaVersion: external_exports.literal([COLLECTOR_RUN_CONFIG_VERSION, PREVIOUS_COLLECTOR_RUN_CONFIG_VERSION]),
       runId: external_exports.string().regex(/^[0-9TZtz-]{12,40}[a-z0-9]{4,10}$/),
       // 绑定的采集适配器标识；组装层（scripts/collector-kernel/adapters.ts）据此选择注入的 SourceAdapter。
       collectorId: KeySchema,
-      target: P4RunTargetSchema,
+      target: CollectorRunTargetSchema,
       source: external_exports.strictObject({
         sourceId: KeySchema,
         // 数据库受限登录角色（必须出现在生效来源策略的 principals 中，由数据库校验）。
@@ -24132,12 +24136,18 @@ function parseCatalog(text) {
   return { rows: [...byCode.values()], staleSnapshotsDeduped: stale };
 }
 function parseTerm(termText) {
+  if (termText === "\u6BCF\u65E5\u5F00\u653E") return { restrictionDays: 0, operatingMode: "open" };
   const minimum = /^最低持有(\d{1,4})天可赎$/.exec(termText);
   if (minimum) return { restrictionDays: Number(minimum[1]), operatingMode: "minimum_holding" };
   const closedForm = /^(\d{1,4})天$/.exec(termText);
   if (closedForm) return { restrictionDays: Number(closedForm[1]), operatingMode: "closed" };
   if (termText.includes("\u5F00\u653E")) return { restrictionDays: null, operatingMode: "open" };
   return { restrictionDays: null, operatingMode: null };
+}
+function operatingModeFor(row, term) {
+  if (term.restrictionDays === 0 && ["\u73B0\u91D1\u7BA1\u7406\u7C7B", "\u73B0\u91D1\u7BA1\u7406\u578B"].includes(row.operatingModeText))
+    return "cash_management";
+  return term.operatingMode ?? (row.operatingModeText === "\u5C01\u95ED\u5F0F" ? "closed" : row.operatingModeText === "\u5F00\u653E\u5F0F" ? "open" : null);
 }
 function parseDetailFacts(body, expectedShareCode, today) {
   const catalog = parseCatalog(body);
@@ -24148,7 +24158,7 @@ function parseDetailFacts(body, expectedShareCode, today) {
   const term = parseTerm(row.termText);
   const restrictionDays = term.restrictionDays !== null && term.restrictionDays >= 0 && term.restrictionDays <= MAX_CATALOG_RESTRICTION_DAYS ? term.restrictionDays : null;
   const restrictionNote = term.restrictionDays === null ? "unknown_no_term" : term.restrictionDays > 31 ? `out_of_scope:${term.restrictionDays}days` : null;
-  const operatingMode = term.operatingMode ?? (row.operatingModeText === "\u5C01\u95ED\u5F0F" ? "closed" : row.operatingModeText === "\u5F00\u653E\u5F0F" ? "open" : null);
+  const operatingMode = operatingModeFor(row, term);
   const fresh = /^\d{4}-\d{2}-\d{2}$/.test(today) && row.navDate >= addDaysIso3(today, -LIFECYCLE_EVIDENCE_DAYS2) && row.navDate <= addDaysIso3(today, 1);
   const catalogItem = CatalogSyncItemSchema.parse({
     registrationCode: row.registrationCode,
@@ -24194,7 +24204,7 @@ function listCatalogItems(body, today) {
   for (const row of catalog.rows) {
     const term = parseTerm(row.termText);
     const restrictionDays = term.restrictionDays !== null && term.restrictionDays >= 0 && term.restrictionDays <= MAX_CATALOG_RESTRICTION_DAYS ? term.restrictionDays : null;
-    const operatingMode = term.operatingMode ?? (row.operatingModeText === "\u5C01\u95ED\u5F0F" ? "closed" : row.operatingModeText === "\u5F00\u653E\u5F0F" ? "open" : "unknown");
+    const operatingMode = operatingModeFor(row, term) ?? "unknown";
     const fresh = /^\d{4}-\d{2}-\d{2}$/.test(today) && row.navDate >= addDaysIso3(today, -LIFECYCLE_EVIDENCE_DAYS2) && row.navDate <= addDaysIso3(today, 1);
     items.push(
       CatalogSyncItemSchema.parse({
@@ -30485,18 +30495,18 @@ var init_public2 = __esm({
 // scripts/collector-kernel/common.ts
 var common_exports = {};
 __export(common_exports, {
+  COLLECTOR_TARGET_MAINTAINER_ROLE: () => COLLECTOR_TARGET_MAINTAINER_ROLE,
   HTTPS_RPC_ATTEMPT_TIMEOUT_MS: () => HTTPS_RPC_ATTEMPT_TIMEOUT_MS,
   HTTPS_RPC_MAX_ATTEMPTS: () => HTTPS_RPC_MAX_ATTEMPTS,
   HTTPS_RPC_RETRY_BASE_DELAY_MS: () => HTTPS_RPC_RETRY_BASE_DELAY_MS,
   HttpsRpcTransportError: () => HttpsRpcTransportError,
-  P4_MAINTAINER_ROLE: () => P4_MAINTAINER_ROLE,
   cliJson: () => cliJson,
   collectorWriter: () => collectorWriter,
   createCommandLedger: () => createCommandLedger,
   docker: () => docker,
   ensureDir: () => ensureDir,
   httpsRpcJson: () => httpsRpcJson,
-  loadP4EnvRuntime: () => loadP4EnvRuntime,
+  loadCollectorEnvRuntime: () => loadCollectorEnvRuntime,
   maintainerWriter: () => maintainerWriter,
   mintJwt: () => mintJwt,
   parseArgs: () => parseArgs,
@@ -30601,7 +30611,7 @@ function docker(args, input2) {
     );
   return result.stdout.trim();
 }
-async function loadP4EnvRuntime(config3, configPath) {
+async function loadCollectorEnvRuntime(config3, configPath) {
   const runtimePath = resolve2(dirname2(configPath), "..", "env-runtime.json");
   const content = await readFile2(runtimePath, "utf8").catch(() => null);
   const runtime = content === null ? {} : JSON.parse(content);
@@ -30643,16 +30653,18 @@ function mintJwt(secret, role, seconds = 900) {
   return `${header}.${claims}.${createHmac("sha256", secret).update(`${header}.${claims}`).digest("base64url")}`;
 }
 function httpsBearer(runtime) {
-  const bearer = runtime.bearer ?? process.env.P4_HTTPS_BEARER;
+  const bearer = runtime.bearer ?? process.env.COLLECTOR_HTTPS_BEARER ?? process.env.P4_HTTPS_BEARER;
   if (bearer) return bearer;
-  if (runtime.jwtSecret) return mintJwt(runtime.jwtSecret, P4_MAINTAINER_ROLE);
-  throw new Error("https_target_requires_bearer\uFF08env-runtime bearer/jwtSecret \u6216 P4_HTTPS_BEARER\uFF09");
+  if (runtime.jwtSecret) return mintJwt(runtime.jwtSecret, COLLECTOR_TARGET_MAINTAINER_ROLE);
+  throw new Error(
+    "https_target_requires_bearer\uFF08env-runtime bearer/jwtSecret \u6216 COLLECTOR_HTTPS_BEARER\uFF09"
+  );
 }
 function httpsApiKey(runtime) {
-  return runtime.apiKey ?? process.env.P4_HTTPS_API_KEY;
+  return runtime.apiKey ?? process.env.COLLECTOR_HTTPS_API_KEY ?? process.env.P4_HTTPS_API_KEY;
 }
 function httpsSchema(runtime) {
-  return runtime.schema ?? process.env.P4_HTTPS_SCHEMA;
+  return runtime.schema ?? process.env.COLLECTOR_HTTPS_SCHEMA ?? process.env.P4_HTTPS_SCHEMA;
 }
 function httpsCa(runtime) {
   if (!runtime.caPath) return void 0;
@@ -30678,7 +30690,7 @@ function targetWriter(config3, runtime, role) {
   return createWriter(createPsqlTransport(transport));
 }
 function maintainerWriter(config3, runtime) {
-  return targetWriter(config3, runtime, P4_MAINTAINER_ROLE);
+  return targetWriter(config3, runtime, COLLECTOR_TARGET_MAINTAINER_ROLE);
 }
 function collectorWriter(config3, runtime) {
   return targetWriter(config3, runtime, config3.source.principal);
@@ -30687,7 +30699,7 @@ function sqlRunner(config3, runtime) {
   if (config3.target.type !== "psql")
     throw new Error("sql_runner_requires_psql_target\uFF08https \u76EE\u6807\u8BF7\u7528 httpsRpcJson\uFF09");
   const container = config3.target.containerName ?? runtime.container ?? null;
-  return function sql(text, role = P4_MAINTAINER_ROLE) {
+  return function sql(text, role = COLLECTOR_TARGET_MAINTAINER_ROLE) {
     if (container) {
       return docker(
         [
@@ -30847,12 +30859,12 @@ async function writeText(path, content) {
   await ensureDir(dirname2(path));
   await writeFile2(path, content, "utf8");
 }
-var P4_MAINTAINER_ROLE, HTTPS_RPC_ATTEMPT_TIMEOUT_MS, HTTPS_RPC_MAX_ATTEMPTS, HTTPS_RPC_RETRY_BASE_DELAY_MS, HttpsRpcTransportError;
+var COLLECTOR_TARGET_MAINTAINER_ROLE, HTTPS_RPC_ATTEMPT_TIMEOUT_MS, HTTPS_RPC_MAX_ATTEMPTS, HTTPS_RPC_RETRY_BASE_DELAY_MS, HttpsRpcTransportError;
 var init_common = __esm({
   "scripts/collector-kernel/common.ts"() {
     init_schemas3();
     init_public2();
-    P4_MAINTAINER_ROLE = "wo_p4_maint";
+    COLLECTOR_TARGET_MAINTAINER_ROLE = "wo_p4_maint";
     HTTPS_RPC_ATTEMPT_TIMEOUT_MS = 3e4;
     HTTPS_RPC_MAX_ATTEMPTS = 3;
     HTTPS_RPC_RETRY_BASE_DELAY_MS = 2e3;
@@ -30862,30 +30874,45 @@ var init_common = __esm({
 });
 
 // scripts/collector-kernel/run-config.ts
-function parseP4RunConfig(text) {
+function parseCollectorRunConfig(text) {
   let raw;
   try {
     raw = JSON.parse(text);
   } catch {
-    throw new Error("P4 \u8FD0\u884C\u914D\u7F6E\u4E0D\u662F\u5408\u6CD5 JSON");
+    throw new Error("\u91C7\u96C6\u8FD0\u884C\u914D\u7F6E\u4E0D\u662F\u5408\u6CD5 JSON");
   }
   if (raw !== null && typeof raw === "object" && LEGACY_RUN_CONFIG_VERSIONS.includes(
     String(raw.schemaVersion)
   )) {
     throw new Error(
-      "\u914D\u7F6E\u4E3A\u65E7\u7248 wealth-observer-p3-run/v1\uFF08P3 \u4E13\u7528\uFF1A\u7ED1\u5B9A wo-p3-* \u5BB9\u5668\u3001host \u56FA\u5B9A 127.0.0.1\u3001shares\u226420\uFF09\uFF1B\u8BF7\u8FC1\u79FB\u4E3A wealth-observer-p4-run/v1\uFF08target.type=psql|https\u3001containerName \u53EF\u7A7A\u3001\u539F\u751F host/port\u3001shares\u2264500\uFF09"
+      "\u914D\u7F6E\u4E3A\u65E7\u7248 wealth-observer-p3-run/v1\uFF08P3 \u4E13\u7528\uFF1A\u7ED1\u5B9A wo-p3-* \u5BB9\u5668\u3001host \u56FA\u5B9A 127.0.0.1\u3001shares\u226420\uFF09\uFF1B\u8BF7\u8FC1\u79FB\u4E3A wealth-observer-collector-run/v1\uFF08target.type=psql|https\u3001containerName \u53EF\u7A7A\u3001\u539F\u751F host/port\u3001shares\u2264500\uFF09"
     );
   }
-  return P4RunConfigSchema.parse(raw);
+  return CollectorRunConfigSchema.parse(raw);
 }
-async function loadP4RunConfig(path) {
-  const { readFile: readFile6 } = await import("node:fs/promises");
-  return parseP4RunConfig(await readFile6(path, "utf8"));
+async function loadCollectorRunConfig(path) {
+  const { readFile: readFile4 } = await import("node:fs/promises");
+  return parseCollectorRunConfig(await readFile4(path, "utf8"));
 }
 var init_run_config = __esm({
   "scripts/collector-kernel/run-config.ts"() {
     init_schemas3();
     init_schemas3();
+  }
+});
+
+// scripts/project-policy.ts
+import { readFileSync as readFileSync2 } from "node:fs";
+import { parseEnv } from "node:util";
+function readPolicyText(path) {
+  const text = readFileSync2(path, "utf8");
+  if (text.trimStart().startsWith("{")) return text;
+  const policy = parseEnv(text).WO_POLICY_JSON;
+  if (!policy) throw new Error("\u73AF\u5883\u6587\u4EF6\u7F3A\u5C11 WO_POLICY_JSON \u7B56\u7565");
+  return policy;
+}
+var init_project_policy = __esm({
+  "scripts/project-policy.ts"() {
   }
 });
 
@@ -33196,7 +33223,9 @@ function intervalReturn(input2, source, requestedStart, requestedEnd) {
     delayed: endPending
   };
 }
-function qualifiesHot(input2, evaluationDate, months, threshold) {
+function qualifiesHot(input2, evaluationDate, months, threshold, freshDays) {
+  const freshFloor = addDays(evaluationDate, -freshDays);
+  if (!input2.observations.some((row) => row.valueDate >= freshFloor)) return false;
   const lower = subtractMonths(evaluationDate, months);
   for (const source of input2.sources) {
     const rows = input2.observations.filter((row) => row.sourceId === source.id).sort((a, b) => a.valueDate.localeCompare(b.valueDate));
@@ -33264,7 +33293,6 @@ __export(evaluate_exports, {
   shareIdentitySql: () => shareIdentitySql
 });
 import { randomUUID as randomUUID4 } from "node:crypto";
-import { readFile as readFile3 } from "node:fs/promises";
 function usage() {
   return [
     "\u7528\u6CD5\uFF1Anode --import tsx scripts/collector-kernel/cli.ts evaluate --config <\u7EDD\u5BF9\u8DEF\u5F84> --preview|--apply",
@@ -33296,14 +33324,14 @@ async function evaluateMain(argv) {
   const preview = args.flags.has("preview");
   if (apply === preview) throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --preview \u6216 --apply \u4E4B\u4E00");
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   if (config3.shares.length === 0) throw new Error("evaluate_requires_explicit_shares");
   const adapter = adapterFor(config3);
   const refused = adapterCommandRefused(adapter, "evaluate");
   if (refused) throw new Error(refused);
   const ledger = createCommandLedger(config3.evidenceRoot);
-  const runtime = apply ? await loadP4EnvRuntime(config3, configPath) : null;
-  const policy = JSON.parse(await readFile3(config3.policyFile, "utf8"));
+  const runtime = apply ? await loadCollectorEnvRuntime(config3, configPath) : null;
+  const policy = JSON.parse(readPolicyText(config3.policyFile));
   policy.sources = [adapter.sourcePolicy(config3.source.principal)];
   const snapshot = await snapshotPolicy(policy);
   const source = snapshot.policy.sources[0];
@@ -33374,7 +33402,8 @@ async function evaluateMain(argv) {
       input2,
       today,
       snapshot.policy.hot.months,
-      snapshot.policy.hot.threshold
+      snapshot.policy.hot.threshold,
+      snapshot.policy.hot.freshDays
     );
     const windowStart = inception > lower ? inception : lower;
     const windowComplete = intervalReturn(input2, source, windowStart, dueDate(input2, source)).value !== null;
@@ -33476,7 +33505,7 @@ async function evaluateMain(argv) {
     command: `p4 evaluate ${apply ? "apply" : "preview"} (${adapter.identity.collectorId}#${config3.runId})`,
     status: partial2 ? "partial" : "completed",
     exitCode: partial2 ? 2 : 0,
-    summary: `\u8BC4\u4F30 ${reports.length} \u4E2A\u4EFD\u989D\uFF08\u7A97\u53E3 ${lower}..${today}\uFF0C\u9608\u503C ${snapshot.policy.hot.threshold}/\u4E07\xB7\u65E5\uFF1B\u8C03\u6574\u8BC1\u660E\u7F3A\u5931\u7684\u4EFD\u989D\u4E0D\u53C2\u4E0E\u8FBE\u6807\uFF09`,
+    summary: `\u8BC4\u4F30 ${reports.length} \u4E2A\u4EFD\u989D\uFF08\u7A97\u53E3 ${lower}..${today}\uFF0C\u9608\u503C ${snapshot.policy.hot.threshold}/\u4E07\xB7\u65E5\uFF0C\u65B0\u9C9C\u5EA6 ${snapshot.policy.hot.freshDays} \u5929\uFF1B\u8C03\u6574\u8BC1\u660E\u7F3A\u5931\u7684\u4EFD\u989D\u4E0D\u53C2\u4E0E\u8FBE\u6807\uFF09`,
     details: { reports }
   });
   await ledger.record(
@@ -33506,6 +33535,7 @@ function bestWindow(input2, sourceId, lower, today) {
 }
 var init_evaluate = __esm({
   "scripts/collector-kernel/evaluate.ts"() {
+    init_project_policy();
     init_schemas3();
     init_schemas3();
     init_public3();
@@ -33543,10 +33573,10 @@ async function catalogMain(argv) {
     throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --preview \u6216 --apply \u4E4B\u4E00");
   const apply = args.flags.has("apply");
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   const adapter = adapterFor(config3);
   const ledger = createCommandLedger(config3.evidenceRoot);
-  const runtime = await loadP4EnvRuntime(config3, configPath);
+  const runtime = await loadCollectorEnvRuntime(config3, configPath);
   const store = createPageStore({
     root: config3.cache.root,
     maxBytes: config3.cache.maxBytes,
@@ -33583,7 +33613,9 @@ async function catalogMain(argv) {
     } else {
       const literal2 = `'${JSON.stringify(chunkRequest).replaceAll("'", "''")}'::jsonb`;
       const script = apply ? `SELECT wo_rpc.wo_catalog_sync_v1(${literal2});` : `BEGIN; SELECT wo_rpc.wo_catalog_sync_v1(${literal2}); ROLLBACK;`;
-      chunkParsed = CatalogSyncResultSchema.parse(JSON.parse(sql(script, P4_MAINTAINER_ROLE)));
+      chunkParsed = CatalogSyncResultSchema.parse(
+        JSON.parse(sql(script, COLLECTOR_TARGET_MAINTAINER_ROLE))
+      );
     }
     for (const item of chunkParsed.items)
       mergedItems.push({ ...item, index: chunkIndex * chunkSize + item.index });
@@ -34157,7 +34189,7 @@ function externalTokenDrift(error62) {
   );
 }
 function readRunDeadlineMs() {
-  const raw = process.env.WO_P4_COLLECT_DEADLINE_EPOCH_MS;
+  const raw = process.env.WO_COLLECT_DEADLINE_EPOCH_MS ?? process.env.WO_P4_COLLECT_DEADLINE_EPOCH_MS;
   if (!raw) return null;
   const value = Number(raw);
   return Number.isFinite(value) && value > 0 ? value : null;
@@ -34236,7 +34268,7 @@ async function collectMainWithPorts(argv, ports) {
   const localOnly = args.flags.has("local-only");
   if (write === localOnly) throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --local-only \u6216 --write \u4E4B\u4E00");
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   if (localOnly && config3.shares.length === 0)
     throw new Error("local_only_requires_explicit_shares\uFF08\u672C\u5730\u91C7\u6837\u5FC5\u987B\u663E\u5F0F\u914D\u7F6E shares\uFF09");
   const adapter = adapterFor(config3);
@@ -34244,7 +34276,7 @@ async function collectMainWithPorts(argv, ports) {
   if (refused) throw new Error(refused);
   await ensureDir(config3.evidenceRoot);
   const ledger = createCommandLedger(config3.evidenceRoot);
-  const runtime = write ? await loadP4EnvRuntime(config3, configPath) : null;
+  const runtime = write ? await loadCollectorEnvRuntime(config3, configPath) : null;
   const store = createPageStore({
     root: config3.cache.root,
     maxBytes: config3.cache.maxBytes,
@@ -35444,7 +35476,7 @@ async function repairMain(argv) {
       `repair \u533A\u95F4\u8FC7\u5927\uFF08${spanDays} \u5929 > \u4E0A\u9650 ${REPAIR_MAX_SPAN_DAYS} \u5929\uFF09\uFF1B\u8BF7\u62C6\u5206\u4E3A\u591A\u6B21\u663E\u5F0F\u4FEE\u590D`
     );
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   const adapter = adapterFor(config3);
   const refused = adapterCommandRefused(adapter, "repair");
   if (refused) throw new Error(refused);
@@ -35453,7 +35485,7 @@ async function repairMain(argv) {
     if (fetchRefused) throw new Error(`--refetch \u4F9D\u8D56\u5728\u7EBF\u91C7\u96C6\u80FD\u529B\uFF08${fetchRefused}\uFF09`);
   }
   const ledger = createCommandLedger(config3.evidenceRoot);
-  const runtime = await loadP4EnvRuntime(config3, configPath);
+  const runtime = await loadCollectorEnvRuntime(config3, configPath);
   const store = createPageStore({
     root: config3.cache.root,
     maxBytes: config3.cache.maxBytes,
@@ -35763,13 +35795,13 @@ async function importLocalMain(argv) {
   const preview = args.flags.has("preview");
   if (apply === preview) throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --preview \u6216 --apply \u4E4B\u4E00");
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   const adapter = adapterFor(config3);
   const refused = adapterCommandRefused(adapter, "importLocal");
   if (refused) throw new Error(refused);
   const ledger = createCommandLedger(config3.evidenceRoot);
   const bundlePath = requireAbsolute(args.values.get("bundle"), "bundle");
-  const runtime = await loadP4EnvRuntime(config3, configPath);
+  const runtime = await loadCollectorEnvRuntime(config3, configPath);
   const store = createPageStore({
     root: config3.cache.root,
     maxBytes: config3.cache.maxBytes,
@@ -36180,7 +36212,6 @@ var policy_exports = {};
 __export(policy_exports, {
   policyMain: () => policyMain
 });
-import { readFile as readFile4 } from "node:fs/promises";
 function usage5() {
   return [
     "\u7528\u6CD5\uFF1Anode --import tsx scripts/collector-kernel/cli.ts policy --config <\u7EDD\u5BF9\u8DEF\u5F84> --preview|--apply",
@@ -36197,11 +36228,11 @@ async function policyMain(argv) {
   const preview = args.flags.has("preview");
   if (apply === preview) throw new Error("\u9700\u8981\u4E14\u4EC5\u9700\u8981 --preview \u6216 --apply \u4E4B\u4E00");
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   const adapter = adapterFor(config3);
   const ledger = createCommandLedger(config3.evidenceRoot);
-  const runtime = await loadP4EnvRuntime(config3, configPath);
-  const policy = JSON.parse(await readFile4(config3.policyFile, "utf8"));
+  const runtime = await loadCollectorEnvRuntime(config3, configPath);
+  const policy = JSON.parse(readPolicyText(config3.policyFile));
   policy.sources = [adapter.sourcePolicy(config3.source.principal)];
   const snapshot = await snapshotPolicy(policy);
   if (config3.target.type !== "psql")
@@ -36292,6 +36323,7 @@ async function policyMain(argv) {
 }
 var init_policy = __esm({
   "scripts/collector-kernel/policy.ts"() {
+    init_project_policy();
     init_public4();
     init_common();
     init_run_config();
@@ -36316,7 +36348,7 @@ var env_exports = {};
 __export(env_exports, {
   envMain: () => envMain
 });
-import { readFile as readFile5, readdir as readdir2 } from "node:fs/promises";
+import { readFile as readFile3, readdir as readdir2 } from "node:fs/promises";
 import { resolve as resolve3, dirname as dirname5 } from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomUUID as randomUUID8 } from "node:crypto";
@@ -36340,7 +36372,7 @@ async function envMain(argv) {
   const args = parseArgs(argv.slice(1), { allowFlags: ["postgrest"] });
   unknownOptions(args, ["config", "postgrest"]);
   const configPath = requireAbsolute(args.values.get("config"), "config");
-  const config3 = await loadP4RunConfig(configPath);
+  const config3 = await loadCollectorRunConfig(configPath);
   const adapter = adapterFor(config3);
   const container = config3.target.containerName;
   if (!container)
@@ -36405,7 +36437,7 @@ async function envMain(argv) {
     );
     if (applied === 0) {
       for (const file2 of migrations)
-        sql(await readFile5(resolve3(root, "supabase/migrations", file2), "utf8"));
+        sql(await readFile3(resolve3(root, "supabase/migrations", file2), "utf8"));
     }
     sql(`DO $$ BEGIN
       IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='wo_p4_maint') THEN CREATE ROLE wo_p4_maint LOGIN; END IF;
@@ -36420,7 +36452,7 @@ async function envMain(argv) {
     GRANT wo_p4_reader TO wo_authenticator;
     ALTER ROLE ${config3.source.principal} SET statement_timeout='60s';
     ALTER ROLE ${config3.source.principal} SET lock_timeout='5s';`);
-    const policy = JSON.parse(await readFile5(config3.policyFile, "utf8"));
+    const policy = JSON.parse(readPolicyText(config3.policyFile));
     policy.sources = [adapter.sourcePolicy(config3.source.principal)];
     const snapshot = await snapshotPolicy(policy);
     const currentRevision = sql("SELECT wo_v2.policy_revision();", "wo_p4_maint");
@@ -36604,6 +36636,7 @@ async function envMain(argv) {
 var root, label;
 var init_env = __esm({
   "scripts/collector-kernel/env.ts"() {
+    init_project_policy();
     init_public4();
     init_public();
     init_common();
@@ -36660,7 +36693,7 @@ function help() {
     "               \u5176\u4ED6\u9002\u914D\u5668\u4EC5\u4E3A\u540C\u4E00\u6CE8\u518C\u8868\u5185\u6838\u7684\u7EC4\u6210\u90E8\u5206\uFF0C\u4E0D\u5F71\u54CD\u672C\u5305\u72EC\u7ACB\u8FD0\u884C\uFF09\u3002",
     "\u914D\u7F6E\uFF1Awealth-observer-p4-run/v1\uFF08psql \u5BB9\u5668/\u539F\u751F\u4E3B\u673A \u6216 https\uFF1Bshares\u2264500\uFF1B\u65E0\u51ED\u636E\uFF09\u3002",
     "\u79D8\u5BC6\uFF1A\u672C\u5305\u4E0D\u542B\u4EFB\u4F55\u51ED\u636E\uFF1BHTTPS \u4EE4\u724C\u7ECF env-runtime.json \u6216",
-    "      P4_HTTPS_BEARER \u73AF\u5883\u53D8\u91CF\u7531\u8FD0\u884C\u73AF\u5883\u63D0\u4F9B\uFF0C\u7EDD\u4E0D\u8FDB\u5165\u5305\u6587\u4EF6\u6216\u547D\u4EE4\u884C\u53C2\u6570\u3002"
+    "      COLLECTOR_HTTPS_BEARER \u73AF\u5883\u53D8\u91CF\u7531\u8FD0\u884C\u73AF\u5883\u63D0\u4F9B\uFF0C\u7EDD\u4E0D\u8FDB\u5165\u5305\u6587\u4EF6\u6216\u547D\u4EE4\u884C\u53C2\u6570\u3002"
   ].join("\n");
 }
 async function main(argv) {
