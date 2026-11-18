@@ -1,8 +1,8 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "20261118T120000Z-rel30",
- "generatedAt": "2026-11-18T04:00:02.160Z",
- "implementationCommit": "91f163622a498c753817f08a47552a7a61fbce38",
+ "runId": "20261118T121500Z-rel31",
+ "generatedAt": "2026-11-18T04:38:50.708Z",
+ "implementationCommit": "73e8d2ff72083775939924a1edd4d206ee4f79e8",
  "buildCommand": "node --import tsx scripts/collector-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map；门禁通过后同步直写执行仓库 wor/dist）",
  "collectorId": "psbc-web-v1",
  "sourceId": "psbc",
@@ -55,8 +55,8 @@
   },
   {
    "path": "orchestrator.mjs",
-   "bytes": 1483339,
-   "sha256": "67338cc4b325164436cd1eafa1cfd791f725ea8c4496ae8f3ccc99b9310dd1a6"
+   "bytes": 1483318,
+   "sha256": "b9834d3e846eef0c5b2c1ad8de331d81bad20072be00bc182ffec1fcc5657435"
   }
  ]
 }

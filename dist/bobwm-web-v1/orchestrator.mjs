@@ -33349,7 +33349,7 @@ async function evaluateMain(argv) {
   const resolveShareId = async function resolveShareId2(share) {
     if (!runtime) return null;
     if (config3.target.type === "https") {
-      const context = await httpsRpcJson(config3, runtime, "wo_p3_import_context_v1", {
+      const context = await httpsRpcJson(config3, runtime, "wo_import_context_v1", {
         protocolVersion: "wo-ingest-v2",
         sourceId: config3.source.sourceId,
         shareCodes: [share]
@@ -34402,7 +34402,7 @@ async function collectMainWithPorts(argv, ports) {
   const readEligibility = async function readEligibility2(plan) {
     if (!plan.shareId) return "catalog_not_synced";
     if (config3.target.type === "https") {
-      const context = await targetRpc("wo_p3_import_context_v1", {
+      const context = await targetRpc("wo_import_context_v1", {
         protocolVersion: "wo-ingest-v2",
         sourceId: config3.source.sourceId,
         shareCodes: [plan.share]
@@ -34646,7 +34646,7 @@ async function collectMainWithPorts(argv, ports) {
       plan.shareId = shareId;
       let reasonCount;
       if (config3.target.type === "https") {
-        const context = await targetRpc("wo_p3_import_context_v1", {
+        const context = await targetRpc("wo_import_context_v1", {
           protocolVersion: "wo-ingest-v2",
           sourceId: config3.source.sourceId,
           shareCodes: [share]
@@ -35496,7 +35496,7 @@ async function repairMain(argv) {
   const sql = config3.target.type === "psql" ? sqlRunner(config3, runtime) : null;
   const resolveShareId = async function resolveShareId2() {
     if (config3.target.type === "https") {
-      const context = await httpsRpcJson(config3, runtime, "wo_p3_import_context_v1", {
+      const context = await httpsRpcJson(config3, runtime, "wo_import_context_v1", {
         protocolVersion: "wo-ingest-v2",
         sourceId: config3.source.sourceId,
         shareCodes: [share]
@@ -35511,7 +35511,7 @@ async function repairMain(argv) {
   const shareId = await resolveShareId();
   if (!shareId) throw new Error(`\u76EE\u5F55\u4E2D\u627E\u4E0D\u5230 ${share}\uFF08\u5148 catalog apply\uFF1Brepair \u4E0D\u80FD\u521B\u5EFA\u8EAB\u4EFD\uFF09`);
   const reasonCount = sql ? Number(sql(`SELECT count(*) FROM wo_v2.inclusion_reasons WHERE share_id='${shareId}';`)) : Number(
-    (await httpsRpcJson(config3, runtime, "wo_p3_import_context_v1", {
+    (await httpsRpcJson(config3, runtime, "wo_import_context_v1", {
       protocolVersion: "wo-ingest-v2",
       sourceId: config3.source.sourceId,
       shareCodes: [share]
@@ -35862,7 +35862,7 @@ async function importLocalMain(argv) {
     const result = /* @__PURE__ */ new Map();
     if (!httpsReads) return result;
     for (let index = 0; index < remaining.length; index += 20) {
-      const batch = await httpsRpcJson(config3, runtime, "wo_p3_import_context_v1", {
+      const batch = await httpsRpcJson(config3, runtime, "wo_import_context_v1", {
         protocolVersion: "wo-ingest-v2",
         sourceId: config3.source.sourceId,
         shareCodes: remaining.slice(index, index + 20)
@@ -36015,7 +36015,7 @@ async function importLocalMain(argv) {
     },
     { add: 0, same: 0, conflict: 0, rejected: 0, expired: 0, missing_proof: 0 }
   );
-  const currentRevision = httpsReads ? (await httpsRpcJson(config3, runtime, "wo_p3_import_context_v1", {
+  const currentRevision = httpsReads ? (await httpsRpcJson(config3, runtime, "wo_import_context_v1", {
     protocolVersion: "wo-ingest-v2",
     sourceId: config3.source.sourceId,
     shareCodes: config3.shares.slice(0, 20)
