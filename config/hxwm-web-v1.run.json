@@ -19,7 +19,7 @@
     "hosts": [
       "www.hxwm.com.cn"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1000,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,
