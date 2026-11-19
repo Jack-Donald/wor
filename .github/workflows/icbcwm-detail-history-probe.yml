@@ -1,0 +1,57 @@
+name: icbcwm detail history probe
+on:
+  push:
+    branches: [codex/icbcwm-detail-history-probe]
+permissions:
+  contents: read
+concurrency:
+  group: icbcwm-detail-history-probe
+  cancel-in-progress: false
+jobs:
+  local-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Probe official ICBC endpoints
+        shell: bash
+        run: |
+          # 仅读官方站点并保存 runner 临时页包。只在日志展示采集摘要和请求状态。
+          root="$RUNNER_TEMP/icbcwm-probe"
+          mkdir -p "$root"
+          RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)-icbcwor" ROOT_DIR="$root" node --input-type=module <<'JS'
+          import { writeFileSync } from 'node:fs'
+          const root = process.env.ROOT_DIR
+          writeFileSync(root + '/run.json', JSON.stringify({
+            schemaVersion: 'wealth-observer-collector-run/v1',
+            runId: process.env.RUN_ID,
+            collectorId: 'icbcwm-web-v1',
+            target: { type: 'psql', containerName: null, host: '127.0.0.1', port: null, database: 'postgres' },
+            source: { sourceId: 'icbcwm', principal: 'collector_icbcwm_web_v1' },
+            shares: ['20GS2901', '25G2955J', '20G2901B'],
+            network: { hosts: ['wm.icbc.com.cn'], maxRequestsTotal: 8, minIntervalMs: 1800, timeoutMs: 20000,
+              responseCapBytes: 2097152, mainRoundImmediateRetries: 0, finalRoundMax: 0,
+              politenessMinMs: 1800, politenessMaxMs: 3200 },
+            cache: { root: root + '/cache', maxBytes: 16777216 }, evidenceRoot: root + '/evidence',
+            policyFile: root + '/unused-policy',
+          }))
+          JS
+          status=0
+          node probe/icbcwm-web-v1/orchestrator.mjs collect --config "$root/run.json" --mode daily --local-only > "$root/result.json" || status=$?
+          PROBE_ROOT="$root" node --input-type=module <<'JS'
+          import { readFileSync, existsSync } from 'node:fs'
+          const root = process.env.PROBE_ROOT
+          const result = JSON.parse(readFileSync(root + '/result.json', 'utf8'))
+          const ledger = root + '/evidence/requests.jsonl'
+          const requests = existsSync(ledger) ? readFileSync(ledger,'utf8').trim().split('\n').filter(Boolean).map((line) => {
+            const { endpoint, purpose, status, error, bytes } = JSON.parse(line)
+            return { endpoint, purpose, status, error, bytes }
+          }) : []
+          console.log(JSON.stringify({ status: result.status, summary: result.summary, failures: result.details?.failedFetches,
+            historyPages: result.details?.pages?.filter((p) => p.rows).map(({ share, rows, range }) => ({ share, rows, range })),
+            requests }, null, 2))
+          JS
+          exit "$status"
