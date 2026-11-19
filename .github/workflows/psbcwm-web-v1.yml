@@ -8,8 +8,7 @@
 # 独立调度：本文件只调度 psbcwm 一个来源；没有总任务/矩阵调所有源。
 # 手动 dispatch：默认 --local-only（保存本地包，不写目标）；写入置 write=true
 # （write=true 时 CLI 按目标类型自行要求凭据，dispatch 语义与 B02 整改前不变）。
-# 定时任务：本模板未配置 schedule 触发（该源无 collect 能力，定时窗口由执行仓库维护者凭
-# 站点证据核定后另行启用）；run 块 schedule 分支为模板共享形态，触发缺失时不执行。
+# 定时任务每日北京时间 22:57，来源策略与其他工作流分开维护。
 # 公开 runner 只输出 CLI 安全摘要；不配置 upload-artifact（真实本地包不上传）。
 name: collector-psbcwm
 
@@ -28,7 +27,9 @@ on:
         description: '写入目标（false=--local-only 仅保存本地包；true 需 Secrets 已配置）'
         type: boolean
         default: false
-  # 无 schedule：该源在线能力受限（collect 不可用或待核实），定时窗口由执行仓库维护者凭证据启用。
+  schedule:
+    # 接在徽银理财之后，错峰五分钟。
+    - cron: '57 14 * * *'
 permissions:
   # 最小权限：只读仓库内容；无 pull-requests/packages/id-token 等额外授权。
   contents: read
