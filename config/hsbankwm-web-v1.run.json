@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "wealth-observer-p4-run/v1",
+  "runId": "20261119T025700Z-hsbankwm",
+  "collectorId": "hsbankwm-web-v1",
+  "target": {
+    "type": "https",
+    "containerName": null,
+    "endpoint": "https://knwcpkuowdqnigxtnfjv.supabase.co/rest/v1/rpc",
+    "database": "postgres"
+  },
+  "source": {
+    "sourceId": "hsbankwm",
+    "principal": "collector_hsbankwm"
+  },
+  "shares": [
+    "PN19000100_E"
+  ],
+  "network": {
+    "hosts": [
+      "hsbankwm.com",
+      "www.hsbankwm.com"
+    ],
+    "maxRequestsTotal": 200,
+    "minIntervalMs": 1800,
+    "timeoutMs": 30000,
+    "responseCapBytes": 2097152,
+    "mainRoundImmediateRetries": 0,
+    "finalRoundMax": 1,
+    "politenessMinMs": 1800,
+    "politenessMaxMs": 3200,
+    "siteRequiredIntervalMs": null
+  },
+  "cache": {
+    "root": "/home/runner/work/wor/wor/.state/cache/hsbankwm-web-v1",
+    "maxBytes": 1073741824
+  },
+  "evidenceRoot": "/home/runner/work/wor/wor/.state/evidence/hsbankwm-web-v1",
+  "policyFile": "/home/runner/work/wor/wor/config/hsbankwm.policy.json"
+}
