@@ -1,0 +1,93 @@
+{
+  "protocolVersion": "wo-ingest-v2",
+  "algorithmVersion": "wo-return-v1",
+  "hot": {
+    "months": 3,
+    "threshold": "3",
+    "freshDays": 15,
+    "newShares": true
+  },
+  "catalog": {
+    "currency": "CNY",
+    "isPublic": true,
+    "maxRestrictionDays": 31,
+    "includeCash": true
+  },
+  "history": {
+    "backfillMonths": 24,
+    "retentionMonths": 24
+  },
+  "budgets": {
+    "rows": 200,
+    "bytes": 262144,
+    "softMs": 90000,
+    "hardMs": 100000
+  },
+  "page": {
+    "defaultSize": 50,
+    "allowedSizes": [
+      20,
+      50,
+      100
+    ]
+  },
+  "sources": [
+    {
+      "id": "psbcwm",
+      "name": "中邮理财",
+      "kind": "manager",
+      "priority": 1,
+      "principals": [
+        "collector_psbcwm"
+      ],
+      "calendar": {
+        "kind": "weekdays",
+        "closedDates": [
+          "2025-01-01",
+          "2025-01-28",
+          "2025-01-29",
+          "2025-01-30",
+          "2025-01-31",
+          "2025-02-03",
+          "2025-02-04",
+          "2025-04-04",
+          "2025-05-01",
+          "2025-05-02",
+          "2025-05-05",
+          "2025-06-02",
+          "2025-10-01",
+          "2025-10-02",
+          "2025-10-03",
+          "2025-10-06",
+          "2025-10-07",
+          "2025-10-08",
+          "2026-01-01",
+          "2026-01-02",
+          "2026-02-16",
+          "2026-02-17",
+          "2026-02-18",
+          "2026-02-19",
+          "2026-02-20",
+          "2026-02-23",
+          "2026-04-06",
+          "2026-05-01",
+          "2026-05-04",
+          "2026-05-05",
+          "2026-06-19",
+          "2026-09-25",
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07"
+        ],
+        "extraDates": [],
+        "lagDays": 1,
+        "cutoffTime": "02:30"
+      },
+      "incomeDenomination": "unknown",
+      "stableUnitPrice": null
+    }
+  ]
+}
