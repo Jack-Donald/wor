@@ -31,7 +31,7 @@ jobs:
             collectorId: 'icbcwm-web-v1',
             target: { type: 'psql', containerName: null, host: '127.0.0.1', port: null, database: 'postgres' },
             source: { sourceId: 'icbcwm', principal: 'collector_icbcwm_web_v1' },
-            shares: ['20GS2901'],
+            shares: ['20GS2901', '25G2955J', '20G2901B'],
             network: { hosts: ['wm.icbc.com.cn'], maxRequestsTotal: 8, minIntervalMs: 1800, timeoutMs: 20000,
               responseCapBytes: 2097152, mainRoundImmediateRetries: 0, finalRoundMax: 0,
               politenessMinMs: 1800, politenessMaxMs: 3200 },
@@ -64,7 +64,7 @@ jobs:
             return { endpoint, purpose, status, error, bytes }
           }) : []
           console.log(JSON.stringify({ status: result.status, summary: result.summary, failures: result.details?.failedFetches,
-            historyPages: result.details?.pages?.filter((p) => p.rows).map(({ share, rows, range }) => ({ share, rows, range })),
+            historyPages: result.details?.pages?.filter((p) => p.rows).map(({ shareCode, rows, range }) => ({ share: shareCode, rows, range })),
             requests }, null, 2))
           JS
           exit "$status"
