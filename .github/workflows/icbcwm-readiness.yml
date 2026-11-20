@@ -1,0 +1,62 @@
+name: icbcwm production readiness
+on:
+  push:
+    branches: [codex/icbcwm-rollout-20261120]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: 只读发现生产目标
+        env:
+          RPC_BEARER: ${{ secrets.COLLECTOR_HTTPS_BEARER }}
+          RPC_API_KEY: ${{ secrets.COLLECTOR_HTTPS_API_KEY }}
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync, writeFileSync} from 'node:fs'
+          const c=JSON.parse(readFileSync('config/icbcwm-web-v1.run.json','utf8'))
+          const { RPC_BEARER, RPC_API_KEY, RUNNER_TEMP }=process.env
+          if (!RPC_BEARER || !RPC_API_KEY) throw new Error('missing production RPC credentials')
+          const url=c.target.endpoint.replace(/\/$/,'')+'/wo_list_collection_targets_v1'
+          const all=new Set()
+          let afterShareId=null
+          do {
+            const r=await fetch(url,{method:'POST',headers:{Authorization:'Bearer '+RPC_BEARER,apikey:RPC_API_KEY,'Content-Profile':'wo_rpc','Content-Type':'application/json'},body:JSON.stringify({payload:{protocolVersion:'wo-ingest-v2',sourceId:'icbcwm',afterShareId,limit:500}}),signal:AbortSignal.timeout(30000)})
+            if(!r.ok) throw new Error('read-only target RPC status '+r.status)
+            const j=await r.json()
+            if(j.sourceId!=='icbcwm'||!Array.isArray(j.shares)||j.nextCursor===afterShareId&&afterShareId!==null) throw new Error('invalid target page')
+            for(const row of j.shares){if(all.has(row.shareCode))throw new Error('duplicate target');all.add(row.shareCode)}
+            afterShareId=j.nextCursor
+          }while(afterShareId!==null)
+          if(all.size<12)throw new Error('fewer than 12 production targets')
+          const codes=[...all]
+          c.shares=Array.from({length:12},(_,i)=>codes[Math.floor(i*codes.length/12)])
+          c.network.maxRequestsTotal=30
+          c.cache.root=RUNNER_TEMP+'/icbc-cache'
+          c.evidenceRoot=RUNNER_TEMP+'/icbc-evidence'
+          writeFileSync(RUNNER_TEMP+'/icbc-run.json',JSON.stringify(c))
+          console.log(JSON.stringify({targets:all.size,sample:c.shares.length,fullRequestFloor:all.size*2}))
+          JS
+      - name: 采集公开样本并汇总
+        run: |
+          start="$(date +%s)"
+          status=0
+          node dist/icbcwm-web-v1/orchestrator.mjs collect --config "$RUNNER_TEMP/icbc-run.json" --mode daily --local-only > "$RUNNER_TEMP/icbc-result.json" || status=$?
+          ELAPSED="$(( $(date +%s)-start ))" node --input-type=module <<'JS'
+          import {readFileSync} from 'node:fs'
+          const t=process.env.RUNNER_TEMP
+          const r=JSON.parse(readFileSync(t+'/icbc-result.json','utf8'))
+          const requests=readFileSync(t+'/icbc-evidence/requests.jsonl','utf8').trim().split('\n').map(JSON.parse)
+          const p=r.details.pages.filter(x=>x.rows)
+          console.log(JSON.stringify({status:r.status,elapsedSeconds:Number(process.env.ELAPSED),requests:requests.length,http200:requests.filter(x=>x.status===200).length,historyPages:p.length,rows:p.reduce((n,x)=>n+x.rows,0),failed:r.details.failedFetches,unfinished:r.details.unfinishedUnits.length}))
+          if(p.length!==12||requests.length!==24||requests.some(x=>x.status!==200)) process.exitCode=2
+          JS
+          exit "$status"
