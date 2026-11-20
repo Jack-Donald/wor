@@ -1,9 +1,9 @@
 {
  "schemaVersion": "wealth-observer-p4-release/v1",
- "runId": "20261118T121500Z-rel31",
- "generatedAt": "2026-11-18T04:38:44.909Z",
- "implementationCommit": "73e8d2ff72083775939924a1edd4d206ee4f79e8",
- "buildCommand": "node --import tsx scripts/collector-release/package.ts --run-id <ID>（rebuild 目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map；门禁通过后同步直写执行仓库 wor/dist）",
+ "runId": "20261120T015432Z-icbcrel",
+ "generatedAt": "2026-11-20T01:54:38.259Z",
+ "implementationCommit": "777776c582f640293b1bf29a5d43c5e1973649f6",
+ "buildCommand": "node --import tsx scripts/collector-release/package.ts --run-id <ID>（项目根目录；esbuild bundle，esm/node22，write:false 父进程写文件，无 source map；门禁通过后同步直写执行仓库 wor/dist）",
  "collectorId": "icbcwm-web-v1",
  "sourceId": "icbcwm",
  "parserVersion": "icbcwm-web/v1",
@@ -50,13 +50,13 @@
   },
   {
    "path": "licenses/THIRD-PARTY.md",
-   "bytes": 341,
-   "sha256": "b053b75f9bfc7faa38ee6d89e913f84408924e4a4d509ffe56f2220458a495de"
+   "bytes": 1461,
+   "sha256": "12ca33a8bed00c342e0a66c352b479ae5f5192c840103e1be3d36c39ea3d78e3"
   },
   {
    "path": "orchestrator.mjs",
-   "bytes": 1483318,
-   "sha256": "b9834d3e846eef0c5b2c1ad8de331d81bad20072be00bc182ffec1fcc5657435"
+   "bytes": 2465804,
+   "sha256": "1f41af607aa1701418db2e3803bfc98fb66ae61e7a0f6ad26058f6097c75c524"
   }
  ]
 }

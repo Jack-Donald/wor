@@ -19,7 +19,7 @@
     "hosts": [
       "wm.icbc.com.cn"
     ],
-    "maxRequestsTotal": 100,
+    "maxRequestsTotal": 1950,
     "minIntervalMs": 1800,
     "timeoutMs": 30000,
     "responseCapBytes": 2097152,
